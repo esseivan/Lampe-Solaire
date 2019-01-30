@@ -1,0 +1,24 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# LED-RESCUE-LampeSolaire
+#
+DEF LED-RESCUE-LampeSolaire P 0 1 N N 1 F N
+F0 "P" -40 230 60 H V C CNN
+F1 "LED-RESCUE-LampeSolaire" -50 150 60 H V C CNN
+F2 "" 0 0 60 H V C CNN
+F3 "" 0 0 60 H V C CNN
+DRAW
+P 2 0 0 0 -50 0 50 0 N
+P 2 0 0 0 -20 -90 40 -150 N
+P 2 0 0 0 10 -60 70 -120 N
+P 2 0 0 0 50 50 50 -50 N
+P 3 0 0 0 40 -130 40 -150 20 -150 N
+P 3 0 0 0 70 -100 70 -120 50 -120 N
+P 4 0 0 0 -50 50 -50 -50 50 0 -50 50 N
+X Cathode 1 100 0 100 L 50 50 1 1 P
+X Anode 2 -100 0 100 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+#End Library

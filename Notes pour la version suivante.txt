@@ -1,0 +1,10 @@
+Remplacer le fusible 5x20 par un fusible miniature smd/tht
+Corriger le problème de décharge de la batterie si la lampe est allumée :
+	La lampe est allumée
+	La batterie passe en dessous de 3.08V
+	Le superviseur va mettre sa sortie à l'état Bas
+	Le LDO va s'éteindre, ainsi le microcontrôleur va s'éteindre
+	La lampe reste allumée et décharge la batterie
+	La télécommande n'a plus d'effet comme le microcontrôleur est désactivé, de même pour le timeout de la lampe
+	Correction : Utiliser un MOSFET pour couper le courant dans la ligne
+Mettre les composants sur les 2 faces

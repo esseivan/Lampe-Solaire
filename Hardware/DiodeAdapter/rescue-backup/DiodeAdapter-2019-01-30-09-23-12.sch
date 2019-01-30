@@ -1,0 +1,249 @@
+EESchema Schematic File Version 2
+LIBS:MyLib
+LIBS:ShockAccel
+LIBS:EMF-Symbols
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:DiodeAdapter-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Led adapter"
+Date "2018-08-19"
+Rev "1"
+Comp "EsseivaN"
+Comment1 "Esseiva Nicolas"
+Comment2 "Adapteur pour connecter différent boitier de led"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CONN_01X02 X1
+U 1 1 5B792D6D
+P 4900 4400
+F 0 "X1" H 4900 4600 50  0000 C CNN
+F 1 "CONN_01X02" H 4900 4200 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Straight_1x02_Pitch2.54mm" H 4900 4350 50  0001 C CNN
+F 3 "" H 4900 4350 50  0000 C CNN
+	1    4900 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_01X02 X2
+U 1 1 5B792E23
+P 6500 4400
+F 0 "X2" H 6500 4600 50  0000 C CNN
+F 1 "CONN_01X02" H 6500 4200 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Straight_1x02_Pitch2.54mm" H 6500 4350 50  0001 C CNN
+F 3 "" H 6500 4350 50  0000 C CNN
+	1    6500 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_01X02 X3
+U 1 1 5B792F23
+P 4700 5100
+F 0 "X3" H 4700 5300 50  0000 C CNN
+F 1 "CONN_01X02" H 4700 4900 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Straight_1x02_Pitch2.54mm" H 4700 5050 50  0001 C CNN
+F 3 "" H 4700 5050 50  0000 C CNN
+	1    4700 5100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L LED P1
+U 1 1 5B792FA8
+P 5400 5100
+F 0 "P1" V 5350 5300 60  0000 C CNN
+F 1 "LED" V 5450 5300 60  0000 C CNN
+F 2 "MyLib:LED_LH351D" H 5400 5100 60  0001 C CNN
+F 3 "" H 5400 5100 60  0000 C CNN
+	1    5400 5100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4900 5000 6000 5000
+Wire Wire Line
+	5400 5200 6800 5200
+$Comp
+L CONN_01X02 X4
+U 1 1 5B793359
+P 7000 5100
+F 0 "X4" H 7000 5300 50  0000 C CNN
+F 1 "CONN_01X02" H 7000 4900 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Straight_1x02_Pitch2.54mm" H 7000 5050 50  0001 C CNN
+F 3 "" H 7000 5050 50  0000 C CNN
+	1    7000 5100
+	1    0    0    -1  
+$EndComp
+Connection ~ 5400 5000
+$Comp
+L CONN_01X02 X5
+U 1 1 5B79350C
+P 4700 5800
+F 0 "X5" H 4700 6000 50  0000 C CNN
+F 1 "CONN_01X02" H 4700 5600 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Straight_1x02_Pitch2.54mm" H 4700 5750 50  0001 C CNN
+F 3 "" H 4700 5750 50  0000 C CNN
+	1    4700 5800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L LED P3
+U 1 1 5B793512
+P 5400 5800
+F 0 "P3" V 5350 6000 60  0000 C CNN
+F 1 "LED" V 5450 6000 60  0000 C CNN
+F 2 "MyLib:LED_LH351D" H 5400 5800 60  0001 C CNN
+F 3 "" H 5400 5800 60  0000 C CNN
+	1    5400 5800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4900 5700 6000 5700
+Wire Wire Line
+	5400 5900 6800 5900
+$Comp
+L CONN_01X02 X6
+U 1 1 5B79351C
+P 7000 5800
+F 0 "X6" H 7000 6000 50  0000 C CNN
+F 1 "CONN_01X02" H 7000 5600 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Straight_1x02_Pitch2.54mm" H 7000 5750 50  0001 C CNN
+F 3 "" H 7000 5750 50  0000 C CNN
+	1    7000 5800
+	1    0    0    -1  
+$EndComp
+Connection ~ 5400 5700
+$Comp
+L LED P2
+U 1 1 5B793799
+P 6000 5100
+F 0 "P2" V 5950 5300 60  0000 C CNN
+F 1 "LED" V 6050 5300 60  0000 C CNN
+F 2 "MyLib:LED_LITTLE_STAR" H 6000 5100 60  0001 C CNN
+F 3 "" H 6000 5100 60  0000 C CNN
+	1    6000 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L LED P4
+U 1 1 5B7938AC
+P 6000 5800
+F 0 "P4" V 5950 6000 60  0000 C CNN
+F 1 "LED" V 6050 6000 60  0000 C CNN
+F 2 "MyLib:LED_XQ_D" H 6000 5800 60  0001 C CNN
+F 3 "" H 6000 5800 60  0000 C CNN
+	1    6000 5800
+	0    1    1    0   
+$EndComp
+Connection ~ 6000 5200
+Connection ~ 6000 5900
+Text Label 6600 5200 2    60   ~ 0
+GND_1
+Text Label 6600 5900 2    60   ~ 0
+GND_2
+Text Label 6100 4500 0    60   ~ 0
+GND
+Text Label 5100 5000 0    60   ~ 0
+V+_1
+Text Label 5100 5700 0    60   ~ 0
+V+_2
+Text Label 5300 4500 2    60   ~ 0
+V+
+$Comp
+L CONN_01X02 X01
+U 1 1 5B79454B
+P 4900 3800
+F 0 "X01" H 4900 4000 50  0000 C CNN
+F 1 "CONN_01X02" H 4900 3600 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Angled_1x02_Pitch2.54mm" H 4900 3750 50  0001 C CNN
+F 3 "" H 4900 3750 50  0000 C CNN
+	1    4900 3800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L CONN_01X02 X02
+U 1 1 5B794582
+P 6500 3800
+F 0 "X02" H 6500 4000 50  0000 C CNN
+F 1 "CONN_01X02" H 6500 3600 50  0000 C CNN
+F 2 "MyLib:Pin_Header_Angled_1x02_Pitch2.54mm" H 6500 3750 50  0001 C CNN
+F 3 "" H 6500 3750 50  0000 C CNN
+	1    6500 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 4500 6300 4500
+Wire Wire Line
+	6000 3700 6000 4500
+Wire Wire Line
+	6000 3700 6300 3700
+Wire Wire Line
+	6300 3900 6000 3900
+Connection ~ 6000 3900
+Wire Wire Line
+	6300 4300 6000 4300
+Connection ~ 6000 4300
+Wire Wire Line
+	5100 3700 5400 3700
+Wire Wire Line
+	5400 3700 5400 4500
+Wire Wire Line
+	5400 4500 5100 4500
+Wire Wire Line
+	5100 4300 5400 4300
+Connection ~ 5400 4300
+Wire Wire Line
+	5100 3900 5400 3900
+Connection ~ 5400 3900
+Wire Wire Line
+	6800 5000 6700 5000
+Wire Wire Line
+	6700 5000 6700 5200
+Connection ~ 6700 5200
+Wire Wire Line
+	4900 5200 5000 5200
+Wire Wire Line
+	5000 5200 5000 5000
+Connection ~ 5000 5000
+Wire Wire Line
+	6800 5700 6700 5700
+Wire Wire Line
+	6700 5700 6700 5900
+Connection ~ 6700 5900
+Wire Wire Line
+	4900 5900 5000 5900
+Wire Wire Line
+	5000 5900 5000 5700
+Connection ~ 5000 5700
+$EndSCHEMATC
