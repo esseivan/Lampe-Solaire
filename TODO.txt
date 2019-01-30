@@ -4,12 +4,4 @@ B : ?
 C : ?
 D : Reboot
 
-Ajout buzzer
-Ajout water sensor
-Ajout led info
-Préparation 2e montage
-Test perméabilité avec colle chaude et araldite
-Modifier le schéma et le PCB selon les changements faits
-OK		Déplacer le fusible pour être directement après la batterie
-Mettre le connecteur ICSP en vertical pour un accès quand monté dans boitier
 Ajout d'une extinction automatique
