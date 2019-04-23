@@ -1,6 +1,7 @@
 
 # Created by https://www.gitignore.io/api/kicad,mplabx,visualstudio
 # Edit at https://www.gitignore.io/?templates=kicad,mplabx,visualstudio
+# KiCad, MPLabX, VisualStudio
 
 ### KiCad ###
 # For PCBs designed using KiCad: http://www.kicad-pcb.org/
