@@ -20,7 +20,7 @@ U 1 1 5B656AEF
 P 1300 1700
 F 0 "SC1" H 1408 1753 50  0000 L CNN
 F 1 "Solar_Cells" H 1400 1700 50  0001 L CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" V 1300 1760 50  0001 C CNN
+F 2 "0EsseivaN_Lib:CH_2P" V 1300 1760 50  0001 C CNN
 F 3 "" V 1300 1760 50  0000 C CNN
 F 4 "5V" H 1408 1654 60  0000 L CNN "Voltage"
 	1    1300 1700
@@ -151,7 +151,7 @@ U 1 1 5B65E26E
 P 800 2900
 F 0 "X2" H 717 3415 50  0000 C CNN
 F 1 "ICSP" H 717 3324 50  0000 C CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Angled_1x06_Pitch2.54mm_reverse_invis" H 800 2900 50  0001 C CNN
+F 2 "0EsseivaN_Lib:Pin_Header_Angled_1x06_Pitch2.54mm" H 800 2900 50  0001 C CNN
 F 3 "" H 800 2900 50  0000 C CNN
 	1    800  2900
 	-1   0    0    -1  
@@ -222,50 +222,6 @@ F 3 "" H 1700 5750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 0EsseivaN_Lib:TestPoint_8 TP2
-U 1 1 5B6752F6
-P 1100 5950
-F 0 "TP2" H 1153 5950 30  0000 L CNN
-F 1 "TestPoint_8" H 1100 6150 60  0001 C CNN
-F 2 "0EsseivaN_Lib:Measurement_Point_Round-TH_Small" H 1100 5950 60  0001 C CNN
-F 3 "" H 1100 5950 60  0001 C CNN
-	1    1100 5950
-	1    0    0    -1  
-$EndComp
-$Comp
-L 0EsseivaN_Lib:TestPoint_8 TP1
-U 1 1 5B6756D0
-P 800 5950
-F 0 "TP1" H 853 5950 30  0000 L CNN
-F 1 "TestPoint_8" H 800 6150 60  0001 C CNN
-F 2 "0EsseivaN_Lib:Measurement_Point_Round-TH_Small" H 800 5950 60  0001 C CNN
-F 3 "" H 800 5950 60  0001 C CNN
-	1    800  5950
-	1    0    0    -1  
-$EndComp
-$Comp
-L 0EsseivaN_Lib:TestPoint_8 TP3
-U 1 1 5B67578D
-P 1400 5950
-F 0 "TP3" H 1453 5950 30  0000 L CNN
-F 1 "TestPoint_8" H 1400 6150 60  0001 C CNN
-F 2 "0EsseivaN_Lib:Measurement_Point_Round-TH_Small" H 1400 5950 60  0001 C CNN
-F 3 "" H 1400 5950 60  0001 C CNN
-	1    1400 5950
-	1    0    0    -1  
-$EndComp
-$Comp
-L 0EsseivaN_Lib:TestPoint_8 TP4
-U 1 1 5B67584D
-P 1700 5950
-F 0 "TP4" H 1753 5950 30  0000 L CNN
-F 1 "TestPoint_8" H 1700 6150 60  0001 C CNN
-F 2 "0EsseivaN_Lib:Measurement_Point_Round-TH_Small" H 1700 5950 60  0001 C CNN
-F 3 "" H 1700 5950 60  0001 C CNN
-	1    1700 5950
-	1    0    0    -1  
-$EndComp
-$Comp
 L 0EsseivaN_Lib:3V3 #PWR04
 U 1 1 5B675C91
 P 800 5750
@@ -304,7 +260,7 @@ U 1 1 5B69855B
 P 9600 6200
 F 0 "P2" V 9547 6022 60  0000 R CNN
 F 1 "3V5" V 9653 6022 60  0000 R CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 9600 6200 60  0001 C CNN
+F 2 "0EsseivaN_Lib:CH_2P" H 9600 6200 60  0001 C CNN
 F 3 "" H 9600 6200 60  0000 C CNN
 	1    9600 6200
 	0    1    1    0   
@@ -315,7 +271,7 @@ U 1 1 5B69EE95
 P 10000 6200
 F 0 "P3" V 9947 6278 60  0000 L CNN
 F 1 "3V5" V 10053 6278 60  0000 L CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 10000 6200 60  0001 C CNN
+F 2 "0EsseivaN_Lib:CH_2P" H 10000 6200 60  0001 C CNN
 F 3 "" H 10000 6200 60  0000 C CNN
 	1    10000 6200
 	0    1    1    0   
@@ -331,30 +287,6 @@ F 3 "" H 5550 900 50  0000 C CNN
 	1    5550 900 
 	0    1    1    0   
 $EndComp
-$Comp
-L 0EsseivaN_Lib:Trimmer R13
-U 1 1 5B6C7317
-P 9600 5700
-F 0 "R13" H 9753 5746 50  0000 L CNN
-F 1 "10" H 9753 5655 50  0000 L CNN
-F 2 "0EsseivaN_Lib:Potentiometer_Trimmer_Bourns_3006P" V 9530 5700 50  0001 C CNN
-F 3 "" H 9600 5700 50  0000 C CNN
-F 4 "750mW" H 9600 5700 60  0001 C CNN "Max power"
-	1    9600 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L 0EsseivaN_Lib:Trimmer R14
-U 1 1 5B6C7DA1
-P 10000 5700
-F 0 "R14" H 10153 5746 50  0000 L CNN
-F 1 "10" H 10153 5655 50  0000 L CNN
-F 2 "0EsseivaN_Lib:Potentiometer_Trimmer_Bourns_3006P" V 9930 5700 50  0001 C CNN
-F 3 "" H 10000 5700 50  0000 C CNN
-F 4 "750mW" H 10300 5700 60  0001 C CNN "Max power"
-	1    10000 5700
-	1    0    0    -1  
-$EndComp
 Text Notes 10250 5550 0    60   ~ 0
 Max power : 750mW\nDo not set those\ntrimmer above 8 ohm\nSet the current\nto 300mA
 $Comp
@@ -369,23 +301,12 @@ F 3 "" H 1800 1400 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L 0EsseivaN_Lib:VBAT #PWR027
-U 1 1 5B70804D
-P 10500 4650
-F 0 "#PWR027" H 10500 4500 50  0001 C CNN
-F 1 "VBAT" H 10517 4823 50  0000 C CNN
-F 2 "" H 10500 4650 50  0000 C CNN
-F 3 "" H 10500 4650 50  0000 C CNN
-	1    10500 4650
-	1    0    0    -1  
-$EndComp
-$Comp
 L 0EsseivaN_Lib:CONN_01X02 X1
 U 1 1 5B71F5E8
 P 800 1300
 F 0 "X1" H 878 1341 50  0000 L CNN
 F 1 "SOLAR_CELL" H 878 1250 50  0000 L CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 800 1250 50  0001 C CNN
+F 2 "0EsseivaN_Lib:CH_2P" H 800 1250 50  0001 C CNN
 F 3 "" H 800 1250 50  0000 C CNN
 	1    800  1300
 	-1   0    0    -1  
@@ -413,25 +334,14 @@ F 3 "" H 4400 900 50  0000 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L 0EsseivaN_Lib:TEST_2P W1
-U 1 1 5B725FCE
-P 1300 1200
-F 0 "W1" V 1300 1142 50  0000 R CNN
-F 1 "TEST_2P" H 1300 1130 50  0001 C CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 1300 1200 50  0001 C CNN
-F 3 "" H 1300 1200 50  0000 C CNN
-	1    1300 1200
-	0    -1   -1   0   
-$EndComp
-$Comp
 L power:PWR_FLAG #FLG02
 U 1 1 5B74FB2E
-P 1100 6050
-F 0 "#FLG02" H 1100 6145 50  0001 C CNN
-F 1 "PWR_FLAG" H 1100 6230 50  0001 C CNN
-F 2 "" H 1100 6050 50  0000 C CNN
-F 3 "" H 1100 6050 50  0000 C CNN
-	1    1100 6050
+P 1100 5850
+F 0 "#FLG02" H 1100 5945 50  0001 C CNN
+F 1 "PWR_FLAG" H 1100 6030 50  0001 C CNN
+F 2 "" H 1100 5850 50  0000 C CNN
+F 3 "" H 1100 5850 50  0000 C CNN
+	1    1100 5850
 	0    1    1    0   
 $EndComp
 $Comp
@@ -512,17 +422,6 @@ Text Label 7650 5900 2    60   ~ 0
 SET
 Text Label 7650 6000 2    60   ~ 0
 RESET
-$Comp
-L 0EsseivaN_Lib:TRIMMER R2
-U 1 1 5B75A381
-P 4500 1700
-F 0 "R2" V 4447 1768 60  0000 L CNN
-F 1 "100k" V 4553 1768 60  0000 L CNN
-F 2 "0EsseivaN_Lib:T93YB" H 4500 1700 60  0001 C CNN
-F 3 "" H 4500 1700 60  0000 C CNN
-	1    4500 1700
-	0    1    1    0   
-$EndComp
 Text Label 9650 2000 0    60   ~ 0
 GND
 $Comp
@@ -602,14 +501,10 @@ Wire Wire Line
 Wire Wire Line
 	4100 1100 4500 1100
 Wire Wire Line
-	4500 1100 4500 1400
-Wire Wire Line
 	4200 1300 4100 1300
 Wire Wire Line
 	4200 2000 4200 1300
 Connection ~ 2100 900 
-Wire Wire Line
-	1300 900  1300 1000
 Wire Wire Line
 	1100 900  1300 900 
 Wire Wire Line
@@ -639,18 +534,11 @@ Wire Wire Line
 Connection ~ 5700 3000
 Connection ~ 1300 900 
 Wire Wire Line
-	1100 5950 1100 6050
-Wire Wire Line
 	800  5750 800  5850
 Wire Wire Line
 	1400 5750 1400 5850
 Wire Wire Line
 	1700 5750 1700 5850
-Wire Wire Line
-	9600 5900 9600 6000
-Wire Wire Line
-	10000 5900 10000 6000
-Connection ~ 9600 6000
 Wire Wire Line
 	1000 1200 1100 1200
 Wire Wire Line
@@ -662,9 +550,6 @@ Wire Wire Line
 Connection ~ 1300 2000
 Wire Wire Line
 	4100 900  4200 900 
-Wire Wire Line
-	1300 1400 1300 1500
-Connection ~ 1700 5850
 Wire Wire Line
 	8500 3400 8500 3500
 Connection ~ 8500 3500
@@ -728,13 +613,7 @@ Wire Wire Line
 Wire Wire Line
 	9100 5450 9300 5450
 Wire Wire Line
-	4300 1700 4300 1400
-Wire Wire Line
-	4300 1400 4500 1400
-Connection ~ 4500 1400
-Wire Wire Line
 	9600 4900 10000 4900
-Connection ~ 10000 4900
 Wire Wire Line
 	1100 2000 1300 2000
 Wire Wire Line
@@ -786,12 +665,12 @@ $EndComp
 $Comp
 L 0EsseivaN_Lib:GND #PWR05
 U 1 1 5B7B0556
-P 1100 6100
-F 0 "#PWR05" H 1100 5800 50  0001 C CNN
-F 1 "GND" H 1100 5900 50  0001 C CNN
-F 2 "" H 1100 6100 50  0000 C CNN
-F 3 "" H 1100 6100 50  0000 C CNN
-	1    1100 6100
+P 1100 5900
+F 0 "#PWR05" H 1100 5600 50  0001 C CNN
+F 1 "GND" H 1100 5700 50  0001 C CNN
+F 2 "" H 1100 5900 50  0000 C CNN
+F 3 "" H 1100 5900 50  0000 C CNN
+	1    1100 5900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -816,7 +695,6 @@ F 3 "" H 5700 5300 50  0000 C CNN
 	1    5700 5300
 	1    0    0    -1  
 $EndComp
-Connection ~ 1100 6050
 $Comp
 L power:PWR_FLAG #FLG04
 U 1 1 5B7B8074
@@ -839,7 +717,7 @@ U 1 1 5B7E103A
 P 4200 2400
 F 0 "X4" H 4117 2715 50  0000 C CNN
 F 1 "BUZZER" H 4117 2624 50  0000 C CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 4200 2350 50  0001 C CNN
+F 2 "0EsseivaN_Lib:CH_2P" H 4200 2350 50  0001 C CNN
 F 3 "" H 4200 2350 50  0000 C CNN
 	1    4200 2400
 	-1   0    0    -1  
@@ -894,7 +772,6 @@ F 3 "" H 1400 5850 50  0000 C CNN
 	1    1400 5850
 	0    1    1    0   
 $EndComp
-Connection ~ 1400 5850
 $Comp
 L power:PWR_FLAG #FLG01
 U 1 1 5B7A6528
@@ -906,18 +783,6 @@ F 3 "" H 800 5850 50  0000 C CNN
 	1    800  5850
 	0    1    1    0   
 $EndComp
-Connection ~ 800  5850
-Wire Wire Line
-	9350 6000 9600 6000
-Wire Wire Line
-	9800 5800 9750 5800
-Wire Wire Line
-	9750 6000 10000 6000
-Connection ~ 10000 6000
-Wire Wire Line
-	9400 5800 9350 5800
-Wire Wire Line
-	9350 5800 9350 6000
 Wire Wire Line
 	10300 900  10300 1350
 Wire Wire Line
@@ -951,11 +816,7 @@ Wire Wire Line
 Wire Wire Line
 	1300 900  1400 900 
 Wire Wire Line
-	9600 6000 9600 6100
-Wire Wire Line
 	1300 2000 1800 2000
-Wire Wire Line
-	1700 5850 1700 5950
 Wire Wire Line
 	8500 3500 8500 3600
 Wire Wire Line
@@ -969,15 +830,7 @@ Wire Wire Line
 Wire Wire Line
 	8400 5900 8400 6000
 Wire Wire Line
-	4500 1400 4500 1500
-Wire Wire Line
-	1100 6050 1100 6100
-Wire Wire Line
-	1400 5850 1400 5950
-Wire Wire Line
-	800  5850 800  5950
-Wire Wire Line
-	10000 6000 10000 6100
+	1100 5850 1100 5900
 Wire Wire Line
 	4900 2000 5300 2000
 Wire Wire Line
@@ -1117,41 +970,6 @@ Wire Wire Line
 	3000 1300 3200 1300
 Wire Wire Line
 	2400 1300 2600 1300
-$Comp
-L 0EsseivaN_Lib:TestPoint TP6
-U 1 1 5B767B8E
-P 4500 1400
-F 0 "TP6" H 4600 1400 30  0000 C CNN
-F 1 "TestPoint" H 4500 1600 60  0001 C CNN
-F 2 "0EsseivaN_Lib:Measurement_Point_Round-SMD-Pad_Small" H 4500 1400 60  0001 C CNN
-F 3 "" H 4500 1400 60  0001 C CNN
-	1    4500 1400
-	1    0    0    -1  
-$EndComp
-$Comp
-L 0EsseivaN_Lib:TestPoint_8 TP5
-U 1 1 5C54A3A6
-P 1950 5950
-F 0 "TP5" H 2003 5950 30  0000 L CNN
-F 1 "TestPoint_8" H 1950 6150 60  0001 C CNN
-F 2 "0EsseivaN_Lib:Measurement_Point_Round-TH_Small" H 1950 5950 60  0001 C CNN
-F 3 "" H 1950 5950 60  0001 C CNN
-	1    1950 5950
-	1    0    0    -1  
-$EndComp
-$Comp
-L 0EsseivaN_Lib:GND_ALIM #PWR011
-U 1 1 5C560DAB
-P 1950 6100
-F 0 "#PWR011" H 1950 5800 50  0001 C CNN
-F 1 "GND_ALIM" H 1950 5900 50  0001 C CNN
-F 2 "" H 1950 6100 50  0000 C CNN
-F 3 "" H 1950 6100 50  0000 C CNN
-	1    1950 6100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1950 5950 1950 6100
 Wire Wire Line
 	9300 3500 9900 3500
 Wire Wire Line
@@ -1190,8 +1008,6 @@ Wire Wire Line
 NoConn ~ 9500 5350
 NoConn ~ 9900 5350
 Wire Wire Line
-	9750 5800 9750 6000
-Wire Wire Line
 	10000 5500 10000 5400
 Wire Wire Line
 	10000 5400 10100 5400
@@ -1201,25 +1017,6 @@ Wire Wire Line
 	9100 3500 9100 5450
 Wire Wire Line
 	9300 3500 9300 4950
-$Comp
-L 0EsseivaN_Lib:TEST_2P W6
-U 1 1 5C6FD3CE
-P 10250 4750
-F 0 "W6" H 10250 4647 50  0000 C CNN
-F 1 "TEST_2P" H 10250 4680 50  0001 C CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 10250 4750 50  0001 C CNN
-F 3 "" H 10250 4750 50  0000 C CNN
-	1    10250 4750
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	10000 4750 10050 4750
-Wire Wire Line
-	10000 4750 10000 4900
-Wire Wire Line
-	10500 4650 10500 4750
-Wire Wire Line
-	10500 4750 10450 4750
 Wire Wire Line
 	4700 5000 5100 5000
 Wire Wire Line
@@ -1230,7 +1027,7 @@ U 1 1 5CDB7DC9
 P 1650 3500
 F 0 "C7" V 1597 3608 60  0000 L CNN
 F 1 "4.7uF" V 1703 3608 60  0000 L CNN
-F 2 "Capacitors_SMD:C_1206_HandSoldering" H 1650 3500 60  0001 C CNN
+F 2 "0EsseivaN_Lib:CP_Radial_D5.0mm_P2.00mm" H 1650 3500 60  0001 C CNN
 F 3 "" H 1650 3500 60  0000 C CNN
 	1    1650 3500
 	0    1    1    0   
@@ -1269,7 +1066,7 @@ U 1 1 5CDA6094
 P 1500 4150
 F 0 "U4" H 1150 4750 50  0000 C CNN
 F 1 "MRF89XAM8A" H 1150 4650 50  0000 C CNN
-F 2 "" H 1500 4150 50  0001 C CNN
+F 2 "0EsseivaN_Lib:MRF89XAM8A" H 1500 4150 50  0001 C CNN
 F 3 "" H 1500 4150 50  0001 C CNN
 	1    1500 4150
 	1    0    0    -1  
@@ -1313,7 +1110,7 @@ U 1 1 5B6566C3
 P 5300 1700
 F 0 "V1" H 5450 1950 60  0000 C CNN
 F 1 "Li battery" H 5600 1850 60  0000 C CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 5310 1750 60  0001 C CNN
+F 2 "0EsseivaN_Lib:CH_3P" H 5310 1750 60  0001 C CNN
 F 3 "" H 5310 1750 60  0001 C CNN
 F 4 "3V7" H 5500 1550 60  0000 C CNN "Voltage"
 F 5 "3200mAh" H 5300 1700 60  0001 C CNN "Capacity"
@@ -1337,7 +1134,7 @@ U 1 1 5B65DEBF
 P 5700 4300
 F 0 "U5" H 5200 5350 50  0000 L BNN
 F 1 "PIC16F1827" H 5000 5250 50  0000 L BNN
-F 2 "0EsseivaN_Lib:DIP-18" H 4650 5050 50  0001 L BNN
+F 2 "Housings_SSOP:SSOP-20_5.3x7.2mm_Pitch0.65mm" H 4650 5050 50  0001 L BNN
 F 3 "Good" H 4650 4950 50  0001 L BNN
 	1    5700 4300
 	1    0    0    -1  
@@ -1411,9 +1208,7 @@ Wire Wire Line
 Wire Wire Line
 	750  5050 3550 5050
 Text Label 5050 3600 2    60   ~ 0
-RESET
-Text Label 1050 4050 2    60   ~ 0
-RESET
+RESET_RF
 Wire Wire Line
 	4700 5000 4700 5900
 Wire Wire Line
@@ -1572,7 +1367,7 @@ L 0EsseivaN_Lib:R R7
 U 1 1 5D8EE6C1
 P 6950 3050
 F 0 "R7" H 7020 3096 50  0000 L CNN
-F 1 "100kR" H 7020 3005 50  0000 L CNN
+F 1 "100k" H 7020 3005 50  0000 L CNN
 F 2 "0EsseivaN_Lib:R_0805_HandSoldering" V 6880 3050 50  0001 C CNN
 F 3 "" H 6950 3050 50  0000 C CNN
 	1    6950 3050
@@ -1670,7 +1465,7 @@ U 1 1 5B65F14F
 P 7550 2650
 F 0 "X6" H 7628 2691 50  0000 L CNN
 F 1 "WATER_SENSOR" H 7628 2600 50  0000 L CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 7550 2600 50  0001 C CNN
+F 2 "0EsseivaN_Lib:CH_2P" H 7550 2600 50  0001 C CNN
 F 3 "" H 7550 2600 50  0000 C CNN
 	1    7550 2650
 	1    0    0    -1  
@@ -1779,4 +1574,61 @@ Wire Wire Line
 Connection ~ 2650 3400
 Wire Wire Line
 	2650 3400 2650 3450
+$Comp
+L 0EsseivaN_Lib:R R2
+U 1 1 5CD18B6E
+P 4500 1700
+F 0 "R2" H 4430 1654 50  0000 R CNN
+F 1 "3k9" H 4430 1745 50  0000 R CNN
+F 2 "0EsseivaN_Lib:R_0805_HandSoldering" V 4430 1700 50  0001 C CNN
+F 3 "" H 4500 1700 50  0000 C CNN
+	1    4500 1700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4500 1100 4500 1500
+Wire Wire Line
+	1300 900  1300 1500
+$Comp
+L 0EsseivaN_Lib:VBAT #PWR027
+U 1 1 5B70804D
+P 10000 4850
+F 0 "#PWR027" H 10000 4700 50  0001 C CNN
+F 1 "VBAT" H 10017 5023 50  0000 C CNN
+F 2 "" H 10000 4850 50  0000 C CNN
+F 3 "" H 10000 4850 50  0000 C CNN
+	1    10000 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10000 4850 10000 4900
+Connection ~ 10000 4900
+Wire Wire Line
+	9600 5900 9600 6100
+Wire Wire Line
+	10000 5900 10000 6100
+$Comp
+L 0EsseivaN_Lib:R R11
+U 1 1 5CE208BB
+P 9600 5700
+F 0 "R11" H 9530 5654 50  0000 R CNN
+F 1 "6" H 9530 5745 50  0000 R CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 9530 5700 50  0001 C CNN
+F 3 "" H 9600 5700 50  0000 C CNN
+	1    9600 5700
+	-1   0    0    1   
+$EndComp
+$Comp
+L 0EsseivaN_Lib:R R13
+U 1 1 5CE20D21
+P 10000 5700
+F 0 "R13" H 9930 5654 50  0000 R CNN
+F 1 "6" H 9930 5745 50  0000 R CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" V 9930 5700 50  0001 C CNN
+F 3 "" H 10000 5700 50  0000 C CNN
+	1    10000 5700
+	-1   0    0    1   
+$EndComp
+Text Label 1050 4050 2    60   ~ 0
+RESET_RF
 $EndSCHEMATC
