@@ -812,7 +812,7 @@ Wire Wire Line
 Wire Wire Line
 	2100 900  3200 900 
 Wire Wire Line
-	5700 3000 5700 3300
+	5700 3000 5700 3200
 Wire Wire Line
 	1300 900  1400 900 
 Wire Wire Line
@@ -1129,7 +1129,7 @@ F 3 "" H 4900 1400 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L 0EsseivaN_Lib:PIC16F1827 U5
+L 0EsseivaN_Lib:PIC16F1827_20 U5
 U 1 1 5B65DEBF
 P 5700 4300
 F 0 "U5" H 5200 5350 50  0000 L BNN
@@ -1631,4 +1631,18 @@ F 3 "" H 10000 5700 50  0000 C CNN
 $EndComp
 Text Label 1050 4050 2    60   ~ 0
 RESET_RF
+Wire Wire Line
+	5600 3300 5600 3200
+Wire Wire Line
+	5600 3200 5700 3200
+Connection ~ 5700 3200
+Wire Wire Line
+	5800 3300 5800 3200
+Wire Wire Line
+	5800 3200 5700 3200
+Wire Wire Line
+	5600 5300 5700 5300
+Connection ~ 5700 5300
+Wire Wire Line
+	5700 5300 5800 5300
 $EndSCHEMATC
