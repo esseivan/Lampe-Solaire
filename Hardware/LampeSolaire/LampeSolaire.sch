@@ -6,7 +6,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Lampe Solaire"
-Date "2019-04-23"
+Date "2019-04-26"
 Rev "5"
 Comp "EsseivaN"
 Comment1 "Esseiva Nicolas"
@@ -151,7 +151,7 @@ U 1 1 5B65E26E
 P 800 2900
 F 0 "X2" H 717 3415 50  0000 C CNN
 F 1 "ICSP" H 717 3324 50  0000 C CNN
-F 2 "0EsseivaN_Lib:Pin_Header_Angled_1x06_Pitch2.54mm" H 800 2900 50  0001 C CNN
+F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x06_Pitch2.54mm" H 800 2900 50  0001 C CNN
 F 3 "" H 800 2900 50  0000 C CNN
 	1    800  2900
 	-1   0    0    -1  

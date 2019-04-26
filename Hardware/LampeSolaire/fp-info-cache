@@ -1,4 +1,4 @@
-256722380044468
+258281593360681
 0EsseivaN_Lib
 2conn
 
@@ -426,6 +426,13 @@ Through hole pin header THT 1x02 2.54mm single row
 0
 2
 2
+0EsseivaN_Lib
+Pin_Header_Straight_1x06_Pitch2.54mm
+Through hole straight pin header, 1x06, 2.54mm pitch, single row
+Through hole pin header THT 1x06 2.54mm single row
+0
+6
+6
 0EsseivaN_Lib
 Pin_Header_Straight_2x02_Pitch2.54mm
 Through hole straight pin header, 2x02, 2.54mm pitch, double rows
