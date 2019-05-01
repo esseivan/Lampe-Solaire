@@ -1,4 +1,4 @@
-258282555838940
+270919106989749
 0EsseivaN_Lib
 2conn
 
@@ -70,56 +70,56 @@ buzzer_4mm
 0
 0
 0EsseivaN_Lib
-CH_2P
+CH_02P
 
 
 0
 4
 3
 0EsseivaN_Lib
-CH_3P
+CH_03P
 
 
 0
 5
 4
 0EsseivaN_Lib
-CH_4P
+CH_04P
 
 
 0
 6
 5
 0EsseivaN_Lib
-CH_5P
+CH_05P
 
 
 0
 7
 6
 0EsseivaN_Lib
-CH_6P
+CH_06P
 
 
 0
 8
 7
 0EsseivaN_Lib
-CH_7P
+CH_07P
 
 
 0
 9
 8
 0EsseivaN_Lib
-CH_8P
+CH_08P
 
 
 0
 10
 9
 0EsseivaN_Lib
-CH_9P
+CH_09P
 
 
 0
@@ -231,6 +231,13 @@ capacitor 0603
 2
 2
 0EsseivaN_Lib
+C_0805_HandSoldering
+Capacitor SMD 0805, hand soldering
+capacitor 0805
+0
+2
+2
+0EsseivaN_Lib
 C_1206_HandSoldering
 Capacitor SMD 1206, hand soldering
 capacitor 1206
@@ -287,6 +294,13 @@ FuseHolder_Schurter
 2
 2
 0EsseivaN_Lib
+Fuse_SMD1206_HandSoldering
+Fuse, Sicherung, SMD1206, Littlefuse-Wickmann 433 Series, Hand Soldering,
+Fuse Sicherung SMD1206 Littlefuse-Wickmann 433 Series Hand Soldering 
+0
+2
+2
+0EsseivaN_Lib
 LED_D3.0mm
 LED, diameter 3.0mm, 2 pins
 LED diameter 3.0mm 2 pins
@@ -307,6 +321,13 @@ LED_LITTLE_STAR
 0
 2
 2
+0EsseivaN_Lib
+LED_RGB_1411
+
+
+0
+4
+4
 0EsseivaN_Lib
 LED_XQ_D
 
@@ -351,7 +372,7 @@ Mesurement Point Round Trough Hole 1.5mm Drill 0.8mm
 1
 0EsseivaN_Lib
 micro_usb
-
+10104110-0001LF
 
 0
 9
@@ -363,6 +384,13 @@ MRF89XAM8A
 0
 12
 12
+0EsseivaN_Lib
+Oscillator_SMD_4pin_2.5x2.0mm_HandSoldering
+SMD Crystal Oscillator Seiko Epson SG-210 https://support.epson.biz/td/api/doc_check.php?mode=dl&lang=en&Parts=SG-210SED, hand-soldering, 2.5x2.0mm^2 package
+SMD SMT crystal oscillator hand-soldering
+0
+4
+4
 0EsseivaN_Lib
 PERC-3.2mm
 Trou diamètre 3.2mm pour vis M3
@@ -433,6 +461,13 @@ Through hole pin header THT 1x06 2.54mm single row
 0
 6
 6
+0EsseivaN_Lib
+Pin_Header_Straight_1x08_Pitch2.54mm
+Through hole straight pin header, 1x08, 2.54mm pitch, single row
+Through hole pin header THT 1x08 2.54mm single row
+0
+8
+8
 0EsseivaN_Lib
 Pin_Header_Straight_2x02_Pitch2.54mm
 Through hole straight pin header, 2x02, 2.54mm pitch, double rows
@@ -525,6 +560,13 @@ SOIC 1.27
 14
 14
 0EsseivaN_Lib
+SOIC-16_3.9x9.9mm_Pitch1.27mm
+16-Lead Plastic Small Outline (SL) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)
+SOIC 1.27
+0
+16
+16
+0EsseivaN_Lib
 SOT-23-5_HandSoldering
 5-pin SOT23 package
 SOT-23-5 hand-soldering
@@ -538,6 +580,13 @@ SOT-23
 0
 3
 3
+0EsseivaN_Lib
+SSOP-20_5.3x7.2mm_Pitch0.65mm
+20-Lead Plastic Shrink Small Outline (SS)-5.30 mm Body [SSOP] (see Microchip Packaging Specification 00000049BS.pdf)
+SSOP 0.65
+0
+20
+20
 0EsseivaN_Lib
 T93YB
 
@@ -566,6 +615,13 @@ Testpoint_x8
 0
 8
 1
+0EsseivaN_Lib
+TQFP-44_10x10mm_Pitch0.8mm
+44-Lead Plastic Thin Quad Flatpack (PT) - 10x10x1.0 mm Body [TQFP] (see Microchip Packaging Specification 00000049BS.pdf)
+QFP 0.8
+0
+44
+44
 0EsseivaN_Lib
 TSOP-5
 TSOP-5 package (comparable to TSOT-23), https://www.vishay.com/docs/71200/71200.pdf
