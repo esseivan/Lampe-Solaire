@@ -15,12 +15,12 @@
     For individual peripheral handlers please see the peripheral driver for
     all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.65.2
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
         Device            :  PIC16LF1827
-        Driver Version    :  1.03
+        Driver Version    :  2.03
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.45 or later
-        MPLAB 	          :  MPLAB X 4.15
+        Compiler          :  XC8 2.00 or later
+        MPLAB 	          :  MPLAB X 5.10
 */
 
 /*
@@ -49,28 +49,36 @@
 #include "interrupt_manager.h"
 #include "mcc.h"
 
-void interrupt INTERRUPT_InterruptManager (void)
+void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(INTCONbits.INTE == 1 && INTCONbits.INTF == 1)
+    if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
     {
-        INT_ISR();
+        PIN_MANAGER_IOC();
     }
     else if(INTCONbits.PEIE == 1)
     {
-        if(PIE3bits.TMR4IE == 1 && PIR3bits.TMR4IF == 1)
+        if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
         {
-            TMR4_ISR();
+            ADC_ISR();
+        } 
+        else if(PIE1bits.SSP1IE == 1 && PIR1bits.SSP1IF == 1)
+        {
+            SPI1_ISR();
         } 
         else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
         {
             TMR2_ISR();
         } 
-        else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
+        else
         {
-            ADC_ISR();
-        } 
+            //Unhandled Interrupt
+        }
     }      
+    else
+    {
+        //Unhandled Interrupt
+    }
 }
 /**
  End of File

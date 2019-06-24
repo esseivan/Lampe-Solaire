@@ -13,12 +13,12 @@
   @Description
     This header file provides APIs for TMR2.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.65.2
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
         Device            :  PIC16LF1827
         Driver Version    :  2.01
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.45
-        MPLAB 	          :  MPLAB X 4.15
+        Compiler          :  XC8 2.00
+        MPLAB 	          :  MPLAB X 5.10
 */
 
 /*
@@ -60,11 +60,11 @@
 
 #endif
 
-    unsigned char TMR2_INT_FLAG = 0;
 
 /**
   Section: Macro Declarations
 */
+#define TMR2_INTERRUPT_TICKER_FACTOR    100
 
 /**
   Section: TMR2 APIs

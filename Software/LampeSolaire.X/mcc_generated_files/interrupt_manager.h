@@ -15,12 +15,12 @@
     For individual peripheral handlers please see the peripheral driver for
     all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.65.2
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
         Device            :  PIC16LF1827
-        Driver Version    :  1.03
+        Driver Version    :  2.03
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.45 or later
-        MPLAB 	          :  MPLAB X 4.15
+        Compiler          :  XC8 2.00 or later
+        MPLAB 	          :  MPLAB X 5.10
 */
 
 /*
@@ -96,17 +96,6 @@
     INTERRUPT_PeripheralInterruptDisable();
  */
 #define INTERRUPT_PeripheralInterruptDisable() (INTCONbits.PEIE = 0)
-/**
- * @Param
-    none
- * @Returns
-    none
- * @Description
-    Main interrupt service routine. Calls module interrupt handlers.
- * @Example
-    INTERRUPT_InterruptManager();
- */
-void interrupt INTERRUPT_InterruptManager(void);
 
 
 #endif  // INTERRUPT_MANAGER_H

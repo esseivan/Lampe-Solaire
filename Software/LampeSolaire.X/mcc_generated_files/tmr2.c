@@ -13,13 +13,13 @@
   @Description
     This source file provides APIs for TMR2.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.65.2
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
         Device            :  PIC16LF1827
         Driver Version    :  2.01
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.45
-        MPLAB 	          :  MPLAB X 4.15
- */
+        Compiler          :  XC8 2.00
+        MPLAB 	          :  MPLAB X 5.10
+*/
 
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
@@ -42,31 +42,31 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
- */
+*/
 
 /**
   Section: Included Files
- */
+*/
 
 #include <xc.h>
 #include "tmr2.h"
 
 /**
   Section: Global Variables Definitions
- */
+*/
 
 void (*TMR2_InterruptHandler)(void);
 
 /**
   Section: TMR2 APIs
- */
+*/
 
-// 10s timer
-void TMR2_Initialize(void) {
+void TMR2_Initialize(void)
+{
     // Set TMR2 to the options selected in the User Interface
 
-    // PR2 172; 
-    PR2 = 0xAC;
+    // PR2 124; 
+    PR2 = 0x7C;
 
     // TMR2 0; 
     TMR2 = 0x00;
@@ -80,21 +80,24 @@ void TMR2_Initialize(void) {
     // Set Default Interrupt Handler
     TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
 
-    // T2CKPS 1:64; T2OUTPS 1:7; TMR2ON on; 
-    T2CON = 0x37;
+    // T2CKPS 1:64; T2OUTPS 1:5; TMR2ON on; 
+    T2CON = 0x27;
 }
 
-void TMR2_StartTimer(void) {
+void TMR2_StartTimer(void)
+{
     // Start the Timer by writing to TMRxON bit
     T2CONbits.TMR2ON = 1;
 }
 
-void TMR2_StopTimer(void) {
+void TMR2_StopTimer(void)
+{
     // Stop the Timer by writing to TMRxON bit
     T2CONbits.TMR2ON = 0;
 }
 
-uint8_t TMR2_ReadTimer(void) {
+uint8_t TMR2_ReadTimer(void)
+{
     uint8_t readVal;
 
     readVal = TMR2;
@@ -102,43 +105,54 @@ uint8_t TMR2_ReadTimer(void) {
     return readVal;
 }
 
-void TMR2_WriteTimer(uint8_t timerVal) {
+void TMR2_WriteTimer(uint8_t timerVal)
+{
     // Write to the Timer2 register
     TMR2 = timerVal;
 }
 
-void TMR2_LoadPeriodRegister(uint8_t periodVal) {
-    PR2 = periodVal;
+void TMR2_LoadPeriodRegister(uint8_t periodVal)
+{
+   PR2 = periodVal;
 }
 
-void TMR2_ISR(void) {
+void TMR2_ISR(void)
+{
+    static volatile unsigned int CountCallBack = 0;
 
     // clear the TMR2 interrupt flag
     PIR1bits.TMR2IF = 0;
 
-    // ticker function call;
-    // ticker is 1 -> Callback function gets called everytime this ISR executes
-    TMR2_CallBack();
+    // callback function - called every 100th pass
+    if (++CountCallBack >= TMR2_INTERRUPT_TICKER_FACTOR)
+    {
+        // ticker function call
+        TMR2_CallBack();
+
+        // reset ticker counter
+        CountCallBack = 0;
+    }
 }
 
-void TMR2_CallBack(void) {
+void TMR2_CallBack(void)
+{
     // Add your custom callback code here
     // this code executes every TMR2_INTERRUPT_TICKER_FACTOR periods of TMR2
-    if (TMR2_InterruptHandler) {
+    if(TMR2_InterruptHandler)
+    {
         TMR2_InterruptHandler();
     }
 }
 
-void TMR2_SetInterruptHandler(void (* InterruptHandler)(void)) {
+void TMR2_SetInterruptHandler(void (* InterruptHandler)(void)){
     TMR2_InterruptHandler = InterruptHandler;
 }
 
-void TMR2_DefaultInterruptHandler(void) {
+void TMR2_DefaultInterruptHandler(void){
     // add your TMR2 interrupt custom code
     // or set custom function using TMR2_SetInterruptHandler()
-    TMR2_INT_FLAG = 1;
 }
 
 /**
   End of File
- */
+*/

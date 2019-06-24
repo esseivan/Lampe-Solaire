@@ -1,4 +1,4 @@
-update=15.06.2019 12:35:27
+update=24.06.2019 17:35:43
 version=1
 last_client=kicad
 [cvpcb]
@@ -61,7 +61,7 @@ PageLayoutDescrFile=
 PlotDirectoryName=../../Fabrication/DiodeAdapter/PDF/
 SubpartIdSeparator=0
 SubpartFirstId=65
-NetFmtName=
+NetFmtName=Pcbnew
 SpiceAjustPassiveValues=0
 LabSize=50
 ERC_TestSimilarLabels=1

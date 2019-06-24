@@ -13,12 +13,12 @@
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.65.2
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
         Device            :  PIC16LF1827
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.45 or later
-        MPLAB             :  MPLAB X 4.15
+        Compiler          :  XC8 2.00 or later
+        MPLAB             :  MPLAB X 5.10
 */
 
 /*
@@ -53,15 +53,15 @@ void SYSTEM_Initialize(void)
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     WDT_Initialize();
-//    ADC_Initialize();
+    SPI1_Initialize();
     TMR2_Initialize();
-    EXT_INT_Initialize();
+    ADC_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
 {
-    // SCS FOSC; SPLLEN disabled; IRCF 31KHz_LF; 
-    OSCCON = 0x00;
+    // SCS FOSC; SPLLEN disabled; IRCF 16MHz_HF; 
+    OSCCON = 0x78;
     // TUN 0; 
     OSCTUNE = 0x00;
     // SBOREN disabled; 
@@ -70,8 +70,8 @@ void OSCILLATOR_Initialize(void)
 
 void WDT_Initialize(void)
 {
-    // WDTPS 1:524288; SWDTEN OFF; 
-    WDTCON = 0x1C;
+    // WDTPS 1:65536; SWDTEN OFF; 
+    WDTCON = 0x16;
 }
 
 /**

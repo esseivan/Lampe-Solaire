@@ -11,6 +11,7 @@
 #include <eeprom_routines.h>
 #include "mcc_generated_files/tmr2.h"
 #include "mcc_generated_files/tmr4.h"
+#include "main.h"
 
 #define RESET_SETTINGS 0
 
@@ -32,29 +33,39 @@ enum Codes {
 };
 
 enum EEPROM_SLOTS {
-    SLOT_MODE = 0,
-    SLOT_THRESHOLD = 1,
-    SLOT_FREQUENCY = 2,
+    SLOT_MODE = 0x00,
+    SLOT_THRESHOLD = 0x01,
+    SLOT_FREQUENCY = 0x02,
+};
+
+enum RF_COMMANDS {
+    LIGHT_ON = 0x01,
+    LIGHT_OFF = 0x02,
+    LIGHT_TOGGLE = 0x03,
+
+    GET_LIGHT_STATE = 0x20,
+    GET_LED_STATE = 0x21,
+    GET_TEMPERATURE = 0x22,
+    GET_WATER_STATE = 0x23,
+
+    TEST_LIGHT = 0x50,
+    TEST_BUZZER = 0x51,
+    TEST_LED = 0x52,
+
+    REBOOT = 0xE0,
+    SHUTDOWN = 0xE1,
 };
 
 void POWER_LED_ON(void) {
-    RESET_SetLow();
-    __delay_ms(10);
-    SET_SetHigh();
-    __delay_ms(10);
-    SET_SetLow();
-    __delay_ms(10);
+    ENABLE_SetHigh();
     LedState = 1;
+    //DATAEE_WriteByte(SLOT_MODE, LedState);
 }
 
 void POWER_LED_OFF(void) {
-    SET_SetLow();
-    __delay_ms(10);
-    RESET_SetHigh();
-    __delay_ms(10);
-    RESET_SetLow();
-    __delay_ms(10);
+    ENABLE_SetLow();
     LedState = 0;
+    //DATAEE_WriteByte(SLOT_MODE, LedState);
 }
 
 void POWER_LED_TOGGLE(void) {
@@ -65,72 +76,38 @@ void POWER_LED_TOGGLE(void) {
 }
 
 void WaitLoop(void) {
-    BUZZER_LAT = !WATER_1_GetValue();
+    BUZZER_LAT = !WATER_GetValue();
 }
 
-void RunCode(unsigned char Code) {
-    if (Code == Code_A)
-        POWER_LED_ON();
-    else if (Code == Code_B)
-        POWER_LED_OFF();
-    else if (Code == Code_C)
-        POWER_LED_TOGGLE();
-}
 
-void Code_exec(void) {
+void Code_exec(uint8_t code) {
     // Read received code
-    unsigned char data = PORTA_Saved & 0x0F;
 
-    if (data & 0b0100 && data & 0b0001) {
-        while (PORTA & 0x0F) {
-            POWER_LED_ON();
-            __delay_ms(500);
-            POWER_LED_OFF();
-            __delay_ms(500);
-        }
-        eeprom_write(SLOT_MODE, 0);
-        eeprom_write(SLOT_THRESHOLD, 1);
-        eeprom_write(SLOT_FREQUENCY, 1);
-        RESET();
-    }
-
-    if (data & 0b0100) {
-        // A
-        // ON / Plus
-        RunCode(Code_A);
-
-        // Wait for key released
-        while (PORTA & 0x0F)
-            WaitLoop();
-
-    } else if (data & 0b0001) {
-        // B
-        // OFF / Minus
-        RunCode(Code_B);
-
-        // Wait for key released
-        while (PORTA & 0x0F)
-            WaitLoop();
-
-    } else if (data & 0b1000) {
-        // C
-        // Toggle
-        RunCode(Code_C);
-
-        // Wait for key released
-        while (PORTA & 0x0F)
-            WaitLoop();
-
-    } else if (data & 0b0010) {
-        // D
-        // REboot
-
-        // Wait for key released
-        while (PORTA & 0x0F)
-            WaitLoop();
-
-        // Reboot
-        RESET();
+    switch(code) {
+        case LIGHT_ON:
+            break;
+        case LIGHT_OFF:
+            break;
+        case LIGHT_TOGGLE:
+            break;
+        case REBOOT:
+            break;
+        case SHUTDOWN:
+            break;
+        case GET_LIGHT_STATE:
+            break;
+        case GET_LED_STATE:
+            break;
+        case GET_TEMPERATURE:
+            break;
+        case GET_WATER_STATE:
+            break;
+        case TEST_LIGHT:
+            break;
+        case TEST_BUZZER:
+            break;
+        case TEST_LED:
+            break;
     }
 }
 
@@ -164,9 +141,7 @@ void main(void) {
     __delay_ms(50);
 
 #if RESET_SETTINGS == 1
-    eeprom_write(SLOT_MODE, 0);
-    eeprom_write(SLOT_THRESHOLD, 1);
-    eeprom_write(SLOT_FREQUENCY, 1);
+    DATAEE_WriteByte(SLOT_MODE, 0);
     while (1);
 #endif
 
@@ -175,17 +150,14 @@ void main(void) {
 
         __delay_ms(50);
 
-        SWDTEN = false;
         //        SLEEP();
         asm("nop");
         asm("nop");
         asm("nop");
         asm("nop");
         asm("nop");
-        SWDTEN = true;
-        CLRWDT();
 
-        BUZZER_LAT = !WATER_1_GetValue();
+        BUZZER_LAT = !WATER_GetValue();
 
         if (DATA_RECEIVED) {
             DATA_RECEIVED = 0;

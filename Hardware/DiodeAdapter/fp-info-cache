@@ -1,4 +1,4 @@
-276054182758804
+280782278202532
 0EsseivaN_Lib
 2conn
 
@@ -263,7 +263,7 @@ DFN-6-1EP_3x3mm_Pitch0.95mm
 DFN6 3*3 MM, 0.95 PITCH; CASE 506AH-01 (see ON Semiconductor 506AH.PDF)
 DFN 0.95
 0
-10
+7
 7
 0EsseivaN_Lib
 DIP-18
@@ -283,6 +283,13 @@ DIP_4
 D_0603_HandSoldering
 Capacitor SMD 0603, hand soldering
 capacitor 0603
+0
+2
+2
+0EsseivaN_Lib
+D_0805_HandSoldering
+Resistor SMD 0805, hand soldering
+resistor 0805
 0
 2
 2
@@ -311,6 +318,13 @@ FuseHolder_Schurter
 Fuse_SMD1206_HandSoldering
 Fuse, Sicherung, SMD1206, Littlefuse-Wickmann 433 Series, Hand Soldering,
 Fuse Sicherung SMD1206 Littlefuse-Wickmann 433 Series Hand Soldering 
+0
+2
+2
+0EsseivaN_Lib
+Fuse_SMD2410_HandSoldering
+
+
 0
 2
 2
@@ -475,6 +489,13 @@ Through hole pin header THT 1x03 2.54mm single row
 0
 3
 3
+0EsseivaN_Lib
+Pin_Header_Straight_1x05_Pitch2.54mm
+Through hole straight pin header, 1x06, 2.54mm pitch, single row
+Through hole pin header THT 1x06 2.54mm single row
+0
+5
+5
 0EsseivaN_Lib
 Pin_Header_Straight_1x06_Pitch2.54mm
 Through hole straight pin header, 1x06, 2.54mm pitch, single row

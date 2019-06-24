@@ -6,7 +6,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Led adapter"
-Date "2019-06-15"
+Date "2019-06-24"
 Rev "2"
 Comp "EsseivaN"
 Comment1 "Esseiva Nicolas"
@@ -51,8 +51,8 @@ $Comp
 L 0EsseivaN_Lib:LED P3
 U 1 1 5B793512
 P 4300 3650
-F 0 "P3" V 4250 3850 60  0000 C CNN
-F 1 "LED" V 4350 3850 60  0000 C CNN
+F 0 "P3" V 4247 3728 60  0000 L CNN
+F 1 "LED" V 4353 3728 60  0000 L CNN
 F 2 "0EsseivaN_Lib:LED_LH351D" H 4300 3650 60  0001 C CNN
 F 3 "" H 4300 3650 60  0000 C CNN
 	1    4300 3650
@@ -73,8 +73,8 @@ $Comp
 L 0EsseivaN_Lib:LED P4
 U 1 1 5B7938AC
 P 5050 3650
-F 0 "P4" V 5000 3850 60  0000 C CNN
-F 1 "LED" V 5100 3850 60  0000 C CNN
+F 0 "P4" V 4997 3728 60  0000 L CNN
+F 1 "LED" V 5103 3728 60  0000 L CNN
 F 2 "0EsseivaN_Lib:LED_XQ_D" H 5050 3650 60  0001 C CNN
 F 3 "" H 5050 3650 60  0000 C CNN
 	1    5050 3650
@@ -220,4 +220,95 @@ Wire Wire Line
 Connection ~ 5050 3900
 Wire Wire Line
 	5050 3900 4300 3900
+$Comp
+L 0EsseivaN_Lib:CONN_01X02 X7
+U 1 1 5D10A1F7
+P 4000 4250
+F 0 "X7" H 3917 4515 50  0000 C CNN
+F 1 "CONN_01X02" H 3917 4424 50  0000 C CNN
+F 2 "0EsseivaN_Lib:Pin_Header_Angled_1x02_Pitch2.54mm" H 4000 4200 50  0001 C CNN
+F 3 "" H 4000 4200 50  0000 C CNN
+	1    4000 4250
+	-1   0    0    -1  
+$EndComp
+$Comp
+L 0EsseivaN_Lib:CONN_01X02 X8
+U 1 1 5D10A90F
+P 5250 4250
+F 0 "X8" H 5328 4291 50  0000 L CNN
+F 1 "CONN_01X02" H 5328 4200 50  0000 L CNN
+F 2 "0EsseivaN_Lib:Pin_Header_Angled_1x02_Pitch2.54mm_reverse" H 5250 4200 50  0001 C CNN
+F 3 "" H 5250 4200 50  0000 C CNN
+	1    5250 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 0EsseivaN_Lib:TEST_2P W1
+U 1 1 5D10DF3F
+P 4600 4200
+F 0 "W1" H 4600 4250 50  0000 C CNN
+F 1 "TEST_2P" H 4600 4130 50  0001 C CNN
+F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 4600 4200 50  0001 C CNN
+F 3 "" H 4600 4200 50  0000 C CNN
+	1    4600 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 4200 4350 4200
+Wire Wire Line
+	4800 4200 4850 4200
+Wire Wire Line
+	4200 4300 4950 4300
+Text Notes 3950 4500 0    50   ~ 0
+Pour mesure de courant
+$Comp
+L 0EsseivaN_Lib:CONN_01X02 X9
+U 1 1 5D1101C3
+P 5250 4500
+F 0 "X9" H 5328 4541 50  0000 L CNN
+F 1 "CONN_01X02" H 5328 4450 50  0000 L CNN
+F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 5250 4450 50  0001 C CNN
+F 3 "" H 5250 4450 50  0000 C CNN
+	1    5250 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 4450 5000 4450
+Wire Wire Line
+	5000 4450 5000 4200
+Connection ~ 5000 4200
+Wire Wire Line
+	5000 4200 5050 4200
+Wire Wire Line
+	5050 4550 4950 4550
+Wire Wire Line
+	4950 4550 4950 4300
+Connection ~ 4950 4300
+Wire Wire Line
+	4950 4300 5050 4300
+$Comp
+L 0EsseivaN_Lib:TEST_2P W2
+U 1 1 5D119703
+P 4600 4050
+F 0 "W2" H 4600 4100 50  0000 C CNN
+F 1 "TEST_2P" H 4600 3980 50  0001 C CNN
+F 2 "0EsseivaN_Lib:Pin_Header_Straight_1x02_Pitch2.54mm" H 4600 4050 50  0001 C CNN
+F 3 "" H 4600 4050 50  0000 C CNN
+	1    4600 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 4050 4350 4050
+Wire Wire Line
+	4350 4050 4350 4200
+Connection ~ 4350 4200
+Wire Wire Line
+	4350 4200 4400 4200
+Wire Wire Line
+	4800 4050 4850 4050
+Wire Wire Line
+	4850 4050 4850 4200
+Connection ~ 4850 4200
+Wire Wire Line
+	4850 4200 5000 4200
 $EndSCHEMATC
