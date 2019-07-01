@@ -1,93 +1,103 @@
-[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[p GLOBOPT AUTOSTATIC PIC14 PIC14E ]
 [d version 1.1 ]
 [d edition pro ]
 [d chip 16LF1827 ]
 [d frameptr 6 ]
-"86 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
-[e E2808 . `uc
-PHOTO_R 10
+"85 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+[e E2331 . `uc
+TEMP 4
 channel_Temp 29
 channel_DAC 30
 channel_FVR 31
 ]
-"72 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\main.c
-[e E2927 Codes `uc
-Code_A 0
-Code_B 1
-Code_C 2
-Code_D 3
+"86 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+[e E2491 RF_COMMANDS `uc
+LIGHT_ON 1
+LIGHT_OFF 2
+LIGHT_TOGGLE 3
+GET_LIGHT_STATE 32
+GET_LED_STATE 33
+GET_TEMPERATURE 34
+GET_WATER_STATE 35
+TEST_LIGHT 80
+TEST_BUZZER 81
+TEST_LED 82
+REBOOT 224
+SHUTDOWN 225
 ]
-"91
-[e E2932 EEPROM_SLOTS `uc
-SLOT_MODE 0
-SLOT_THRESHOLD 1
-SLOT_FREQUENCY 2
-]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\pic\eeprom.c
-[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
-[v _memcpyee memcpyee `(v  1 e 1 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\pic\eewrite.c
-[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
-"40 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\main.c
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"59 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _POWER_LED_ON POWER_LED_ON `(v  1 e 1 0 ]
-"50
+"65
 [v _POWER_LED_OFF POWER_LED_OFF `(v  1 e 1 0 ]
-"60
-[v _POWER_LED_TOGGLE POWER_LED_TOGGLE `(v  1 e 1 0 ]
-"67
-[v _WaitLoop WaitLoop `(v  1 e 1 0 ]
-"71
-[v _RunCode RunCode `(v  1 e 1 0 ]
-"80
-[v _Code_exec Code_exec `(v  1 e 1 0 ]
-"137
+"114
 [v _main main `(v  1 e 1 0 ]
-"141 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"134
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
-"32 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/ext_int.c
-[v _INT_ISR INT_ISR `(v  1 e 1 0 ]
-"43
-[v _INT_CallBack INT_CallBack `(v  1 e 1 0 ]
-"50
-[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
-"54
-[v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
-"59
-[v _EXT_INT_Initialize EXT_INT_Initialize `(v  1 e 1 0 ]
-"52 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/interrupt_manager.c
+"52 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
-"50 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
+"50 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 "61
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "71
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
-"57 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
+"58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/memory.c
+[v _FLASH_ReadWord FLASH_ReadWord `(ui  1 e 2 0 ]
+"95
+[v _FLASH_WriteBlock FLASH_WriteBlock `(c  1 e 1 0 ]
+"156
+[v _FLASH_EraseBlock FLASH_EraseBlock `(v  1 e 1 0 ]
+"59 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"65 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+"128
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+"150
+[v _IOCBF0_ISR IOCBF0_ISR `(v  1 e 1 0 ]
+"165
+[v _IOCBF0_SetInterruptHandler IOCBF0_SetInterruptHandler `(v  1 e 1 0 ]
+"172
+[v _IOCBF0_DefaultInterruptHandler IOCBF0_DefaultInterruptHandler `(v  1 e 1 0 ]
+"180
+[v _IOCBF3_ISR IOCBF3_ISR `(v  1 e 1 0 ]
+"195
+[v _IOCBF3_SetInterruptHandler IOCBF3_SetInterruptHandler `(v  1 e 1 0 ]
+"202
+[v _IOCBF3_DefaultInterruptHandler IOCBF3_DefaultInterruptHandler `(v  1 e 1 0 ]
+"210
+[v _IOCBF5_ISR IOCBF5_ISR `(v  1 e 1 0 ]
+"225
+[v _IOCBF5_SetInterruptHandler IOCBF5_SetInterruptHandler `(v  1 e 1 0 ]
+"232
+[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+"60 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1.c
+[v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
+"80
+[v _SPI1_ISR SPI1_ISR `(v  1 e 1 0 ]
+"86
+[v _SPI1_setExchangeHandler SPI1_setExchangeHandler `(v  1 e 1 0 ]
+"92
+[v _SPI1_DefaultExchangeHandler SPI1_DefaultExchangeHandler `(uc  1 e 1 0 ]
+"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
-"114
+"119
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
-"124
+"137
 [v _TMR2_CallBack TMR2_CallBack `(v  1 e 1 0 ]
-"132
+"147
 [v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
-"136
+"151
 [v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
-"120 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr4.c
-[v _TMR4_ISR TMR4_ISR `(v  1 e 1 0 ]
-"138
-[v _TMR4_CallBack TMR4_CallBack `(v  1 e 1 0 ]
-"148
-[v _TMR4_SetInterruptHandler TMR4_SetInterruptHandler `(v  1 e 1 0 ]
-"152
-[v _TMR4_DefaultInterruptHandler TMR4_DefaultInterruptHandler `(v  1 e 1 0 ]
-[s S21 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S292 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -96,17 +106,15 @@ SLOT_FREQUENCY 2
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"372 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16lf1827.h
-[s S30 . 1 `uc 1 . 1 0 :2:0 
+"374 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+[s S301 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S35 . 1 `S21 1 . 1 0 `S30 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES35  1 e 1 @11 ]
-"427
-[v _PORTA PORTA `VEuc  1 e 1 @12 ]
-[s S658 . 1 `uc 1 RB0 1 0 :1:0 
+[u S306 . 1 `S292 1 . 1 0 `S301 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES306  1 e 1 @11 ]
+[s S751 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -115,10 +123,10 @@ SLOT_FREQUENCY 2
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-"506
-[u S667 . 1 `S658 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES667  1 e 1 @13 ]
-[s S230 . 1 `uc 1 TMR1IF 1 0 :1:0 
+"508
+[u S760 . 1 `S751 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES760  1 e 1 @13 ]
+[s S86 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -127,26 +135,16 @@ SLOT_FREQUENCY 2
 `uc 1 ADIF 1 0 :1:6 
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
-"568
-[u S239 . 1 `S230 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES239  1 e 1 @17 ]
-[s S188 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 TMR4IF 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 TMR6IF 1 0 :1:3 
-`uc 1 CCP3IF 1 0 :1:4 
-`uc 1 CCP4IF 1 0 :1:5 
-]
-"679
-[u S195 . 1 `S188 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES195  1 e 1 @19 ]
-"939
+"570
+[u S95 . 1 `S86 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES95  1 e 1 @17 ]
+"941
 [v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
-"959
+"961
 [v _PR2 PR2 `VEuc  1 e 1 @27 ]
-"979
+"981
 [v _T2CON T2CON `VEuc  1 e 1 @28 ]
-[s S365 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S130 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -154,18 +152,18 @@ SLOT_FREQUENCY 2
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-"1000
-[s S373 . 1 `uc 1 T2CKPS 1 0 :2:0 
+"1002
+[s S138 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
-[u S377 . 1 `S365 1 . 1 0 `S373 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES377  1 e 1 @28 ]
-"1150
+[u S142 . 1 `S130 1 . 1 0 `S138 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES142  1 e 1 @28 ]
+"1152
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
-"1212
+"1214
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
-[s S209 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S38 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -174,20 +172,10 @@ SLOT_FREQUENCY 2
 `uc 1 ADIE 1 0 :1:6 
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
-"1291
-[u S218 . 1 `S209 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES218  1 e 1 @145 ]
-[s S171 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 TMR4IE 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 TMR6IE 1 0 :1:3 
-`uc 1 CCP3IE 1 0 :1:4 
-`uc 1 CCP4IE 1 0 :1:5 
-]
-"1402
-[u S178 . 1 `S171 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES178  1 e 1 @147 ]
-[s S58 . 1 `uc 1 PS0 1 0 :1:0 
+"1293
+[u S47 . 1 `S38 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES47  1 e 1 @145 ]
+[s S407 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 PSA 1 0 :1:3 
@@ -196,27 +184,27 @@ SLOT_FREQUENCY 2
 `uc 1 INTEDG 1 0 :1:6 
 `uc 1 nWPUEN 1 0 :1:7 
 ]
-"1476
-[s S67 . 1 `uc 1 PS 1 0 :3:0 
+"1478
+[s S416 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S72 . 1 `S58 1 . 1 0 `S67 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES72  1 e 1 @149 ]
-"1587
+[u S421 . 1 `S407 1 . 1 0 `S416 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES421  1 e 1 @149 ]
+"1589
 [v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
-"1646
+"1648
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @152 ]
-"1704
+"1706
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
-"1845
+"1847
 [v _ADRESL ADRESL `VEuc  1 e 1 @155 ]
-"1865
+"1867
 [v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
-"1885
+"1887
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
-[s S536 . 1 `uc 1 ADON 1 0 :1:0 
+[s S220 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -224,21 +212,21 @@ SLOT_FREQUENCY 2
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-"1910
-[s S544 . 1 `uc 1 . 1 0 :1:0 
+"1912
+[s S228 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S548 . 1 `uc 1 . 1 0 :1:0 
+[s S232 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[u S551 . 1 `S536 1 . 1 0 `S544 1 . 1 0 `S548 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES551  1 e 1 @157 ]
-"1965
+[u S235 . 1 `S220 1 . 1 0 `S228 1 . 1 0 `S232 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES235  1 e 1 @157 ]
+"1967
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
-"2037
+"2039
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-[s S614 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S730 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -247,104 +235,115 @@ SLOT_FREQUENCY 2
 `uc 1 LATA6 1 0 :1:6 
 `uc 1 LATA7 1 0 :1:7 
 ]
-"2054
-[u S623 . 1 `S614 1 . 1 0 ]
-[v _LATAbits LATAbits `VES623  1 e 1 @268 ]
-"2094
+"2056
+[u S739 . 1 `S730 1 . 1 0 ]
+[v _LATAbits LATAbits `VES739  1 e 1 @268 ]
+"2096
 [v _LATB LATB `VEuc  1 e 1 @269 ]
-[s S637 . 1 `uc 1 LATB0 1 0 :1:0 
-`uc 1 LATB1 1 0 :1:1 
-`uc 1 LATB2 1 0 :1:2 
-`uc 1 LATB3 1 0 :1:3 
-`uc 1 LATB4 1 0 :1:4 
-`uc 1 LATB5 1 0 :1:5 
-`uc 1 LATB6 1 0 :1:6 
-`uc 1 LATB7 1 0 :1:7 
-]
-"2111
-[u S646 . 1 `S637 1 . 1 0 ]
-[v _LATBbits LATBbits `VES646  1 e 1 @269 ]
-"2428
+"2430
 [v _BORCON BORCON `VEuc  1 e 1 @278 ]
-"2777
+"2779
 [v _APFCON0 APFCON0 `VEuc  1 e 1 @285 ]
-"2839
+"2841
 [v _APFCON1 APFCON1 `VEuc  1 e 1 @286 ]
-"2859
+"2861
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
-"2911
+"2913
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
-"2976
-[v _EEADR EEADR `VEus  1 e 2 @401 ]
-"3035
-[v _EEDATA EEDATA `VEuc  1 e 1 @403 ]
-"3088
-[v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
-"3150
+"2985
+[v _EEADRL EEADRL `VEuc  1 e 1 @401 ]
+"3005
+[v _EEADRH EEADRH `VEuc  1 e 1 @402 ]
+"3032
+[v _EEDATL EEDATL `VEuc  1 e 1 @403 ]
+"3070
+[v _EEDATH EEDATH `VEuc  1 e 1 @404 ]
+[s S654 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 LWLO 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"3107
+[u S663 . 1 `S654 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES663  1 e 1 @405 ]
+"3152
 [v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
-"3485
+"3487
 [v _WPUA WPUA `VEuc  1 e 1 @524 ]
-"3514
+"3516
 [v _WPUB WPUB `VEuc  1 e 1 @525 ]
-"6310
-[v _TMR4 TMR4 `VEuc  1 e 1 @1045 ]
-"6330
-[v _PR4 PR4 `VEuc  1 e 1 @1046 ]
-"6350
-[v _T4CON T4CON `VEuc  1 e 1 @1047 ]
-[s S456 . 1 `uc 1 T4CKPS0 1 0 :1:0 
-`uc 1 T4CKPS1 1 0 :1:1 
-`uc 1 TMR4ON 1 0 :1:2 
-`uc 1 T4OUTPS0 1 0 :1:3 
-`uc 1 T4OUTPS1 1 0 :1:4 
-`uc 1 T4OUTPS2 1 0 :1:5 
-`uc 1 T4OUTPS3 1 0 :1:6 
+"3586
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
+"3700
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+"3822
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+"4148
+[v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @535 ]
+[s S493 . 1 `uc 1 IOCBP0 1 0 :1:0 
+`uc 1 IOCBP1 1 0 :1:1 
+`uc 1 IOCBP2 1 0 :1:2 
+`uc 1 IOCBP3 1 0 :1:3 
+`uc 1 IOCBP4 1 0 :1:4 
+`uc 1 IOCBP5 1 0 :1:5 
+`uc 1 IOCBP6 1 0 :1:6 
+`uc 1 IOCBP7 1 0 :1:7 
 ]
-"6371
-[s S464 . 1 `uc 1 T4CKPS 1 0 :2:0 
-`uc 1 . 1 0 :1:2 
-`uc 1 T4OUTPS 1 0 :4:3 
+"5812
+[s S502 . 1 `uc 1 IOCBP 1 0 :8:0 
 ]
-[u S468 . 1 `S456 1 . 1 0 `S464 1 . 1 0 ]
-[v _T4CONbits T4CONbits `VES468  1 e 1 @1047 ]
-"6925
-[v _CARRY CARRY `VEb  1 e 0 @24 ]
-"7105
-[v _GIE GIE `VEb  1 e 0 @95 ]
-"7485
-[v _SWDTEN SWDTEN `VEb  1 e 0 @1208 ]
-"7689
-[v _WR WR `VEb  1 e 0 @3241 ]
-"7691
-[v _WREN WREN `VEb  1 e 0 @3242 ]
-"17 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\main.c
+[u S504 . 1 `S493 1 . 1 0 `S502 1 . 1 0 ]
+[v _IOCBPbits IOCBPbits `VES504  1 e 1 @916 ]
+[s S467 . 1 `uc 1 IOCBN0 1 0 :1:0 
+`uc 1 IOCBN1 1 0 :1:1 
+`uc 1 IOCBN2 1 0 :1:2 
+`uc 1 IOCBN3 1 0 :1:3 
+`uc 1 IOCBN4 1 0 :1:4 
+`uc 1 IOCBN5 1 0 :1:5 
+`uc 1 IOCBN6 1 0 :1:6 
+`uc 1 IOCBN7 1 0 :1:7 
+]
+"5882
+[s S476 . 1 `uc 1 IOCBN 1 0 :8:0 
+]
+[u S478 . 1 `S467 1 . 1 0 `S476 1 . 1 0 ]
+[v _IOCBNbits IOCBNbits `VES478  1 e 1 @917 ]
+[s S441 . 1 `uc 1 IOCBF0 1 0 :1:0 
+`uc 1 IOCBF1 1 0 :1:1 
+`uc 1 IOCBF2 1 0 :1:2 
+`uc 1 IOCBF3 1 0 :1:3 
+`uc 1 IOCBF4 1 0 :1:4 
+`uc 1 IOCBF5 1 0 :1:5 
+`uc 1 IOCBF6 1 0 :1:6 
+`uc 1 IOCBF7 1 0 :1:7 
+]
+"5952
+[s S450 . 1 `uc 1 IOCBF 1 0 :8:0 
+]
+[u S452 . 1 `S441 1 . 1 0 `S450 1 . 1 0 ]
+[v _IOCBFbits IOCBFbits `VES452  1 e 1 @918 ]
+"18 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _LedState LedState `uc  1 e 1 0 ]
-"18
-[v _TimeoutCounter TimeoutCounter `uc  1 e 1 0 ]
-"19
-[v _TurnOffTimeout TurnOffTimeout `DCuc  1 e 1 0 ]
-"30 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/ext_int.c
-[v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
-"62 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/ext_int.h
-[v _PORTA_Saved PORTA_Saved `uc  1 e 1 0 ]
-"63
-[v _DATA_RECEIVED DATA_RECEIVED `uc  1 e 1 0 ]
-"58 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+"54 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
+[v _IOCBF0_InterruptHandler IOCBF0_InterruptHandler `*.37(v  1 e 2 0 ]
+"55
+[v _IOCBF3_InterruptHandler IOCBF3_InterruptHandler `*.37(v  1 e 2 0 ]
+"56
+[v _IOCBF5_InterruptHandler IOCBF5_InterruptHandler `*.37(v  1 e 2 0 ]
+"55 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1.c
+[v _SPI1_xchgHandler SPI1_xchgHandler `*.37(uc  1 e 2 0 ]
+"58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_InterruptHandler TMR2_InterruptHandler `*.37(v  1 e 2 0 ]
-"63 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.h
-[v _TMR2_INT_FLAG TMR2_INT_FLAG `uc  1 e 1 0 ]
-"58 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr4.c
-[v _TMR4_InterruptHandler TMR4_InterruptHandler `*.37(v  1 e 2 0 ]
-"63 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr4.h
-[v _TMR4_INT_FLAG TMR4_INT_FLAG `uc  1 e 1 0 ]
-"68
-[v _TMR4_INTERRUPT_TICKER_FACTOR TMR4_INTERRUPT_TICKER_FACTOR `uc  1 e 1 0 ]
-"137 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\main.c
+"114 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"209
+"181
 } 0
-"50 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
+"50 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
 "59
@@ -354,136 +353,131 @@ SLOT_FREQUENCY 2
 {
 "75
 } 0
-"65 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 {
 "85
 } 0
-"132
+"147
 [v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 3 ]
-"134
+[v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
+"149
 } 0
-"57 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
+"60 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1.c
+[v _SPI1_Initialize SPI1_Initialize `(v  1 e 1 0 ]
+{
+"77
+} 0
+"86
+[v _SPI1_setExchangeHandler SPI1_setExchangeHandler `(v  1 e 1 0 ]
+{
+[v SPI1_setExchangeHandler@InterruptHandler InterruptHandler `*.37(uc  1 p 2 2 ]
+"88
+} 0
+"59 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"99
+"126
 } 0
-"61 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
+"225
+[v _IOCBF5_SetInterruptHandler IOCBF5_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCBF5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
+"227
+} 0
+"195
+[v _IOCBF3_SetInterruptHandler IOCBF3_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCBF3_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
+"197
+} 0
+"165
+[v _IOCBF0_SetInterruptHandler IOCBF0_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v IOCBF0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
+"167
+} 0
+"61 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
 "69
 } 0
-"59 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/ext_int.c
-[v _EXT_INT_Initialize EXT_INT_Initialize `(v  1 e 1 0 ]
-{
-"69
-} 0
-"50
-[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
-{
-[v INT_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 3 ]
-"52
-} 0
-"80 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\main.c
-[v _Code_exec Code_exec `(v  1 e 1 0 ]
+"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
 {
 "82
-[v Code_exec@data data `uc  1 a 1 0 ]
-"135
 } 0
-"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\pic\eewrite.c
-[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
-{
-[v eeprom_write@addr addr `uc  1 a 1 wreg ]
-[v eeprom_write@addr addr `uc  1 a 1 wreg ]
-[v eeprom_write@value value `uc  1 p 1 3 ]
-[v eeprom_write@addr addr `uc  1 a 1 6 ]
-"9
-} 0
-"67 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\main.c
-[v _WaitLoop WaitLoop `(v  1 e 1 0 ]
-{
-"69
-} 0
-"71
-[v _RunCode RunCode `(v  1 e 1 0 ]
-{
-[v RunCode@Code Code `uc  1 a 1 wreg ]
-[v RunCode@Code Code `uc  1 a 1 wreg ]
-[v RunCode@Code Code `uc  1 a 1 3 ]
-"78
-} 0
-"60
-[v _POWER_LED_TOGGLE POWER_LED_TOGGLE `(v  1 e 1 0 ]
-{
-"65
-} 0
-"40
-[v _POWER_LED_ON POWER_LED_ON `(v  1 e 1 0 ]
-{
-"48
-} 0
-"50
-[v _POWER_LED_OFF POWER_LED_OFF `(v  1 e 1 0 ]
-{
-"58
-} 0
-"52 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/interrupt_manager.c
+"52 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"74
+"82
 } 0
-"120 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr4.c
-[v _TMR4_ISR TMR4_ISR `(v  1 e 1 0 ]
-{
-"122
-[v TMR4_ISR@CountCallBack CountCallBack `VEui  1 s 2 CountCallBack ]
-"136
-} 0
-"138
-[v _TMR4_CallBack TMR4_CallBack `(v  1 e 1 0 ]
-{
-"146
-} 0
-"152
-[v _TMR4_DefaultInterruptHandler TMR4_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"156
-} 0
-"114 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+"119 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
 {
-"122
+"121
+[v TMR2_ISR@CountCallBack CountCallBack `VEui  1 s 2 CountCallBack ]
+"135
 } 0
-"124
+"137
 [v _TMR2_CallBack TMR2_CallBack `(v  1 e 1 0 ]
 {
-"130
+"145
 } 0
-"136
+"151
 [v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"140
+"154
 } 0
-"32 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/ext_int.c
-[v _INT_ISR INT_ISR `(v  1 e 1 0 ]
+"80 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1.c
+[v _SPI1_ISR SPI1_ISR `(v  1 e 1 0 ]
 {
-"41
+"83
 } 0
-"43
-[v _INT_CallBack INT_CallBack `(v  1 e 1 0 ]
+"92
+[v _SPI1_DefaultExchangeHandler SPI1_DefaultExchangeHandler `(uc  1 e 1 0 ]
 {
-"48
+[v SPI1_DefaultExchangeHandler@byte byte `uc  1 p 1 0 ]
+"96
 } 0
-"54
-[v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"57
-} 0
-"141 C:\WorkSpace\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
-[v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
+"128 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
 {
 "145
+} 0
+"210
+[v _IOCBF5_ISR IOCBF5_ISR `(v  1 e 1 0 ]
+{
+"220
+} 0
+"232
+[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"235
+} 0
+"180
+[v _IOCBF3_ISR IOCBF3_ISR `(v  1 e 1 0 ]
+{
+"190
+} 0
+"202
+[v _IOCBF3_DefaultInterruptHandler IOCBF3_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"205
+} 0
+"150
+[v _IOCBF0_ISR IOCBF0_ISR `(v  1 e 1 0 ]
+{
+"160
+} 0
+"172
+[v _IOCBF0_DefaultInterruptHandler IOCBF0_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"175
+} 0
+"134 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+[v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
+{
+"138
 } 0

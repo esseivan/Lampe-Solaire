@@ -131,14 +131,13 @@ void main(void) {
     //INTERRUPT_PeripheralInterruptDisable();
 
     // Toggle du relay pour indication d'actif
-    POWER_LED_ON();
-    __delay_ms(50);
-    POWER_LED_OFF();
-    __delay_ms(50);
-    POWER_LED_ON();
-    __delay_ms(50);
-    POWER_LED_OFF();
-    __delay_ms(50);
+    LED_SetLow();
+    __delay_ms(500);
+    LED_SetHigh();
+    __delay_ms(500);
+    LED_SetLow();
+    __delay_ms(500);
+    LED_SetHigh();
 
 #if RESET_SETTINGS == 1
     DATAEE_WriteByte(SLOT_MODE, 0);
@@ -159,21 +158,21 @@ void main(void) {
 
         BUZZER_LAT = !WATER_GetValue();
 
-        if (DATA_RECEIVED) {
-            DATA_RECEIVED = 0;
-            Code_exec();
-        }
-
-        if (TMR2_INT_FLAG) {
-            TMR2_INT_FLAG = 0;
-
-            //            ADC_StartConversion();
-
-            if (TimeoutCounter++ >= TurnOffTimeout) {
-                TimeoutCounter
-                POWER_LED_OFF();
-            }
-        }
+        //if (DATA_RECEIVED) {
+        //    DATA_RECEIVED = 0;
+        //    Code_exec();
+        //}
+//
+//        if (TMR2_INT_FLAG) {
+//            TMR2_INT_FLAG = 0;
+//
+//            //            ADC_StartConversion();
+//
+//            if (TimeoutCounter++ >= TurnOffTimeout) {
+//                TimeoutCounter
+//                POWER_LED_OFF();
+//            }
+//        }
 
         //        if (ADC_IsConversionDone()) {
         //            Auto_Value = ADC_GetConversionResult();
