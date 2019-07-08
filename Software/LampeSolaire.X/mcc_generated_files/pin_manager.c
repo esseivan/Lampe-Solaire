@@ -61,14 +61,14 @@ void PIN_MANAGER_Initialize(void)
     /**
     LATx registers
     */
-    LATA = 0x00;
+    LATA = 0x01;
     LATB = 0x00;
 
     /**
     TRISx registers
     */
     TRISA = 0x30;
-    TRISB = 0xFB;
+    TRISB = 0xEB;
 
     /**
     ANSELx registers
@@ -101,7 +101,7 @@ void PIN_MANAGER_Initialize(void)
     //interrupt on change for group IOCBF - flag
     IOCBFbits.IOCBF5 = 0;
     //interrupt on change for group IOCBN - negative
-    IOCBNbits.IOCBN0 = 1;
+    //IOCBNbits.IOCBN0 = 1;
     //interrupt on change for group IOCBN - negative
     IOCBNbits.IOCBN3 = 1;
     //interrupt on change for group IOCBN - negative

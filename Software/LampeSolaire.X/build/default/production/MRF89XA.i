@@ -1,5 +1,5 @@
 
-# 1 "mcc_generated_files/interrupt_manager.c"
+# 1 "MRF89XA.c"
 
 # 18 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4560,36 +4560,213 @@ void OSCILLATOR_Initialize(void);
 # 98
 void WDT_Initialize(void);
 
-# 52 "mcc_generated_files/interrupt_manager.c"
-void __interrupt() INTERRUPT_InterruptManager (void)
-{
+# 34 "MRF89XA.h"
+enum MRF89XA_Mode {
+MRF89XA_MODE_RX,
+MRF89XA_MODE_TX,
+MRF89XA_MODE_STANDBY,
+MRF89XA_MODE_SLEEP,
 
-if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
-{
-PIN_MANAGER_IOC();
+MRF89XA_MODULATION_FSK,
+MRF89XA_MODULATION_OOK,
+};
+
+void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
+void MRF89XA_SetMode(unsigned char Mode);
+void MRF89XA_SetModulation(unsigned char Modulation);
+unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
+unsigned char MRF89XA_ReadConfig(unsigned char Address);
+void MRF89XA_ReadAllConfigs(void);
+unsigned char MRF89XA_ReadFifo(void);
+void MRF89XA_WriteFifo(unsigned char Data);
+unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
+void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
+void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
+unsigned char MRF89XA_IsPLRReady(void);
+unsigned char MRF89XA_IsCRCOK(void);
+unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
+unsigned char MRF89XA_IsTxDone(void);
+
+# 4 "main.h"
+void Delay_Xms(long delay);
+void Delay_Xus(long delay);
+
+# 12 "MRF89XA.c"
+unsigned char MRF89XA_SendConfig(unsigned char Address, unsigned char Data);
+unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read);
+unsigned char MRF89XA_ExchangeByte(unsigned char byte);
+void MRF89XA_SetIndicationLed(unsigned char State);
+
+void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation) {
+MRF89XA_SetMode(Mode);
+
+MRF89XA_SetModulation(Modulation);
+
+MRF89XA_WriteConfig(0x02,0x03);
+MRF89XA_WriteConfig(0x03,0xC7);
+
+MRF89XA_WriteConfig(0x04, 0b00001100);
+MRF89XA_WriteConfig(0x05, 0b00000010);
+MRF89XA_WriteConfig(0x0D,0b10111000);
+MRF89XA_WriteConfig(0x0E, 0b00101010);
+
+MRF89XA_WriteConfig(0x06, 0x7D);
+MRF89XA_WriteConfig(0x07, 0x64);
+MRF89XA_WriteConfig(0x08, 0x14);
+
+MRF89XA_WriteConfig(0x0C, 0b00100000);
+MRF89XA_WriteConfig(0x10, 0b10010011);
+MRF89XA_WriteConfig(0x11, 0b00111000);
+
+MRF89XA_WriteConfig(0x12,0b10000000);
+MRF89XA_WriteConfig(0x19,0x55);
+
+MRF89XA_WriteConfig(0x15, 0b00000000);
+MRF89XA_WriteConfig(0x1A,0b01110010);
+
+MRF89XA_WriteConfig(0x1B,0b00111100);
+MRF89XA_WriteConfig(0x1C,0b00000010);
+MRF89XA_WriteConfig(0x1D,Address);
+MRF89XA_WriteConfig(0x1E,0b00100100);
+MRF89XA_WriteConfig(0x1F,0b00000000);
 }
-else if(INTCONbits.PEIE == 1)
-{
-if(PIE1bits.SSP1IE == 1 && PIR1bits.SSP1IF == 1)
-{
-spi1_isr();
-}
-else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-{
-ADC_ISR();
-}
-else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
-{
-TMR2_ISR();
-}
+
+void MRF89XA_SetMode(unsigned char Mode) {
+unsigned char mask = 0x00;
+if(Mode == MRF89XA_MODE_TX)
+mask = 0b10000000;
+else if(Mode == MRF89XA_MODE_RX)
+mask = 0b01100000;
+else if(Mode == MRF89XA_MODE_STANDBY)
+mask = 0b00100000;
 else
-{
+mask = 0b00000000;
 
+MRF89XA_WriteConfig(0x00,0b00010000 | mask);
 }
-}
+
+void MRF89XA_SetModulation(unsigned char Modulation) {
+unsigned char mask = 0x00;
+if(Modulation == MRF89XA_MODULATION_FSK)
+mask = 0b10000000;
 else
-{
+mask = 0b01000000;
 
+MRF89XA_WriteConfig(0x01,0b00001100 | mask);
+}
+
+unsigned char MRF89XA_ExchangeByte(unsigned char byte) {
+return spi1_exchangeByte(byte);
+}
+
+void MRF89XA_SetIndicationLed(unsigned char State) {
+LATAbits.LATA3 = (State & 0x01 == 0);
+}
+
+void MRF89XA_ReadAllConfigs(void) {
+unsigned char currentConfig = 0;
+unsigned char cond = 1;
+unsigned char counter = 0;
+
+while(cond == 1) {
+currentConfig = MRF89XA_ReadConfig(counter);
+counter++;
+
+asm("nop");
+if(counter > 0x1F) {
+cond = 0;
+}
+}
+}
+
+unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data) {
+return MRF89XA_SendConfig(MRF89XA_GetAddress(Address, 0), Data);
+}
+
+unsigned char MRF89XA_ReadConfig(unsigned char Address) {
+return MRF89XA_SendConfig(MRF89XA_GetAddress(Address, 1), 0xFF);
+}
+
+unsigned char MRF89XA_ReadFifo(void) {
+return MRF89XA_ExchangeFifo(0x00);
+}
+
+void MRF89XA_WriteFifo(unsigned char Data) {
+MRF89XA_ExchangeFifo(Data);
+}
+
+unsigned char MRF89XA_ExchangeFifo(unsigned char Data) {
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA1 = 0; } while(0);
+unsigned char ret = MRF89XA_ExchangeByte(Data);
+do { LATAbits.LATA1 = 1; } while(0);
+return ret;
+}
+
+void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data) {
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA1 = 0; } while(0);
+Delay_Xus(100);
+MRF89XA_ExchangeByte(TargetAddress);
+Delay_Xus(100);
+MRF89XA_ExchangeByte(Data);
+Delay_Xus(100);
+do { LATAbits.LATA1 = 1; } while(0);
+
+while(!MRF89XA_IsTxDone()) {
+Delay_Xms(5);
 }
 }
 
+void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param) {
+do { LATAbits.LATA2 = 1; } while(0);
+do { LATAbits.LATA1 = 0; } while(0);
+Delay_Xus(100);
+MRF89XA_ExchangeByte(TargetAddress);
+Delay_Xus(100);
+MRF89XA_ExchangeByte(Command);
+Delay_Xus(100);
+MRF89XA_ExchangeByte(Param);
+Delay_Xus(100);
+do { LATAbits.LATA1 = 1; } while(0);
+}
+
+unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read) {
+unsigned char ret = Address << 1;
+if(Read != 0) {
+ret = ret | 0b01000000;
+} else {
+ret = ret | 0b00000000;
+}
+return ret;
+}
+
+unsigned char MRF89XA_SendConfig(unsigned char Address, unsigned char Data) {
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 0; } while(0);
+Delay_Xus(100);
+MRF89XA_ExchangeByte(Address);
+Delay_Xus(100);
+unsigned char ret = MRF89XA_ExchangeByte(Data);
+Delay_Xus(100);
+do { LATAbits.LATA2 = 1; } while(0);
+return ret;
+}
+
+
+unsigned char MRF89XA_IsPLRReady(void) {
+return PORTBbits.RB0;
+}
+
+unsigned char MRF89XA_IsCRCOK(void) {
+return PORTBbits.RB3;
+}
+
+
+unsigned char MRF89XA_IsFIFO_THRESHOLD(void) {
+return PORTBbits.RB0;
+}
+
+unsigned char MRF89XA_IsTxDone(void) {
+return PORTBbits.RB3;
+}

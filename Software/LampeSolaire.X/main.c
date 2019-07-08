@@ -12,12 +12,18 @@
 #include "mcc_generated_files/tmr2.h"
 #include "mcc_generated_files/tmr4.h"
 #include "main.h"
+#include "MRF89XA.h"
 
 #define RESET_SETTINGS 0
+
+#define MODE_SECONDARY 0
 
 unsigned char LedState = 0;
 unsigned char TimeoutCounter = 0;
 const unsigned char TurnOffTimeout = 180; // 180*10s = 1800s = 30min
+unsigned char BlinkCounter = 0;
+unsigned char BlinkCounterOn = 1;
+unsigned char BlinkCounterOff = 9;
 
 enum Modes {
     MODE_ON_OFF = 0,
@@ -55,7 +61,19 @@ enum RF_COMMANDS {
     REBOOT = 0xE0,
     SHUTDOWN = 0xE1,
 };
+void IRQ1_ISR(void);
 
+void Delay_Xms(long delay) {
+    for(long i = 0; i < delay; i++) {
+        __delay_ms(1);
+    }
+}
+
+void Delay_Xus(long delay) {
+    for(long i = 0; i < delay; i++) {
+        __delay_us(1);
+    }
+}
 void POWER_LED_ON(void) {
     ENABLE_SetHigh();
     LedState = 1;
@@ -111,32 +129,52 @@ void Code_exec(uint8_t code) {
     }
 }
 
+// Sync match
+void IRQ0_ISR(void) {
+    // Read fifo
+    // Packet length is 2 -> 
+    // Read address
+    unsigned char Address = MRF89XA_ReadFifo();
+    // Read data 1
+    unsigned char Data1 = MRF89XA_ReadFifo();
+    
+    LED_SetLow();
+    Delay_Xms(500);
+    LED_SetHigh();
+    Delay_Xms(500);
+        
+    // Clear fifo
+    unsigned char Dummy = 0;
+    while(IRQ1_GetValue()) {
+        Dummy = MRF89XA_ReadFifo();
+    }
+    
+    asm("nop"); 
+}
+
 void main(void) {
     // initialize the device
     SYSTEM_Initialize();
-
+    
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
 
     // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
-
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
 
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
-
+    // Power on
+    RESET_RF_SetLow();
+    // Wait 50ms or + for them to startup
+    
     // Toggle du relay pour indication d'actif
     LED_SetLow();
-    __delay_ms(500);
+    Delay_Xms(500);
     LED_SetHigh();
-    __delay_ms(500);
+    Delay_Xms(500);
     LED_SetLow();
-    __delay_ms(500);
+    Delay_Xms(500);
     LED_SetHigh();
 
 #if RESET_SETTINGS == 1
@@ -144,11 +182,49 @@ void main(void) {
     while (1);
 #endif
 
-
+    MRF89XA_Initialize(0x41, MRF89XA_MODE_RX, MRF89XA_MODULATION_OOK);
+    
+    Delay_Xms(5);
+    
+    IOCBF0_SetInterruptHandler(IRQ0_ISR);
+    
+#if(MODE_SECONDARY == 1)
+        MRF89XA_SetMode(MRF89XA_MODE_SLEEP);
+        
+        MISO_SetDigitalInput();
+        MOSI_SetDigitalInput();
+        SCK_SetDigitalInput();
+        
+        while(1) {
+            if(MISO_GetValue() == 1) {
+                POWER_LED_TOGGLE();
+                while(MISO_GetValue() == 1) {
+                    __delay_ms(100);
+                }
+            }
+            if(LedState == 1) {
+                BlinkCounter++;
+                if(LED_GetValue() == 0) {
+                    if(BlinkCounter == BlinkCounterOn){
+                        LED_SetHigh();
+                        BlinkCounter = 0;
+                    }
+                }
+                else {
+                    if(BlinkCounter == BlinkCounterOff){
+                        LED_SetLow();
+                        BlinkCounter = 0;
+                    }
+                }
+            }
+            Delay_Xms(100);
+        }
+#endif
+    
     while (1) {
 
-        __delay_ms(50);
-
+        Delay_Xms(100);
+        
         //        SLEEP();
         asm("nop");
         asm("nop");
@@ -156,7 +232,6 @@ void main(void) {
         asm("nop");
         asm("nop");
 
-        BUZZER_LAT = !WATER_GetValue();
 
         //if (DATA_RECEIVED) {
         //    DATA_RECEIVED = 0;

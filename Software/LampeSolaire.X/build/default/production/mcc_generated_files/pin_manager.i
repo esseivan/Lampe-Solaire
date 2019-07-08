@@ -4259,12 +4259,12 @@ void PIN_MANAGER_Initialize(void)
 {
 
 # 64
-LATA = 0x00;
+LATA = 0x01;
 LATB = 0x00;
 
 # 70
 TRISA = 0x30;
-TRISB = 0xFB;
+TRISB = 0xEB;
 
 # 76
 ANSELB = 0x00;
@@ -4286,7 +4286,7 @@ IOCBFbits.IOCBF3 = 0;
 
 IOCBFbits.IOCBF5 = 0;
 
-IOCBNbits.IOCBN0 = 1;
+
 
 IOCBNbits.IOCBN3 = 1;
 

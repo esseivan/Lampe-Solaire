@@ -1,5 +1,157 @@
 
-# 1 "mcc_generated_files/interrupt_manager.c"
+# 1 "mcc_generated_files/spi1_driver.c"
+
+# 4 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\__size_t.h"
+typedef unsigned size_t;
+
+# 7 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef __int24 int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 52
+typedef unsigned char uint8_t;
+
+# 58
+typedef unsigned int uint16_t;
+
+# 65
+typedef __uint24 uint24_t;
+
+# 72
+typedef unsigned long int uint32_t;
+
+# 88
+typedef signed char int_least8_t;
+
+# 96
+typedef signed int int_least16_t;
+
+# 109
+typedef __int24 int_least24_t;
+
+# 118
+typedef signed long int int_least32_t;
+
+# 136
+typedef unsigned char uint_least8_t;
+
+# 143
+typedef unsigned int uint_least16_t;
+
+# 154
+typedef __uint24 uint_least24_t;
+
+# 162
+typedef unsigned long int uint_least32_t;
+
+# 181
+typedef signed char int_fast8_t;
+
+# 188
+typedef signed int int_fast16_t;
+
+# 200
+typedef __int24 int_fast24_t;
+
+# 208
+typedef signed long int int_fast32_t;
+
+# 224
+typedef unsigned char uint_fast8_t;
+
+# 230
+typedef unsigned int uint_fast16_t;
+
+# 240
+typedef __uint24 uint_fast24_t;
+
+# 247
+typedef unsigned long int uint_fast32_t;
+
+# 268
+typedef int32_t intmax_t;
+
+# 282
+typedef uint32_t uintmax_t;
+
+# 289
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
+typedef unsigned char bool;
 
 # 18 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4207,200 +4359,6 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 303 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-
-# 315
-void PIN_MANAGER_IOC(void);
-
-# 328
-void IOCBF0_ISR(void);
-
-# 351
-void IOCBF0_SetInterruptHandler(void (* InterruptHandler)(void));
-
-# 375
-extern void (*IOCBF0_InterruptHandler)(void);
-
-# 399
-void IOCBF0_DefaultInterruptHandler(void);
-
-# 412
-void IOCBF3_ISR(void);
-
-# 435
-void IOCBF3_SetInterruptHandler(void (* InterruptHandler)(void));
-
-# 459
-extern void (*IOCBF3_InterruptHandler)(void);
-
-# 483
-void IOCBF3_DefaultInterruptHandler(void);
-
-# 496
-void IOCBF5_ISR(void);
-
-# 519
-void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
-
-# 543
-extern void (*IOCBF5_InterruptHandler)(void);
-
-# 567
-void IOCBF5_DefaultInterruptHandler(void);
-
-# 13 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef __int24 int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 52
-typedef unsigned char uint8_t;
-
-# 58
-typedef unsigned int uint16_t;
-
-# 65
-typedef __uint24 uint24_t;
-
-# 72
-typedef unsigned long int uint32_t;
-
-# 88
-typedef signed char int_least8_t;
-
-# 96
-typedef signed int int_least16_t;
-
-# 109
-typedef __int24 int_least24_t;
-
-# 118
-typedef signed long int int_least32_t;
-
-# 136
-typedef unsigned char uint_least8_t;
-
-# 143
-typedef unsigned int uint_least16_t;
-
-# 154
-typedef __uint24 uint_least24_t;
-
-# 162
-typedef unsigned long int uint_least32_t;
-
-# 181
-typedef signed char int_fast8_t;
-
-# 188
-typedef signed int int_fast16_t;
-
-# 200
-typedef __int24 int_fast24_t;
-
-# 208
-typedef signed long int int_fast32_t;
-
-# 224
-typedef unsigned char uint_fast8_t;
-
-# 230
-typedef unsigned int uint_fast16_t;
-
-# 240
-typedef __uint24 uint_fast24_t;
-
-# 247
-typedef unsigned long int uint_fast32_t;
-
-# 268
-typedef int32_t intmax_t;
-
-# 282
-typedef uint32_t uintmax_t;
-
-# 289
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
-
-# 4 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
 # 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
@@ -4427,169 +4385,98 @@ uint8_t spi1_readByte(void);
 void spi1_isr(void);
 void spi1_setSpiISR(void(*handler)(void));
 
-# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
 
-# 99 "mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint16_t flashAddr);
+# 29 "mcc_generated_files/spi1_driver.c"
+#pragma warning disable 520
 
-# 128
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+void (*spi1_interruptHandler)(void);
 
-# 164
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-
-# 189
-void FLASH_EraseBlock(uint16_t startAddr);
-
-# 220
-void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-
-# 246
-uint8_t DATAEE_ReadByte(uint8_t bAdd);
-
-# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
-
-# 104 "mcc_generated_files/tmr2.h"
-void TMR2_Initialize(void);
-
-# 133
-void TMR2_StartTimer(void);
-
-# 165
-void TMR2_StopTimer(void);
-
-# 200
-uint8_t TMR2_ReadTimer(void);
-
-# 239
-void TMR2_WriteTimer(uint8_t timerVal);
-
-# 291
-void TMR2_LoadPeriodRegister(uint8_t periodVal);
-
-# 309
-void TMR2_ISR(void);
-
-# 327
-void TMR2_CallBack(void);
-
-# 344
-void TMR2_SetInterruptHandler(void (* InterruptHandler)(void));
-
-# 362
-extern void (*TMR2_InterruptHandler)(void);
-
-# 380
-void TMR2_DefaultInterruptHandler(void);
-
-# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
-
-# 71 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-
-# 76
-typedef struct
+inline void spi1_close(void)
 {
-adc_result_t adcResult1;
-adc_result_t adcResult2;
-} adc_sync_double_result_t;
-
-# 94
-typedef enum
-{
-TEMP = 0x4,
-channel_Temp = 0x1D,
-channel_DAC = 0x1E,
-channel_FVR = 0x1F
-} adc_channel_t;
-
-# 135
-void ADC_Initialize(void);
-
-# 165
-void ADC_SelectChannel(adc_channel_t channel);
-
-# 192
-void ADC_StartConversion();
-
-# 224
-bool ADC_IsConversionDone();
-
-# 257
-adc_result_t ADC_GetConversionResult(void);
-
-# 287
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-
-# 304
-void ADC_ISR(void);
-
-# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
-
-# 33 "mcc_generated_files/drivers/spi_master.h"
-typedef enum {
-MASTER
-} spi_master_configurations_t;
-
-typedef struct { void (*spiClose)(void);
-bool (*spiOpen)(void);
-uint8_t (*exchangeByte)(uint8_t b);
-void (*exchangeBlock)(void * block, size_t blockSize);
-void (*writeBlock)(void * block, size_t blockSize);
-void (*readBlock)(void * block, size_t blockSize);
-void (*writeByte)(uint8_t byte);
-uint8_t (*readByte)(void);
-void (*setSpiISR)(void(*handler)(void));
-void (*spiISR)(void);
-} spi_master_functions_t;
-
-extern const spi_master_functions_t spiMaster[];
-
-inline bool spi_master_open(spi_master_configurations_t config);
-
-# 73 "mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-
-# 86
-void OSCILLATOR_Initialize(void);
-
-# 98
-void WDT_Initialize(void);
-
-# 52 "mcc_generated_files/interrupt_manager.c"
-void __interrupt() INTERRUPT_InterruptManager (void)
-{
-
-if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
-{
-PIN_MANAGER_IOC();
+SSP1CON1bits.SSPEN = 0;
 }
-else if(INTCONbits.PEIE == 1)
+
+
+typedef struct { uint8_t con1; uint8_t stat; uint8_t add; uint8_t operation; } spi1_configuration_t;
+static const spi1_configuration_t spi1_configuration[] = {
+{ 0xa, 0x40, 0x27, 0 },
+{ 0xa, 0x40, 0x27, 0 }
+};
+
+
+bool spi1_open(spi1_modes spiUniqueConfiguration)
 {
-if(PIE1bits.SSP1IE == 1 && PIR1bits.SSP1IF == 1)
-{
-spi1_isr();
-}
-else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-{
-ADC_ISR();
-}
-else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
-{
-TMR2_ISR();
-}
-else
+if(!SSP1CON1bits.SSPEN)
 {
 
-}
-}
-else
-{
 
+SSP1STAT = spi1_configuration[spiUniqueConfiguration].stat;
+SSP1CON1 = (uint8_t)(spi1_configuration[spiUniqueConfiguration].con1 | 0x20);
+SSP1CON2 = 0x00;
+SSP1ADD = (uint8_t)(spi1_configuration[spiUniqueConfiguration].add);
+
+TRISBbits.TRISB4 = (uint8_t)(spi1_configuration[spiUniqueConfiguration].operation);
+return 1;
+}
+return 0;
+}
+
+
+uint8_t spi1_exchangeByte(uint8_t b)
+{
+SSP1BUF = b;
+while(!PIR1bits.SSP1IF);
+PIR1bits.SSP1IF = 0;
+return SSP1BUF;
+}
+
+void spi1_exchangeBlock(void *block, size_t blockSize)
+{
+uint8_t *data = block;
+while(blockSize--)
+{
+*data = spi1_exchangeByte(*data );
+data++;
 }
 }
 
+
+void spi1_writeBlock(void *block, size_t blockSize)
+{
+uint8_t *data = block;
+while(blockSize--)
+{
+spi1_exchangeByte(*data++);
+}
+}
+
+void spi1_readBlock(void *block, size_t blockSize)
+{
+uint8_t *data = block;
+while(blockSize--)
+{
+*data++ = spi1_exchangeByte(0);
+}
+}
+
+void spi1_writeByte(uint8_t byte){
+SSP1BUF = byte;
+}
+
+uint8_t spi1_readByte(void){
+return SSP1BUF;
+}
+
+# 113
+void spi1_isr(void){
+if(PIR1bits.SSP1IF == 1){
+if(spi1_interruptHandler){
+spi1_interruptHandler();
+}
+PIR1bits.SSP1IF = 0;
+}
+}
+
+void spi1_setSpiISR(void(*handler)(void)){
+spi1_interruptHandler = handler;
+}

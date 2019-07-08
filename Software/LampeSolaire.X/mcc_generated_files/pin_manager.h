@@ -79,19 +79,19 @@
 #define RESET_RF_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
 #define RESET_RF_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
 
-// get/set CSDATA aliases
-#define CSDATA_TRIS                 TRISAbits.TRISA1
-#define CSDATA_LAT                  LATAbits.LATA1
-#define CSDATA_PORT                 PORTAbits.RA1
-#define CSDATA_ANS                  ANSELAbits.ANSA1
-#define CSDATA_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
-#define CSDATA_SetLow()             do { LATAbits.LATA1 = 0; } while(0)
-#define CSDATA_Toggle()             do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0)
-#define CSDATA_GetValue()           PORTAbits.RA1
-#define CSDATA_SetDigitalInput()    do { TRISAbits.TRISA1 = 1; } while(0)
-#define CSDATA_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0)
-#define CSDATA_SetAnalogMode()      do { ANSELAbits.ANSA1 = 1; } while(0)
-#define CSDATA_SetDigitalMode()     do { ANSELAbits.ANSA1 = 0; } while(0)
+// get/set CSDAT aliases
+#define CSDAT_TRIS                 TRISAbits.TRISA1
+#define CSDAT_LAT                  LATAbits.LATA1
+#define CSDAT_PORT                 PORTAbits.RA1
+#define CSDAT_ANS                  ANSELAbits.ANSA1
+#define CSDAT_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
+#define CSDAT_SetLow()             do { LATAbits.LATA1 = 0; } while(0)
+#define CSDAT_Toggle()             do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0)
+#define CSDAT_GetValue()           PORTAbits.RA1
+#define CSDAT_SetDigitalInput()    do { TRISAbits.TRISA1 = 1; } while(0)
+#define CSDAT_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0)
+#define CSDAT_SetAnalogMode()      do { ANSELAbits.ANSA1 = 1; } while(0)
+#define CSDAT_SetDigitalMode()     do { ANSELAbits.ANSA1 = 0; } while(0)
 
 // get/set CSCON aliases
 #define CSCON_TRIS                 TRISAbits.TRISA2
@@ -256,39 +256,39 @@
 #define WATER_SetAnalogMode()      do { ANSELBbits.ANSB5 = 1; } while(0)
 #define WATER_SetDigitalMode()     do { ANSELBbits.ANSB5 = 0; } while(0)
 
-// get/set ICSPDAT aliases
-#define ICSPDAT_TRIS                 TRISBbits.TRISB6
-#define ICSPDAT_LAT                  LATBbits.LATB6
-#define ICSPDAT_PORT                 PORTBbits.RB6
-#define ICSPDAT_WPU                  WPUBbits.WPUB6
-#define ICSPDAT_ANS                  ANSELBbits.ANSB6
-#define ICSPDAT_SetHigh()            do { LATBbits.LATB6 = 1; } while(0)
-#define ICSPDAT_SetLow()             do { LATBbits.LATB6 = 0; } while(0)
-#define ICSPDAT_Toggle()             do { LATBbits.LATB6 = ~LATBbits.LATB6; } while(0)
-#define ICSPDAT_GetValue()           PORTBbits.RB6
-#define ICSPDAT_SetDigitalInput()    do { TRISBbits.TRISB6 = 1; } while(0)
-#define ICSPDAT_SetDigitalOutput()   do { TRISBbits.TRISB6 = 0; } while(0)
-#define ICSPDAT_SetPullup()          do { WPUBbits.WPUB6 = 1; } while(0)
-#define ICSPDAT_ResetPullup()        do { WPUBbits.WPUB6 = 0; } while(0)
-#define ICSPDAT_SetAnalogMode()      do { ANSELBbits.ANSB6 = 1; } while(0)
-#define ICSPDAT_SetDigitalMode()     do { ANSELBbits.ANSB6 = 0; } while(0)
-
 // get/set ICSPCLK aliases
-#define ICSPCLK_TRIS                 TRISBbits.TRISB7
-#define ICSPCLK_LAT                  LATBbits.LATB7
-#define ICSPCLK_PORT                 PORTBbits.RB7
-#define ICSPCLK_WPU                  WPUBbits.WPUB7
-#define ICSPCLK_ANS                  ANSELBbits.ANSB7
-#define ICSPCLK_SetHigh()            do { LATBbits.LATB7 = 1; } while(0)
-#define ICSPCLK_SetLow()             do { LATBbits.LATB7 = 0; } while(0)
-#define ICSPCLK_Toggle()             do { LATBbits.LATB7 = ~LATBbits.LATB7; } while(0)
-#define ICSPCLK_GetValue()           PORTBbits.RB7
-#define ICSPCLK_SetDigitalInput()    do { TRISBbits.TRISB7 = 1; } while(0)
-#define ICSPCLK_SetDigitalOutput()   do { TRISBbits.TRISB7 = 0; } while(0)
-#define ICSPCLK_SetPullup()          do { WPUBbits.WPUB7 = 1; } while(0)
-#define ICSPCLK_ResetPullup()        do { WPUBbits.WPUB7 = 0; } while(0)
-#define ICSPCLK_SetAnalogMode()      do { ANSELBbits.ANSB7 = 1; } while(0)
-#define ICSPCLK_SetDigitalMode()     do { ANSELBbits.ANSB7 = 0; } while(0)
+#define ICSPCLK_TRIS                 TRISBbits.TRISB6
+#define ICSPCLK_LAT                  LATBbits.LATB6
+#define ICSPCLK_PORT                 PORTBbits.RB6
+#define ICSPCLK_WPU                  WPUBbits.WPUB6
+#define ICSPCLK_ANS                  ANSELBbits.ANSB6
+#define ICSPCLK_SetHigh()            do { LATBbits.LATB6 = 1; } while(0)
+#define ICSPCLK_SetLow()             do { LATBbits.LATB6 = 0; } while(0)
+#define ICSPCLK_Toggle()             do { LATBbits.LATB6 = ~LATBbits.LATB6; } while(0)
+#define ICSPCLK_GetValue()           PORTBbits.RB6
+#define ICSPCLK_SetDigitalInput()    do { TRISBbits.TRISB6 = 1; } while(0)
+#define ICSPCLK_SetDigitalOutput()   do { TRISBbits.TRISB6 = 0; } while(0)
+#define ICSPCLK_SetPullup()          do { WPUBbits.WPUB6 = 1; } while(0)
+#define ICSPCLK_ResetPullup()        do { WPUBbits.WPUB6 = 0; } while(0)
+#define ICSPCLK_SetAnalogMode()      do { ANSELBbits.ANSB6 = 1; } while(0)
+#define ICSPCLK_SetDigitalMode()     do { ANSELBbits.ANSB6 = 0; } while(0)
+
+// get/set ICSPDAT aliases
+#define ICSPDAT_TRIS                 TRISBbits.TRISB7
+#define ICSPDAT_LAT                  LATBbits.LATB7
+#define ICSPDAT_PORT                 PORTBbits.RB7
+#define ICSPDAT_WPU                  WPUBbits.WPUB7
+#define ICSPDAT_ANS                  ANSELBbits.ANSB7
+#define ICSPDAT_SetHigh()            do { LATBbits.LATB7 = 1; } while(0)
+#define ICSPDAT_SetLow()             do { LATBbits.LATB7 = 0; } while(0)
+#define ICSPDAT_Toggle()             do { LATBbits.LATB7 = ~LATBbits.LATB7; } while(0)
+#define ICSPDAT_GetValue()           PORTBbits.RB7
+#define ICSPDAT_SetDigitalInput()    do { TRISBbits.TRISB7 = 1; } while(0)
+#define ICSPDAT_SetDigitalOutput()   do { TRISBbits.TRISB7 = 0; } while(0)
+#define ICSPDAT_SetPullup()          do { WPUBbits.WPUB7 = 1; } while(0)
+#define ICSPDAT_ResetPullup()        do { WPUBbits.WPUB7 = 0; } while(0)
+#define ICSPDAT_SetAnalogMode()      do { ANSELBbits.ANSB7 = 1; } while(0)
+#define ICSPDAT_SetDigitalMode()     do { ANSELBbits.ANSB7 = 0; } while(0)
 
 /**
    @Param

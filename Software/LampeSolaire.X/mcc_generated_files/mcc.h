@@ -14,7 +14,7 @@
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
-        Device            :  PIC16LF1827
+        Device            :  PIC16F1827
         Driver Version    :  2.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.00 or later
@@ -52,12 +52,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "interrupt_manager.h"
-#include "spi1.h"
+#include "spi1_driver.h"
 #include "memory.h"
 #include "tmr2.h"
 #include "adc.h"
-
-
+#include "spi1_driver.h"
+#include "drivers/spi_master.h"
 
 /**
  * @Param

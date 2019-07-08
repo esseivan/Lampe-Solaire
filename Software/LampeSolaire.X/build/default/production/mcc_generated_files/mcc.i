@@ -4338,26 +4338,94 @@ typedef uint16_t uintptr_t;
 # 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 15
-typedef unsigned char bool;
-
 # 4 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\__size_t.h"
 typedef unsigned size_t;
 
-# 6 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stddef.h"
-typedef int ptrdiff_t;
+# 7 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdarg.h"
+typedef void * va_list[1];
 
-# 117 "mcc_generated_files/spi1.h"
-void SPI1_Initialize(void);
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
 
-# 132
-void SPI1_ISR(void);
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
 
-# 150
-void SPI1_setExchangeHandler(uint8_t (* InterruptHandler)(uint8_t));
+# 43 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
 
-# 168
-uint8_t SPI1_DefaultExchangeHandler(uint8_t byte);
+# 29 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
+typedef unsigned char bool;
+
+# 27 "mcc_generated_files/spi1_types.h"
+typedef enum {
+SPI1_DEFAULT,
+MASTER_CONFIG
+} spi1_modes;
+
+# 35 "mcc_generated_files/spi1_driver.h"
+inline void spi1_close(void);
+
+bool spi1_open(spi1_modes spiUniqueConfiguration);
+
+uint8_t spi1_exchangeByte(uint8_t b);
+
+void spi1_exchangeBlock(void *block, size_t blockSize);
+void spi1_writeBlock(void *block, size_t blockSize);
+void spi1_readBlock(void *block, size_t blockSize);
+
+void spi1_writeByte(uint8_t byte);
+uint8_t spi1_readByte(void);
+
+void spi1_isr(void);
+void spi1_setSpiISR(void(*handler)(void));
 
 # 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
@@ -4459,6 +4527,30 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 # 304
 void ADC_ISR(void);
 
+# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
+typedef unsigned char bool;
+
+# 33 "mcc_generated_files/drivers/spi_master.h"
+typedef enum {
+MASTER
+} spi_master_configurations_t;
+
+typedef struct { void (*spiClose)(void);
+bool (*spiOpen)(void);
+uint8_t (*exchangeByte)(uint8_t b);
+void (*exchangeBlock)(void * block, size_t blockSize);
+void (*writeBlock)(void * block, size_t blockSize);
+void (*readBlock)(void * block, size_t blockSize);
+void (*writeByte)(uint8_t byte);
+uint8_t (*readByte)(void);
+void (*setSpiISR)(void(*handler)(void));
+void (*spiISR)(void);
+} spi_master_functions_t;
+
+extern const spi_master_functions_t spiMaster[];
+
+inline bool spi_master_open(spi_master_configurations_t config);
+
 # 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
@@ -4475,9 +4567,11 @@ void SYSTEM_Initialize(void)
 PIN_MANAGER_Initialize();
 OSCILLATOR_Initialize();
 WDT_Initialize();
-SPI1_Initialize();
 TMR2_Initialize();
 ADC_Initialize();
+if(spi_master_open(MASTER) == 0) {
+do { LATAbits.LATA3 = 0; } while(0);
+}
 }
 
 void OSCILLATOR_Initialize(void)

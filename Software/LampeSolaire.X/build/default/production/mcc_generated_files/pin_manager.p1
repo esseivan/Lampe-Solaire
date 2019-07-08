@@ -2883,18 +2883,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 60: {
 [e :U _PIN_MANAGER_Initialize ]
 [f ]
-[; ;pin_manager.c: 64: LATA = 0x00;
+[; ;pin_manager.c: 64: LATA = 0x01;
 "64
-[e = _LATA -> -> 0 `i `uc ]
+[e = _LATA -> -> 1 `i `uc ]
 [; ;pin_manager.c: 65: LATB = 0x00;
 "65
 [e = _LATB -> -> 0 `i `uc ]
 [; ;pin_manager.c: 70: TRISA = 0x30;
 "70
 [e = _TRISA -> -> 48 `i `uc ]
-[; ;pin_manager.c: 71: TRISB = 0xFB;
+[; ;pin_manager.c: 71: TRISB = 0xEB;
 "71
-[e = _TRISB -> -> 251 `i `uc ]
+[e = _TRISB -> -> 235 `i `uc ]
 [; ;pin_manager.c: 76: ANSELB = 0x00;
 "76
 [e = _ANSELB -> -> 0 `i `uc ]
@@ -2925,9 +2925,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 102: IOCBFbits.IOCBF5 = 0;
 "102
 [e = . . _IOCBFbits 0 5 -> -> 0 `i `uc ]
-[; ;pin_manager.c: 104: IOCBNbits.IOCBN0 = 1;
-"104
-[e = . . _IOCBNbits 0 0 -> -> 1 `i `uc ]
 [; ;pin_manager.c: 106: IOCBNbits.IOCBN3 = 1;
 "106
 [e = . . _IOCBNbits 0 3 -> -> 1 `i `uc ]

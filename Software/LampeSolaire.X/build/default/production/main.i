@@ -4338,26 +4338,94 @@ typedef uint16_t uintptr_t;
 # 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 15
-typedef unsigned char bool;
-
 # 4 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\__size_t.h"
 typedef unsigned size_t;
 
-# 6 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stddef.h"
-typedef int ptrdiff_t;
+# 7 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdarg.h"
+typedef void * va_list[1];
 
-# 117 "mcc_generated_files/spi1.h"
-void SPI1_Initialize(void);
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
 
-# 132
-void SPI1_ISR(void);
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
 
-# 150
-void SPI1_setExchangeHandler(uint8_t (* InterruptHandler)(uint8_t));
+# 43 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
 
-# 168
-uint8_t SPI1_DefaultExchangeHandler(uint8_t byte);
+# 29 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
+typedef unsigned char bool;
+
+# 27 "mcc_generated_files/spi1_types.h"
+typedef enum {
+SPI1_DEFAULT,
+MASTER_CONFIG
+} spi1_modes;
+
+# 35 "mcc_generated_files/spi1_driver.h"
+inline void spi1_close(void);
+
+bool spi1_open(spi1_modes spiUniqueConfiguration);
+
+uint8_t spi1_exchangeByte(uint8_t b);
+
+void spi1_exchangeBlock(void *block, size_t blockSize);
+void spi1_writeBlock(void *block, size_t blockSize);
+void spi1_readBlock(void *block, size_t blockSize);
+
+void spi1_writeByte(uint8_t byte);
+uint8_t spi1_readByte(void);
+
+void spi1_isr(void);
+void spi1_setSpiISR(void(*handler)(void));
 
 # 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
@@ -4459,6 +4527,30 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 # 304
 void ADC_ISR(void);
 
+# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
+typedef unsigned char bool;
+
+# 33 "mcc_generated_files/drivers/spi_master.h"
+typedef enum {
+MASTER
+} spi_master_configurations_t;
+
+typedef struct { void (*spiClose)(void);
+bool (*spiOpen)(void);
+uint8_t (*exchangeByte)(uint8_t b);
+void (*exchangeBlock)(void * block, size_t blockSize);
+void (*writeBlock)(void * block, size_t blockSize);
+void (*readBlock)(void * block, size_t blockSize);
+void (*writeByte)(uint8_t byte);
+uint8_t (*readByte)(void);
+void (*setSpiISR)(void(*handler)(void));
+void (*spiISR)(void);
+} spi_master_functions_t;
+
+extern const spi_master_functions_t spiMaster[];
+
+inline bool spi_master_open(spi_master_configurations_t config);
+
 # 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
@@ -4514,10 +4606,44 @@ extern void (*TMR4_InterruptHandler)(void);
 # 381
 void TMR4_DefaultInterruptHandler(void);
 
-# 18 "main.c"
+# 4 "main.h"
+void Delay_Xms(long delay);
+void Delay_Xus(long delay);
+
+# 34 "MRF89XA.h"
+enum MRF89XA_Mode {
+MRF89XA_MODE_RX,
+MRF89XA_MODE_TX,
+MRF89XA_MODE_STANDBY,
+MRF89XA_MODE_SLEEP,
+
+MRF89XA_MODULATION_FSK,
+MRF89XA_MODULATION_OOK,
+};
+
+void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
+void MRF89XA_SetMode(unsigned char Mode);
+void MRF89XA_SetModulation(unsigned char Modulation);
+unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
+unsigned char MRF89XA_ReadConfig(unsigned char Address);
+void MRF89XA_ReadAllConfigs(void);
+unsigned char MRF89XA_ReadFifo(void);
+void MRF89XA_WriteFifo(unsigned char Data);
+unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
+void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
+void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
+unsigned char MRF89XA_IsPLRReady(void);
+unsigned char MRF89XA_IsCRCOK(void);
+unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
+unsigned char MRF89XA_IsTxDone(void);
+
+# 21 "main.c"
 unsigned char LedState = 0;
 unsigned char TimeoutCounter = 0;
 const unsigned char TurnOffTimeout = 180;
+unsigned char BlinkCounter = 0;
+unsigned char BlinkCounterOn = 1;
+unsigned char BlinkCounterOff = 9;
 
 enum Modes {
 MODE_ON_OFF = 0,
@@ -4555,7 +4681,19 @@ TEST_LED = 0x52,
 REBOOT = 0xE0,
 SHUTDOWN = 0xE1,
 };
+void IRQ1_ISR(void);
 
+void Delay_Xms(long delay) {
+for(long i = 0; i < delay; i++) {
+_delay((unsigned long)((1)*(16000000/4000.0)));
+}
+}
+
+void Delay_Xus(long delay) {
+for(long i = 0; i < delay; i++) {
+_delay((unsigned long)((1)*(16000000/4000000.0)));
+}
+}
 void POWER_LED_ON(void) {
 do { LATAbits.LATA7 = 1; } while(0);
 LedState = 1;
@@ -4611,29 +4749,62 @@ break;
 }
 }
 
+
+void IRQ0_ISR(void) {
+
+
+
+unsigned char Address = MRF89XA_ReadFifo();
+
+unsigned char Data1 = MRF89XA_ReadFifo();
+
+do { LATAbits.LATA3 = 0; } while(0);
+Delay_Xms(500);
+do { LATAbits.LATA3 = 1; } while(0);
+Delay_Xms(500);
+
+
+unsigned char Dummy = 0;
+while(PORTBbits.RB3) {
+Dummy = MRF89XA_ReadFifo();
+}
+
+asm("nop");
+}
+
 void main(void) {
 
 SYSTEM_Initialize();
 
-# 122
+# 163
 (INTCONbits.GIE = 1);
-
 
 (INTCONbits.PEIE = 1);
 
-# 134
+
+do { LATAbits.LATA0 = 0; } while(0);
+
+
+
 do { LATAbits.LATA3 = 0; } while(0);
-_delay((unsigned long)((500)*(16000000/4000.0)));
+Delay_Xms(500);
 do { LATAbits.LATA3 = 1; } while(0);
-_delay((unsigned long)((500)*(16000000/4000.0)));
+Delay_Xms(500);
 do { LATAbits.LATA3 = 0; } while(0);
-_delay((unsigned long)((500)*(16000000/4000.0)));
+Delay_Xms(500);
 do { LATAbits.LATA3 = 1; } while(0);
 
-# 148
+# 185
+MRF89XA_Initialize(0x41, MRF89XA_MODE_RX, MRF89XA_MODULATION_OOK);
+
+Delay_Xms(5);
+
+IOCBF0_SetInterruptHandler(IRQ0_ISR);
+
+# 224
 while (1) {
 
-_delay((unsigned long)((50)*(16000000/4000.0)));
+Delay_Xms(100);
 
 
 asm("nop");
@@ -4642,9 +4813,7 @@ asm("nop");
 asm("nop");
 asm("nop");
 
-LATAbits.LATA6 = !PORTBbits.RB5;
-
-# 180
+# 255
 }
 }
 
