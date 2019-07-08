@@ -20,10 +20,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "508
 [v _PORTBbits `VS30 ~T0 @X0 0 e@13 ]
 "104 main.c
-[c E2665 1 2 3 32 33 34 35 80 81 82 224 225 .. ]
-[n E2665 RF_COMMANDS LIGHT_ON LIGHT_OFF LIGHT_TOGGLE GET_LIGHT_STATE GET_LED_STATE GET_TEMPERATURE GET_WATER_STATE TEST_LIGHT TEST_BUZZER TEST_LED REBOOT SHUTDOWN  ]
-"50 MRF89XA.h
+[c E2669 1 2 3 32 33 34 35 80 81 82 224 225 .. ]
+[n E2669 RF_COMMANDS LIGHT_ON LIGHT_OFF LIGHT_TOGGLE GET_LIGHT_STATE GET_LED_STATE GET_TEMPERATURE GET_WATER_STATE TEST_LIGHT TEST_BUZZER TEST_LED REBOOT SHUTDOWN  ]
+"57 MRF89XA.h
 [v _MRF89XA_ReadFifo `(uc ~T0 @X0 0 ef ]
+"66
+[v _MRF89XA_IsFifoEmpty `(uc ~T0 @X0 0 ef ]
 [p mainexit ]
 "73 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
@@ -38,9 +40,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "374
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
-"44 MRF89XA.h
+"52 MRF89XA.h
 [v _MRF89XA_Initialize `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"185 main.c
+"203 main.c
 [c E2603 0 1 2 3 4 5 .. ]
 [n E2603 MRF89XA_Mode MRF89XA_MODE_RX MRF89XA_MODE_TX MRF89XA_MODE_STANDBY MRF89XA_MODE_SLEEP MRF89XA_MODULATION_FSK MRF89XA_MODULATION_OOK  ]
 [v F2305 `(v ~T0 @X0 0 tf ]
@@ -2976,29 +2978,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr4.h: 381: void TMR4_DefaultInterruptHandler(void);
 [; ;main.h: 4: void Delay_Xms(long delay);
 [; ;main.h: 5: void Delay_Xus(long delay);
-[; ;MRF89XA.h: 34: enum MRF89XA_Mode {
-[; ;MRF89XA.h: 35: MRF89XA_MODE_RX,
-[; ;MRF89XA.h: 36: MRF89XA_MODE_TX,
-[; ;MRF89XA.h: 37: MRF89XA_MODE_STANDBY,
-[; ;MRF89XA.h: 38: MRF89XA_MODE_SLEEP,
-[; ;MRF89XA.h: 40: MRF89XA_MODULATION_FSK,
-[; ;MRF89XA.h: 41: MRF89XA_MODULATION_OOK,
-[; ;MRF89XA.h: 42: };
-[; ;MRF89XA.h: 44: void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
-[; ;MRF89XA.h: 45: void MRF89XA_SetMode(unsigned char Mode);
-[; ;MRF89XA.h: 46: void MRF89XA_SetModulation(unsigned char Modulation);
-[; ;MRF89XA.h: 47: unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
-[; ;MRF89XA.h: 48: unsigned char MRF89XA_ReadConfig(unsigned char Address);
-[; ;MRF89XA.h: 49: void MRF89XA_ReadAllConfigs(void);
-[; ;MRF89XA.h: 50: unsigned char MRF89XA_ReadFifo(void);
-[; ;MRF89XA.h: 51: void MRF89XA_WriteFifo(unsigned char Data);
-[; ;MRF89XA.h: 52: unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
-[; ;MRF89XA.h: 53: void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
-[; ;MRF89XA.h: 54: void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
-[; ;MRF89XA.h: 55: unsigned char MRF89XA_IsPLRReady(void);
-[; ;MRF89XA.h: 56: unsigned char MRF89XA_IsCRCOK(void);
-[; ;MRF89XA.h: 57: unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
-[; ;MRF89XA.h: 58: unsigned char MRF89XA_IsTxDone(void);
+[; ;MRF89XA.h: 36: enum MRF89XA_Mode {
+[; ;MRF89XA.h: 37: MRF89XA_MODE_RX,
+[; ;MRF89XA.h: 38: MRF89XA_MODE_TX,
+[; ;MRF89XA.h: 39: MRF89XA_MODE_STANDBY,
+[; ;MRF89XA.h: 40: MRF89XA_MODE_SLEEP,
+[; ;MRF89XA.h: 42: MRF89XA_MODULATION_FSK,
+[; ;MRF89XA.h: 43: MRF89XA_MODULATION_OOK,
+[; ;MRF89XA.h: 44: };
+[; ;MRF89XA.h: 52: void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
+[; ;MRF89XA.h: 53: void MRF89XA_SetMode(unsigned char Mode);
+[; ;MRF89XA.h: 54: void MRF89XA_SetModulation(unsigned char Modulation);
+[; ;MRF89XA.h: 55: unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
+[; ;MRF89XA.h: 56: unsigned char MRF89XA_ReadConfig(unsigned char Address);
+[; ;MRF89XA.h: 57: unsigned char MRF89XA_ReadFifo(void);
+[; ;MRF89XA.h: 58: unsigned char MRF89XA_WriteFifo(unsigned char Data);
+[; ;MRF89XA.h: 59: unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
+[; ;MRF89XA.h: 60: void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
+[; ;MRF89XA.h: 61: void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
+[; ;MRF89XA.h: 62: unsigned char MRF89XA_IsPLRReady(void);
+[; ;MRF89XA.h: 63: unsigned char MRF89XA_IsCRCOK(void);
+[; ;MRF89XA.h: 64: unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
+[; ;MRF89XA.h: 65: unsigned char MRF89XA_IsTxDone(void);
+[; ;MRF89XA.h: 66: unsigned char MRF89XA_IsFifoEmpty(void);
+[; ;MRF89XA.h: 67: unsigned char MRF89XA_IsFifoFull(void);
+[; ;MRF89XA.h: 68: unsigned char MRF89XA_IsFifoOverrun(void);
 "21 main.c
 [v _LedState `uc ~T0 @X0 1 e ]
 [i _LedState
@@ -3296,18 +3300,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 375  ]
 "104
 [e :U 376 ]
-[e [\ _code , $ -> . `E2665 0 `uc 377
- , $ -> . `E2665 1 `uc 378
- , $ -> . `E2665 2 `uc 379
- , $ -> . `E2665 10 `uc 380
- , $ -> . `E2665 11 `uc 381
- , $ -> . `E2665 3 `uc 382
- , $ -> . `E2665 4 `uc 383
- , $ -> . `E2665 5 `uc 384
- , $ -> . `E2665 6 `uc 385
- , $ -> . `E2665 7 `uc 386
- , $ -> . `E2665 8 `uc 387
- , $ -> . `E2665 9 `uc 388
+[e [\ _code , $ -> . `E2669 0 `uc 377
+ , $ -> . `E2669 1 `uc 378
+ , $ -> . `E2669 2 `uc 379
+ , $ -> . `E2669 10 `uc 380
+ , $ -> . `E2669 11 `uc 381
+ , $ -> . `E2669 3 `uc 382
+ , $ -> . `E2669 4 `uc 383
+ , $ -> . `E2669 5 `uc 384
+ , $ -> . `E2669 6 `uc 385
+ , $ -> . `E2669 7 `uc 386
+ , $ -> . `E2669 8 `uc 387
+ , $ -> . `E2669 9 `uc 388
  375 ]
 "129
 [e :U 375 ]
@@ -3315,165 +3319,233 @@ Version 3.2 HI-TECH Software Intermediate Code
 "130
 [e :UE 374 ]
 }
+"132
+[v _rxB `uc ~T0 @X0 -> 256 `i e ]
+[i _rxB
+:U ..
+-> -> 0 `i `uc
+..
+]
+[; ;main.c: 132: unsigned char rxB[256] = {0};
 "133
+[v _rxC `uc ~T0 @X0 1 e ]
+[i _rxC
+-> -> 0 `i `uc
+]
+[; ;main.c: 133: unsigned char rxC = 0;
+"135
+[v _ReadFifo `(uc ~T0 @X0 1 ef ]
+{
+[; ;main.c: 135: unsigned char ReadFifo(void) {
+[e :U _ReadFifo ]
+[f ]
+"136
+[v _res `uc ~T0 @X0 1 a ]
+[; ;main.c: 136: unsigned char res = MRF89XA_ReadFifo();
+[e = _res ( _MRF89XA_ReadFifo ..  ]
+[; ;main.c: 137: rxB[rxC++] = res;
+"137
+[e = *U + &U _rxB * -> ++ _rxC -> -> 1 `i `uc `ux -> -> # *U &U _rxB `ui `ux _res ]
+[; ;main.c: 138: if(rxC >= 256){
+"138
+[e $ ! >= -> _rxC `i -> 256 `i 390  ]
+{
+[; ;main.c: 139: rxC = 0;
+"139
+[e = _rxC -> -> 0 `i `uc ]
+"140
+}
+[e :U 390 ]
+[; ;main.c: 140: }
+[; ;main.c: 141: rxB[rxC] = 0;
+"141
+[e = *U + &U _rxB * -> _rxC `ux -> -> # *U &U _rxB `ui `ux -> -> 0 `i `uc ]
+[; ;main.c: 142: return res;
+"142
+[e ) _res ]
+[e $UE 389  ]
+[; ;main.c: 143: }
+"143
+[e :UE 389 ]
+}
+"146
 [v _IRQ0_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 133: void IRQ0_ISR(void) {
+[; ;main.c: 146: void IRQ0_ISR(void) {
 [e :U _IRQ0_ISR ]
 [f ]
-"137
+"150
 [v _Address `uc ~T0 @X0 1 a ]
-[; ;main.c: 137: unsigned char Address = MRF89XA_ReadFifo();
-[e = _Address ( _MRF89XA_ReadFifo ..  ]
-"139
+[; ;main.c: 150: unsigned char Address = ReadFifo();
+[e = _Address ( _ReadFifo ..  ]
+"152
 [v _Data1 `uc ~T0 @X0 1 a ]
-[; ;main.c: 139: unsigned char Data1 = MRF89XA_ReadFifo();
-[e = _Data1 ( _MRF89XA_ReadFifo ..  ]
-[; ;main.c: 141: do { LATAbits.LATA3 = 0; } while(0);
-"141
+[; ;main.c: 152: unsigned char Data1 = ReadFifo();
+[e = _Data1 ( _ReadFifo ..  ]
+[; ;main.c: 154: if(Data1 == 0x55) {
+"154
+[e $ ! == -> _Data1 `i -> 85 `i 392  ]
+{
+[; ;main.c: 155: LATAbits.LATA3 = !LATAbits.LATA3;
+"155
+[e = . . _LATAbits 0 3 -> -> ! != -> . . _LATAbits 0 3 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+"156
+}
+[; ;main.c: 156: }
+[e $U 393  ]
+"157
 [e :U 392 ]
+[; ;main.c: 157: else {
+{
+[; ;main.c: 158: do { LATAbits.LATA3 = 0; } while(0);
+"158
+[e :U 396 ]
 {
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 391 ]
-[; ;main.c: 142: Delay_Xms(500);
-"142
-[e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 143: do { LATAbits.LATA3 = 1; } while(0);
-"143
 [e :U 395 ]
+[; ;main.c: 159: Delay_Xms(500);
+"159
+[e ( _Delay_Xms (1 -> -> 500 `i `l ]
+[; ;main.c: 160: do { LATAbits.LATA3 = 1; } while(0);
+"160
+[e :U 399 ]
 {
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 394 ]
-[; ;main.c: 144: Delay_Xms(500);
-"144
-[e ( _Delay_Xms (1 -> -> 500 `i `l ]
-"147
-[v _Dummy `uc ~T0 @X0 1 a ]
-[; ;main.c: 147: unsigned char Dummy = 0;
-[e = _Dummy -> -> 0 `i `uc ]
-[; ;main.c: 148: while(PORTBbits.RB3) {
-"148
-[e $U 396  ]
-[e :U 397 ]
-{
-[; ;main.c: 149: Dummy = MRF89XA_ReadFifo();
-"149
-[e = _Dummy ( _MRF89XA_ReadFifo ..  ]
-"150
-}
-[e :U 396 ]
-"148
-[e $ != -> . . _PORTBbits 0 3 `i -> -> -> 0 `i `Vuc `i 397  ]
 [e :U 398 ]
-[; ;main.c: 150: }
-[; ;main.c: 152: asm("nop");
-"152
+[; ;main.c: 161: Delay_Xms(500);
+"161
+[e ( _Delay_Xms (1 -> -> 500 `i `l ]
+"162
+}
+[e :U 393 ]
+"165
+[v _Dummy `uc ~T0 @X0 1 a ]
+[; ;main.c: 162: }
+[; ;main.c: 165: unsigned char Dummy = 0;
+[e = _Dummy -> -> 0 `i `uc ]
+[; ;main.c: 166: while(!MRF89XA_IsFifoEmpty()) {
+"166
+[e $U 400  ]
+[e :U 401 ]
+{
+[; ;main.c: 167: Dummy = ReadFifo();
+"167
+[e = _Dummy ( _ReadFifo ..  ]
+"168
+}
+[e :U 400 ]
+"166
+[e $ ! != -> ( _MRF89XA_IsFifoEmpty ..  `i -> -> -> 0 `i `uc `i 401  ]
+[e :U 402 ]
+[; ;main.c: 168: }
+[; ;main.c: 170: asm("nop");
+"170
 [; <" nop ;# ">
-[; ;main.c: 153: }
-"153
-[e :UE 389 ]
+[; ;main.c: 171: }
+"171
+[e :UE 391 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"155
+"173
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 155: void main(void) {
+[; ;main.c: 173: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 157: SYSTEM_Initialize();
-"157
+[; ;main.c: 175: SYSTEM_Initialize();
+"175
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 163: (INTCONbits.GIE = 1);
-"163
+[; ;main.c: 181: (INTCONbits.GIE = 1);
+"181
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 165: (INTCONbits.PEIE = 1);
-"165
+[; ;main.c: 183: (INTCONbits.PEIE = 1);
+"183
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 168: do { LATAbits.LATA0 = 0; } while(0);
-"168
-[e :U 402 ]
+[; ;main.c: 186: do { LATAbits.LATA0 = 0; } while(0);
+"186
+[e :U 406 ]
 {
 [e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 401 ]
-[; ;main.c: 172: do { LATAbits.LATA3 = 0; } while(0);
-"172
 [e :U 405 ]
+[; ;main.c: 190: do { LATAbits.LATA3 = 0; } while(0);
+"190
+[e :U 409 ]
 {
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 404 ]
-[; ;main.c: 173: Delay_Xms(500);
-"173
-[e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 174: do { LATAbits.LATA3 = 1; } while(0);
-"174
 [e :U 408 ]
+[; ;main.c: 191: Delay_Xms(500);
+"191
+[e ( _Delay_Xms (1 -> -> 500 `i `l ]
+[; ;main.c: 192: do { LATAbits.LATA3 = 1; } while(0);
+"192
+[e :U 412 ]
 {
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 407 ]
-[; ;main.c: 175: Delay_Xms(500);
-"175
-[e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 176: do { LATAbits.LATA3 = 0; } while(0);
-"176
 [e :U 411 ]
+[; ;main.c: 193: Delay_Xms(500);
+"193
+[e ( _Delay_Xms (1 -> -> 500 `i `l ]
+[; ;main.c: 194: do { LATAbits.LATA3 = 0; } while(0);
+"194
+[e :U 415 ]
 {
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 410 ]
-[; ;main.c: 177: Delay_Xms(500);
-"177
-[e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 178: do { LATAbits.LATA3 = 1; } while(0);
-"178
 [e :U 414 ]
+[; ;main.c: 195: Delay_Xms(500);
+"195
+[e ( _Delay_Xms (1 -> -> 500 `i `l ]
+[; ;main.c: 196: do { LATAbits.LATA3 = 1; } while(0);
+"196
+[e :U 418 ]
 {
 [e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 413 ]
-[; ;main.c: 185: MRF89XA_Initialize(0x41, MRF89XA_MODE_RX, MRF89XA_MODULATION_OOK);
-"185
-[e ( _MRF89XA_Initialize (3 , , -> -> 65 `i `uc -> . `E2603 0 `uc -> . `E2603 5 `uc ]
-[; ;main.c: 187: Delay_Xms(5);
-"187
-[e ( _Delay_Xms (1 -> -> 5 `i `l ]
-[; ;main.c: 189: IOCBF0_SetInterruptHandler(IRQ0_ISR);
-"189
-[e ( _IOCBF0_SetInterruptHandler (1 &U _IRQ0_ISR ]
-[; ;main.c: 224: while (1) {
-"224
-[e :U 416 ]
-{
-[; ;main.c: 226: Delay_Xms(100);
-"226
-[e ( _Delay_Xms (1 -> -> 100 `i `l ]
-[; ;main.c: 229: asm("nop");
-"229
-[; <" nop ;# ">
-[; ;main.c: 230: asm("nop");
-"230
-[; <" nop ;# ">
-[; ;main.c: 231: asm("nop");
-"231
-[; <" nop ;# ">
-[; ;main.c: 232: asm("nop");
-"232
-[; <" nop ;# ">
-[; ;main.c: 233: asm("nop");
-"233
-[; <" nop ;# ">
-"255
-}
-[e :U 415 ]
-"224
-[e $U 416  ]
 [e :U 417 ]
-[; ;main.c: 255: }
-[; ;main.c: 256: }
-"256
-[e :UE 399 ]
+[; ;main.c: 203: MRF89XA_Initialize(0x41, MRF89XA_MODE_RX, MRF89XA_MODULATION_OOK);
+"203
+[e ( _MRF89XA_Initialize (3 , , -> -> 65 `i `uc -> . `E2603 0 `uc -> . `E2603 5 `uc ]
+[; ;main.c: 205: Delay_Xms(5);
+"205
+[e ( _Delay_Xms (1 -> -> 5 `i `l ]
+[; ;main.c: 207: IOCBF0_SetInterruptHandler(IRQ0_ISR);
+"207
+[e ( _IOCBF0_SetInterruptHandler (1 &U _IRQ0_ISR ]
+[; ;main.c: 242: while (1) {
+"242
+[e :U 420 ]
+{
+[; ;main.c: 244: Delay_Xms(100);
+"244
+[e ( _Delay_Xms (1 -> -> 100 `i `l ]
+[; ;main.c: 247: asm("nop");
+"247
+[; <" nop ;# ">
+[; ;main.c: 248: asm("nop");
+"248
+[; <" nop ;# ">
+[; ;main.c: 249: asm("nop");
+"249
+[; <" nop ;# ">
+[; ;main.c: 250: asm("nop");
+"250
+[; <" nop ;# ">
+[; ;main.c: 251: asm("nop");
+"251
+[; <" nop ;# ">
+"273
+}
+[e :U 419 ]
+"242
+[e $U 420  ]
+[e :U 421 ]
+[; ;main.c: 273: }
+[; ;main.c: 274: }
+"274
+[e :UE 403 ]
 }

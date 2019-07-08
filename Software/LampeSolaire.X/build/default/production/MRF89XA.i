@@ -4560,7 +4560,7 @@ void OSCILLATOR_Initialize(void);
 # 98
 void WDT_Initialize(void);
 
-# 34 "MRF89XA.h"
+# 36 "MRF89XA.h"
 enum MRF89XA_Mode {
 MRF89XA_MODE_RX,
 MRF89XA_MODE_TX,
@@ -4571,14 +4571,14 @@ MRF89XA_MODULATION_FSK,
 MRF89XA_MODULATION_OOK,
 };
 
+# 52
 void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
 void MRF89XA_SetMode(unsigned char Mode);
 void MRF89XA_SetModulation(unsigned char Modulation);
 unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
 unsigned char MRF89XA_ReadConfig(unsigned char Address);
-void MRF89XA_ReadAllConfigs(void);
 unsigned char MRF89XA_ReadFifo(void);
-void MRF89XA_WriteFifo(unsigned char Data);
+unsigned char MRF89XA_WriteFifo(unsigned char Data);
 unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
 void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
 void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
@@ -4586,15 +4586,19 @@ unsigned char MRF89XA_IsPLRReady(void);
 unsigned char MRF89XA_IsCRCOK(void);
 unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
 unsigned char MRF89XA_IsTxDone(void);
+unsigned char MRF89XA_IsFifoEmpty(void);
+unsigned char MRF89XA_IsFifoFull(void);
+unsigned char MRF89XA_IsFifoOverrun(void);
 
 # 4 "main.h"
 void Delay_Xms(long delay);
 void Delay_Xus(long delay);
 
 # 12 "MRF89XA.c"
-unsigned char MRF89XA_SendConfig(unsigned char Address, unsigned char Data);
+unsigned char MRF89XA_ExchangeConfig(unsigned char Data);
+unsigned char MRF89XA_ExchangeConfig_A(unsigned char Address, unsigned char Data);
 unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read);
-unsigned char MRF89XA_ExchangeByte(unsigned char byte);
+unsigned char MRF89XA_SPI_ExchangeByte(unsigned char byte);
 void MRF89XA_SetIndicationLed(unsigned char State);
 
 void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation) {
@@ -4608,7 +4612,7 @@ MRF89XA_WriteConfig(0x03,0xC7);
 MRF89XA_WriteConfig(0x04, 0b00001100);
 MRF89XA_WriteConfig(0x05, 0b00000010);
 MRF89XA_WriteConfig(0x0D,0b10111000);
-MRF89XA_WriteConfig(0x0E, 0b00101010);
+MRF89XA_WriteConfig(0x0E, 0b00111010);
 
 MRF89XA_WriteConfig(0x06, 0x7D);
 MRF89XA_WriteConfig(0x07, 0x64);
@@ -4619,15 +4623,16 @@ MRF89XA_WriteConfig(0x10, 0b10010011);
 MRF89XA_WriteConfig(0x11, 0b00111000);
 
 MRF89XA_WriteConfig(0x12,0b10000000);
-MRF89XA_WriteConfig(0x19,0x55);
+MRF89XA_WriteConfig(0x19,0x01);
+MRF89XA_WriteConfig(0x18,0x45);
 
 MRF89XA_WriteConfig(0x15, 0b00000000);
-MRF89XA_WriteConfig(0x1A,0b01110010);
+MRF89XA_WriteConfig(0x1A,0b01110000);
 
 MRF89XA_WriteConfig(0x1B,0b00111100);
-MRF89XA_WriteConfig(0x1C,0b00000010);
+MRF89XA_WriteConfig(0x1C,0b00000100);
 MRF89XA_WriteConfig(0x1D,Address);
-MRF89XA_WriteConfig(0x1E,0b00100100);
+MRF89XA_WriteConfig(0x1E,0b00100000);
 MRF89XA_WriteConfig(0x1F,0b00000000);
 }
 
@@ -4655,7 +4660,7 @@ mask = 0b01000000;
 MRF89XA_WriteConfig(0x01,0b00001100 | mask);
 }
 
-unsigned char MRF89XA_ExchangeByte(unsigned char byte) {
+unsigned char MRF89XA_SPI_ExchangeByte(unsigned char byte) {
 return spi1_exchangeByte(byte);
 }
 
@@ -4663,72 +4668,65 @@ void MRF89XA_SetIndicationLed(unsigned char State) {
 LATAbits.LATA3 = (State & 0x01 == 0);
 }
 
-void MRF89XA_ReadAllConfigs(void) {
-unsigned char currentConfig = 0;
-unsigned char cond = 1;
-unsigned char counter = 0;
-
-while(cond == 1) {
-currentConfig = MRF89XA_ReadConfig(counter);
-counter++;
-
-asm("nop");
-if(counter > 0x1F) {
-cond = 0;
-}
-}
-}
-
+# 123
 unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data) {
-return MRF89XA_SendConfig(MRF89XA_GetAddress(Address, 0), Data);
+return MRF89XA_ExchangeConfig_A(MRF89XA_GetAddress(Address, 0), Data);
 }
 
 unsigned char MRF89XA_ReadConfig(unsigned char Address) {
-return MRF89XA_SendConfig(MRF89XA_GetAddress(Address, 1), 0xFF);
+return MRF89XA_ExchangeConfig_A(MRF89XA_GetAddress(Address, 1), 0xFF);
 }
 
 unsigned char MRF89XA_ReadFifo(void) {
 return MRF89XA_ExchangeFifo(0x00);
 }
 
-void MRF89XA_WriteFifo(unsigned char Data) {
-MRF89XA_ExchangeFifo(Data);
+unsigned char MRF89XA_WriteFifo(unsigned char Data) {
+return MRF89XA_ExchangeFifo(Data);
 }
 
 unsigned char MRF89XA_ExchangeFifo(unsigned char Data) {
 do { LATAbits.LATA2 = 1; } while(0);
 do { LATAbits.LATA1 = 0; } while(0);
-unsigned char ret = MRF89XA_ExchangeByte(Data);
+unsigned char ret = MRF89XA_SPI_ExchangeByte(Data);
 do { LATAbits.LATA1 = 1; } while(0);
 return ret;
 }
 
-void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data) {
-do { LATAbits.LATA2 = 1; } while(0);
-do { LATAbits.LATA1 = 0; } while(0);
-Delay_Xus(100);
-MRF89XA_ExchangeByte(TargetAddress);
-Delay_Xus(100);
-MRF89XA_ExchangeByte(Data);
-Delay_Xus(100);
+unsigned char MRF89XA_ExchangeConfig(unsigned char Data) {
 do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 0; } while(0);
+unsigned char ret = MRF89XA_SPI_ExchangeByte(Data);
+do { LATAbits.LATA2 = 1; } while(0);
+return ret;
+}
+
+unsigned char MRF89XA_ExchangeConfig_A(unsigned char Address, unsigned char Data) {
+do { LATAbits.LATA1 = 1; } while(0);
+do { LATAbits.LATA2 = 0; } while(0);
+MRF89XA_SPI_ExchangeByte(Address);
+unsigned char ret = MRF89XA_SPI_ExchangeByte(Data);
+do { LATAbits.LATA2 = 1; } while(0);
+return ret;
+}
+
+void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data) {
+MRF89XA_WriteFifo(TargetAddress);
+MRF89XA_WriteFifo(Data);
 
 while(!MRF89XA_IsTxDone()) {
-Delay_Xms(5);
+Delay_Xms(1);
 }
 }
 
 void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param) {
-do { LATAbits.LATA2 = 1; } while(0);
-do { LATAbits.LATA1 = 0; } while(0);
-Delay_Xus(100);
-MRF89XA_ExchangeByte(TargetAddress);
-Delay_Xus(100);
-MRF89XA_ExchangeByte(Command);
-Delay_Xus(100);
-MRF89XA_ExchangeByte(Param);
-Delay_Xus(100);
-do { LATAbits.LATA1 = 1; } while(0);
+MRF89XA_WriteFifo(TargetAddress);
+MRF89XA_WriteFifo(Command);
+MRF89XA_WriteFifo(Param);
+
+while(!MRF89XA_IsTxDone()) {
+Delay_Xms(1);
+}
 }
 
 unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read) {
@@ -4741,25 +4739,14 @@ ret = ret | 0b00000000;
 return ret;
 }
 
-unsigned char MRF89XA_SendConfig(unsigned char Address, unsigned char Data) {
-do { LATAbits.LATA1 = 1; } while(0);
-do { LATAbits.LATA2 = 0; } while(0);
-Delay_Xus(100);
-MRF89XA_ExchangeByte(Address);
-Delay_Xus(100);
-unsigned char ret = MRF89XA_ExchangeByte(Data);
-Delay_Xus(100);
-do { LATAbits.LATA2 = 1; } while(0);
-return ret;
-}
-
 
 unsigned char MRF89XA_IsPLRReady(void) {
 return PORTBbits.RB0;
 }
 
 unsigned char MRF89XA_IsCRCOK(void) {
-return PORTBbits.RB3;
+unsigned char reg = MRF89XA_ReadConfig(0x1E);
+return (reg & 0x01) > 0;
 }
 
 
@@ -4768,5 +4755,21 @@ return PORTBbits.RB0;
 }
 
 unsigned char MRF89XA_IsTxDone(void) {
-return PORTBbits.RB3;
+unsigned char reg = MRF89XA_ReadConfig(0x0E);
+return (reg & 0x20) > 0;
+}
+
+unsigned char MRF89XA_IsFifoEmpty(void) {
+unsigned char reg = MRF89XA_ReadConfig(0x0D);
+return (reg & 0x02) == 0;
+}
+
+unsigned char MRF89XA_IsFifoFull(void) {
+unsigned char reg = MRF89XA_ReadConfig(0x0D);
+return (reg & 0x04) > 0;
+}
+
+unsigned char MRF89XA_IsFifoOverrun(void) {
+unsigned char reg = MRF89XA_ReadConfig(0x0D);
+return (reg & 0x01) > 0;
 }

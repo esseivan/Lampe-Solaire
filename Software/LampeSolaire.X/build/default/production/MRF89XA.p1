@@ -1,11 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"45 MRF89XA.h
+"53 MRF89XA.h
 [v _MRF89XA_SetMode `(v ~T0 @X0 0 ef1`uc ]
-"46
+"54
 [v _MRF89XA_SetModulation `(v ~T0 @X0 0 ef1`uc ]
-"47
+"55
 [v _MRF89XA_WriteConfig `(uc ~T0 @X0 0 ef2`uc`uc ]
-"53 MRF89XA.c
+"55 MRF89XA.c
 [c E2569 0 1 2 3 4 5 .. ]
 [n E2569 MRF89XA_Mode MRF89XA_MODE_RX MRF89XA_MODE_TX MRF89XA_MODE_STANDBY MRF89XA_MODE_SLEEP MRF89XA_MODULATION_FSK MRF89XA_MODULATION_OOK  ]
 "39 mcc_generated_files/spi1_driver.h
@@ -18,19 +18,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S104 . . ]
 "2056
 [v _LATAbits `VS104 ~T0 @X0 0 e@268 ]
-"48 MRF89XA.h
-[v _MRF89XA_ReadConfig `(uc ~T0 @X0 0 ef1`uc ]
-"12 MRF89XA.c
-[v _MRF89XA_SendConfig `(uc ~T0 @X0 0 ef2`uc`uc ]
-"13
+"13 MRF89XA.c
+[v _MRF89XA_ExchangeConfig_A `(uc ~T0 @X0 0 ef2`uc`uc ]
+"14
 [v _MRF89XA_GetAddress `(uc ~T0 @X0 0 ef2`uc`uc ]
-"52 MRF89XA.h
+"59 MRF89XA.h
 [v _MRF89XA_ExchangeFifo `(uc ~T0 @X0 0 ef1`uc ]
-"5 main.h
-[v _Delay_Xus `(v ~T0 @X0 0 ef1`l ]
-"4
+"4 main.h
 [v _Delay_Xms `(v ~T0 @X0 0 ef1`l ]
-"58 MRF89XA.h
+"65 MRF89XA.h
 [v _MRF89XA_IsTxDone `(uc ~T0 @X0 0 ef ]
 "497 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
 [s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2942,645 +2938,643 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.h: 73: void SYSTEM_Initialize(void);
 [; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 98: void WDT_Initialize(void);
-[; ;MRF89XA.h: 34: enum MRF89XA_Mode {
-[; ;MRF89XA.h: 35: MRF89XA_MODE_RX,
-[; ;MRF89XA.h: 36: MRF89XA_MODE_TX,
-[; ;MRF89XA.h: 37: MRF89XA_MODE_STANDBY,
-[; ;MRF89XA.h: 38: MRF89XA_MODE_SLEEP,
-[; ;MRF89XA.h: 40: MRF89XA_MODULATION_FSK,
-[; ;MRF89XA.h: 41: MRF89XA_MODULATION_OOK,
-[; ;MRF89XA.h: 42: };
-[; ;MRF89XA.h: 44: void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
-[; ;MRF89XA.h: 45: void MRF89XA_SetMode(unsigned char Mode);
-[; ;MRF89XA.h: 46: void MRF89XA_SetModulation(unsigned char Modulation);
-[; ;MRF89XA.h: 47: unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
-[; ;MRF89XA.h: 48: unsigned char MRF89XA_ReadConfig(unsigned char Address);
-[; ;MRF89XA.h: 49: void MRF89XA_ReadAllConfigs(void);
-[; ;MRF89XA.h: 50: unsigned char MRF89XA_ReadFifo(void);
-[; ;MRF89XA.h: 51: void MRF89XA_WriteFifo(unsigned char Data);
-[; ;MRF89XA.h: 52: unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
-[; ;MRF89XA.h: 53: void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
-[; ;MRF89XA.h: 54: void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
-[; ;MRF89XA.h: 55: unsigned char MRF89XA_IsPLRReady(void);
-[; ;MRF89XA.h: 56: unsigned char MRF89XA_IsCRCOK(void);
-[; ;MRF89XA.h: 57: unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
-[; ;MRF89XA.h: 58: unsigned char MRF89XA_IsTxDone(void);
+[; ;MRF89XA.h: 36: enum MRF89XA_Mode {
+[; ;MRF89XA.h: 37: MRF89XA_MODE_RX,
+[; ;MRF89XA.h: 38: MRF89XA_MODE_TX,
+[; ;MRF89XA.h: 39: MRF89XA_MODE_STANDBY,
+[; ;MRF89XA.h: 40: MRF89XA_MODE_SLEEP,
+[; ;MRF89XA.h: 42: MRF89XA_MODULATION_FSK,
+[; ;MRF89XA.h: 43: MRF89XA_MODULATION_OOK,
+[; ;MRF89XA.h: 44: };
+[; ;MRF89XA.h: 52: void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
+[; ;MRF89XA.h: 53: void MRF89XA_SetMode(unsigned char Mode);
+[; ;MRF89XA.h: 54: void MRF89XA_SetModulation(unsigned char Modulation);
+[; ;MRF89XA.h: 55: unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
+[; ;MRF89XA.h: 56: unsigned char MRF89XA_ReadConfig(unsigned char Address);
+[; ;MRF89XA.h: 57: unsigned char MRF89XA_ReadFifo(void);
+[; ;MRF89XA.h: 58: unsigned char MRF89XA_WriteFifo(unsigned char Data);
+[; ;MRF89XA.h: 59: unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
+[; ;MRF89XA.h: 60: void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
+[; ;MRF89XA.h: 61: void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
+[; ;MRF89XA.h: 62: unsigned char MRF89XA_IsPLRReady(void);
+[; ;MRF89XA.h: 63: unsigned char MRF89XA_IsCRCOK(void);
+[; ;MRF89XA.h: 64: unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
+[; ;MRF89XA.h: 65: unsigned char MRF89XA_IsTxDone(void);
+[; ;MRF89XA.h: 66: unsigned char MRF89XA_IsFifoEmpty(void);
+[; ;MRF89XA.h: 67: unsigned char MRF89XA_IsFifoFull(void);
+[; ;MRF89XA.h: 68: unsigned char MRF89XA_IsFifoOverrun(void);
 [; ;main.h: 4: void Delay_Xms(long delay);
 [; ;main.h: 5: void Delay_Xus(long delay);
-[; ;MRF89XA.c: 12: unsigned char MRF89XA_SendConfig(unsigned char Address, unsigned char Data);
-[; ;MRF89XA.c: 13: unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read);
-[; ;MRF89XA.c: 14: unsigned char MRF89XA_ExchangeByte(unsigned char byte);
-[; ;MRF89XA.c: 15: void MRF89XA_SetIndicationLed(unsigned char State);
-"17 MRF89XA.c
+[; ;MRF89XA.c: 12: unsigned char MRF89XA_ExchangeConfig(unsigned char Data);
+[; ;MRF89XA.c: 13: unsigned char MRF89XA_ExchangeConfig_A(unsigned char Address, unsigned char Data);
+[; ;MRF89XA.c: 14: unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read);
+[; ;MRF89XA.c: 15: unsigned char MRF89XA_SPI_ExchangeByte(unsigned char byte);
+[; ;MRF89XA.c: 16: void MRF89XA_SetIndicationLed(unsigned char State);
+"18 MRF89XA.c
 [v _MRF89XA_Initialize `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;MRF89XA.c: 17: void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation) {
+[; ;MRF89XA.c: 18: void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation) {
 [e :U _MRF89XA_Initialize ]
 [v _Address `uc ~T0 @X0 1 r1 ]
 [v _Mode `uc ~T0 @X0 1 r2 ]
 [v _Modulation `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;MRF89XA.c: 18: MRF89XA_SetMode(Mode);
-"18
+[; ;MRF89XA.c: 19: MRF89XA_SetMode(Mode);
+"19
 [e ( _MRF89XA_SetMode (1 _Mode ]
-[; ;MRF89XA.c: 20: MRF89XA_SetModulation(Modulation);
-"20
+[; ;MRF89XA.c: 21: MRF89XA_SetModulation(Modulation);
+"21
 [e ( _MRF89XA_SetModulation (1 _Modulation ]
-[; ;MRF89XA.c: 22: MRF89XA_WriteConfig(0x02,0x03);
-"22
-[e ( _MRF89XA_WriteConfig (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
-[; ;MRF89XA.c: 23: MRF89XA_WriteConfig(0x03,0xC7);
+[; ;MRF89XA.c: 23: MRF89XA_WriteConfig(0x02,0x03);
 "23
+[e ( _MRF89XA_WriteConfig (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+[; ;MRF89XA.c: 24: MRF89XA_WriteConfig(0x03,0xC7);
+"24
 [e ( _MRF89XA_WriteConfig (2 , -> -> 3 `i `uc -> -> 199 `i `uc ]
-[; ;MRF89XA.c: 25: MRF89XA_WriteConfig(0x04, 0b00001100);
-"25
-[e ( _MRF89XA_WriteConfig (2 , -> -> 4 `i `uc -> -> 12 `i `uc ]
-[; ;MRF89XA.c: 26: MRF89XA_WriteConfig(0x05, 0b00000010);
+[; ;MRF89XA.c: 26: MRF89XA_WriteConfig(0x04, 0b00001100);
 "26
-[e ( _MRF89XA_WriteConfig (2 , -> -> 5 `i `uc -> -> 2 `i `uc ]
-[; ;MRF89XA.c: 27: MRF89XA_WriteConfig(0x0D,0b10111000);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 4 `i `uc -> -> 12 `i `uc ]
+[; ;MRF89XA.c: 27: MRF89XA_WriteConfig(0x05, 0b00000010);
 "27
-[e ( _MRF89XA_WriteConfig (2 , -> -> 13 `i `uc -> -> 184 `i `uc ]
-[; ;MRF89XA.c: 28: MRF89XA_WriteConfig(0x0E, 0b00101010);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 5 `i `uc -> -> 2 `i `uc ]
+[; ;MRF89XA.c: 28: MRF89XA_WriteConfig(0x0D,0b10111000);
 "28
-[e ( _MRF89XA_WriteConfig (2 , -> -> 14 `i `uc -> -> 42 `i `uc ]
-[; ;MRF89XA.c: 30: MRF89XA_WriteConfig(0x06, 0x7D);
-"30
-[e ( _MRF89XA_WriteConfig (2 , -> -> 6 `i `uc -> -> 125 `i `uc ]
-[; ;MRF89XA.c: 31: MRF89XA_WriteConfig(0x07, 0x64);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 13 `i `uc -> -> 184 `i `uc ]
+[; ;MRF89XA.c: 29: MRF89XA_WriteConfig(0x0E, 0b00111010);
+"29
+[e ( _MRF89XA_WriteConfig (2 , -> -> 14 `i `uc -> -> 58 `i `uc ]
+[; ;MRF89XA.c: 31: MRF89XA_WriteConfig(0x06, 0x7D);
 "31
-[e ( _MRF89XA_WriteConfig (2 , -> -> 7 `i `uc -> -> 100 `i `uc ]
-[; ;MRF89XA.c: 32: MRF89XA_WriteConfig(0x08, 0x14);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 6 `i `uc -> -> 125 `i `uc ]
+[; ;MRF89XA.c: 32: MRF89XA_WriteConfig(0x07, 0x64);
 "32
+[e ( _MRF89XA_WriteConfig (2 , -> -> 7 `i `uc -> -> 100 `i `uc ]
+[; ;MRF89XA.c: 33: MRF89XA_WriteConfig(0x08, 0x14);
+"33
 [e ( _MRF89XA_WriteConfig (2 , -> -> 8 `i `uc -> -> 20 `i `uc ]
-[; ;MRF89XA.c: 34: MRF89XA_WriteConfig(0x0C, 0b00100000);
-"34
-[e ( _MRF89XA_WriteConfig (2 , -> -> 12 `i `uc -> -> 32 `i `uc ]
-[; ;MRF89XA.c: 35: MRF89XA_WriteConfig(0x10, 0b10010011);
+[; ;MRF89XA.c: 35: MRF89XA_WriteConfig(0x0C, 0b00100000);
 "35
-[e ( _MRF89XA_WriteConfig (2 , -> -> 16 `i `uc -> -> 147 `i `uc ]
-[; ;MRF89XA.c: 36: MRF89XA_WriteConfig(0x11, 0b00111000);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 12 `i `uc -> -> 32 `i `uc ]
+[; ;MRF89XA.c: 36: MRF89XA_WriteConfig(0x10, 0b10010011);
 "36
+[e ( _MRF89XA_WriteConfig (2 , -> -> 16 `i `uc -> -> 147 `i `uc ]
+[; ;MRF89XA.c: 37: MRF89XA_WriteConfig(0x11, 0b00111000);
+"37
 [e ( _MRF89XA_WriteConfig (2 , -> -> 17 `i `uc -> -> 56 `i `uc ]
-[; ;MRF89XA.c: 38: MRF89XA_WriteConfig(0x12,0b10000000);
-"38
-[e ( _MRF89XA_WriteConfig (2 , -> -> 18 `i `uc -> -> 128 `i `uc ]
-[; ;MRF89XA.c: 39: MRF89XA_WriteConfig(0x19,0x55);
+[; ;MRF89XA.c: 39: MRF89XA_WriteConfig(0x12,0b10000000);
 "39
-[e ( _MRF89XA_WriteConfig (2 , -> -> 25 `i `uc -> -> 85 `i `uc ]
-[; ;MRF89XA.c: 41: MRF89XA_WriteConfig(0x15, 0b00000000);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 18 `i `uc -> -> 128 `i `uc ]
+[; ;MRF89XA.c: 40: MRF89XA_WriteConfig(0x19,0x01);
+"40
+[e ( _MRF89XA_WriteConfig (2 , -> -> 25 `i `uc -> -> 1 `i `uc ]
+[; ;MRF89XA.c: 41: MRF89XA_WriteConfig(0x18,0x45);
 "41
+[e ( _MRF89XA_WriteConfig (2 , -> -> 24 `i `uc -> -> 69 `i `uc ]
+[; ;MRF89XA.c: 43: MRF89XA_WriteConfig(0x15, 0b00000000);
+"43
 [e ( _MRF89XA_WriteConfig (2 , -> -> 21 `i `uc -> -> 0 `i `uc ]
-[; ;MRF89XA.c: 42: MRF89XA_WriteConfig(0x1A,0b01110010);
-"42
-[e ( _MRF89XA_WriteConfig (2 , -> -> 26 `i `uc -> -> 114 `i `uc ]
-[; ;MRF89XA.c: 44: MRF89XA_WriteConfig(0x1B,0b00111100);
+[; ;MRF89XA.c: 44: MRF89XA_WriteConfig(0x1A,0b01110000);
 "44
-[e ( _MRF89XA_WriteConfig (2 , -> -> 27 `i `uc -> -> 60 `i `uc ]
-[; ;MRF89XA.c: 45: MRF89XA_WriteConfig(0x1C,0b00000010);
-"45
-[e ( _MRF89XA_WriteConfig (2 , -> -> 28 `i `uc -> -> 2 `i `uc ]
-[; ;MRF89XA.c: 46: MRF89XA_WriteConfig(0x1D,Address);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 26 `i `uc -> -> 112 `i `uc ]
+[; ;MRF89XA.c: 46: MRF89XA_WriteConfig(0x1B,0b00111100);
 "46
-[e ( _MRF89XA_WriteConfig (2 , -> -> 29 `i `uc _Address ]
-[; ;MRF89XA.c: 47: MRF89XA_WriteConfig(0x1E,0b00100100);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 27 `i `uc -> -> 60 `i `uc ]
+[; ;MRF89XA.c: 47: MRF89XA_WriteConfig(0x1C,0b00000100);
 "47
-[e ( _MRF89XA_WriteConfig (2 , -> -> 30 `i `uc -> -> 36 `i `uc ]
-[; ;MRF89XA.c: 48: MRF89XA_WriteConfig(0x1F,0b00000000);
+[e ( _MRF89XA_WriteConfig (2 , -> -> 28 `i `uc -> -> 4 `i `uc ]
+[; ;MRF89XA.c: 48: MRF89XA_WriteConfig(0x1D,Address);
 "48
-[e ( _MRF89XA_WriteConfig (2 , -> -> 31 `i `uc -> -> 0 `i `uc ]
-[; ;MRF89XA.c: 49: }
+[e ( _MRF89XA_WriteConfig (2 , -> -> 29 `i `uc _Address ]
+[; ;MRF89XA.c: 49: MRF89XA_WriteConfig(0x1E,0b00100000);
 "49
+[e ( _MRF89XA_WriteConfig (2 , -> -> 30 `i `uc -> -> 32 `i `uc ]
+[; ;MRF89XA.c: 50: MRF89XA_WriteConfig(0x1F,0b00000000);
+"50
+[e ( _MRF89XA_WriteConfig (2 , -> -> 31 `i `uc -> -> 0 `i `uc ]
+[; ;MRF89XA.c: 51: }
+"51
 [e :UE 352 ]
 }
-"51
+"53
 [v _MRF89XA_SetMode `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;MRF89XA.c: 51: void MRF89XA_SetMode(unsigned char Mode) {
+[; ;MRF89XA.c: 53: void MRF89XA_SetMode(unsigned char Mode) {
 [e :U _MRF89XA_SetMode ]
 [v _Mode `uc ~T0 @X0 1 r1 ]
 [f ]
-"52
-[v _mask `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 52: unsigned char mask = 0x00;
-[e = _mask -> -> 0 `i `uc ]
-[; ;MRF89XA.c: 53: if(Mode == MRF89XA_MODE_TX)
-"53
-[e $ ! == -> _Mode `i -> . `E2569 1 `i 354  ]
-[; ;MRF89XA.c: 54: mask = 0b10000000;
 "54
+[v _mask `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 54: unsigned char mask = 0x00;
+[e = _mask -> -> 0 `i `uc ]
+[; ;MRF89XA.c: 55: if(Mode == MRF89XA_MODE_TX)
+"55
+[e $ ! == -> _Mode `i -> . `E2569 1 `i 354  ]
+[; ;MRF89XA.c: 56: mask = 0b10000000;
+"56
 [e = _mask -> -> 128 `i `uc ]
 [e $U 355  ]
-"55
+"57
 [e :U 354 ]
-[; ;MRF89XA.c: 55: else if(Mode == MRF89XA_MODE_RX)
+[; ;MRF89XA.c: 57: else if(Mode == MRF89XA_MODE_RX)
 [e $ ! == -> _Mode `i -> . `E2569 0 `i 356  ]
-[; ;MRF89XA.c: 56: mask = 0b01100000;
-"56
+[; ;MRF89XA.c: 58: mask = 0b01100000;
+"58
 [e = _mask -> -> 96 `i `uc ]
 [e $U 357  ]
-"57
+"59
 [e :U 356 ]
-[; ;MRF89XA.c: 57: else if(Mode == MRF89XA_MODE_STANDBY)
+[; ;MRF89XA.c: 59: else if(Mode == MRF89XA_MODE_STANDBY)
 [e $ ! == -> _Mode `i -> . `E2569 2 `i 358  ]
-[; ;MRF89XA.c: 58: mask = 0b00100000;
-"58
+[; ;MRF89XA.c: 60: mask = 0b00100000;
+"60
 [e = _mask -> -> 32 `i `uc ]
 [e $U 359  ]
-"59
+"61
 [e :U 358 ]
-[; ;MRF89XA.c: 59: else
-[; ;MRF89XA.c: 60: mask = 0b00000000;
-"60
+[; ;MRF89XA.c: 61: else
+[; ;MRF89XA.c: 62: mask = 0b00000000;
+"62
 [e = _mask -> -> 0 `i `uc ]
 [e :U 359 ]
 [e :U 357 ]
 [e :U 355 ]
-[; ;MRF89XA.c: 62: MRF89XA_WriteConfig(0x00,0b00010000 | mask);
-"62
+[; ;MRF89XA.c: 64: MRF89XA_WriteConfig(0x00,0b00010000 | mask);
+"64
 [e ( _MRF89XA_WriteConfig (2 , -> -> 0 `i `uc -> | -> 16 `i -> _mask `i `uc ]
-[; ;MRF89XA.c: 63: }
-"63
+[; ;MRF89XA.c: 65: }
+"65
 [e :UE 353 ]
 }
-"65
+"67
 [v _MRF89XA_SetModulation `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;MRF89XA.c: 65: void MRF89XA_SetModulation(unsigned char Modulation) {
+[; ;MRF89XA.c: 67: void MRF89XA_SetModulation(unsigned char Modulation) {
 [e :U _MRF89XA_SetModulation ]
 [v _Modulation `uc ~T0 @X0 1 r1 ]
 [f ]
-"66
-[v _mask `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 66: unsigned char mask = 0x00;
-[e = _mask -> -> 0 `i `uc ]
-[; ;MRF89XA.c: 67: if(Modulation == MRF89XA_MODULATION_FSK)
-"67
-[e $ ! == -> _Modulation `i -> . `E2569 4 `i 361  ]
-[; ;MRF89XA.c: 68: mask = 0b10000000;
 "68
+[v _mask `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 68: unsigned char mask = 0x00;
+[e = _mask -> -> 0 `i `uc ]
+[; ;MRF89XA.c: 69: if(Modulation == MRF89XA_MODULATION_FSK)
+"69
+[e $ ! == -> _Modulation `i -> . `E2569 4 `i 361  ]
+[; ;MRF89XA.c: 70: mask = 0b10000000;
+"70
 [e = _mask -> -> 128 `i `uc ]
 [e $U 362  ]
-"69
+"71
 [e :U 361 ]
-[; ;MRF89XA.c: 69: else
-[; ;MRF89XA.c: 70: mask = 0b01000000;
-"70
+[; ;MRF89XA.c: 71: else
+[; ;MRF89XA.c: 72: mask = 0b01000000;
+"72
 [e = _mask -> -> 64 `i `uc ]
 [e :U 362 ]
-[; ;MRF89XA.c: 72: MRF89XA_WriteConfig(0x01,0b00001100 | mask);
-"72
+[; ;MRF89XA.c: 74: MRF89XA_WriteConfig(0x01,0b00001100 | mask);
+"74
 [e ( _MRF89XA_WriteConfig (2 , -> -> 1 `i `uc -> | -> 12 `i -> _mask `i `uc ]
-[; ;MRF89XA.c: 73: }
-"73
+[; ;MRF89XA.c: 75: }
+"75
 [e :UE 360 ]
 }
-"75
-[v _MRF89XA_ExchangeByte `(uc ~T0 @X0 1 ef1`uc ]
+"77
+[v _MRF89XA_SPI_ExchangeByte `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;MRF89XA.c: 75: unsigned char MRF89XA_ExchangeByte(unsigned char byte) {
-[e :U _MRF89XA_ExchangeByte ]
+[; ;MRF89XA.c: 77: unsigned char MRF89XA_SPI_ExchangeByte(unsigned char byte) {
+[e :U _MRF89XA_SPI_ExchangeByte ]
 [v _byte `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;MRF89XA.c: 76: return spi1_exchangeByte(byte);
-"76
+[; ;MRF89XA.c: 78: return spi1_exchangeByte(byte);
+"78
 [e ) ( _spi1_exchangeByte (1 _byte ]
 [e $UE 363  ]
-[; ;MRF89XA.c: 77: }
-"77
+[; ;MRF89XA.c: 79: }
+"79
 [e :UE 363 ]
 }
-"79
+"81
 [v _MRF89XA_SetIndicationLed `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;MRF89XA.c: 79: void MRF89XA_SetIndicationLed(unsigned char State) {
+[; ;MRF89XA.c: 81: void MRF89XA_SetIndicationLed(unsigned char State) {
 [e :U _MRF89XA_SetIndicationLed ]
 [v _State `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;MRF89XA.c: 80: LATAbits.LATA3 = (State & 0x01 == 0);
-"80
+[; ;MRF89XA.c: 82: LATAbits.LATA3 = (State & 0x01 == 0);
+"82
 [e = . . _LATAbits 0 3 -> & -> _State `i -> == -> 1 `i -> 0 `i `i `uc ]
-[; ;MRF89XA.c: 81: }
-"81
+[; ;MRF89XA.c: 83: }
+"83
 [e :UE 364 ]
 }
-"83
-[v _MRF89XA_ReadAllConfigs `(v ~T0 @X0 1 ef ]
-{
-[; ;MRF89XA.c: 83: void MRF89XA_ReadAllConfigs(void) {
-[e :U _MRF89XA_ReadAllConfigs ]
-[f ]
-"84
-[v _currentConfig `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 84: unsigned char currentConfig = 0;
-[e = _currentConfig -> -> 0 `i `uc ]
-"85
-[v _cond `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 85: unsigned char cond = 1;
-[e = _cond -> -> 1 `i `uc ]
-"86
-[v _counter `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 86: unsigned char counter = 0;
-[e = _counter -> -> 0 `i `uc ]
-[; ;MRF89XA.c: 88: while(cond == 1) {
-"88
-[e $U 366  ]
-[e :U 367 ]
-{
-[; ;MRF89XA.c: 89: currentConfig = MRF89XA_ReadConfig(counter);
-"89
-[e = _currentConfig ( _MRF89XA_ReadConfig (1 _counter ]
-[; ;MRF89XA.c: 90: counter++;
-"90
-[e ++ _counter -> -> 1 `i `uc ]
-[; ;MRF89XA.c: 92: asm("nop");
-"92
-[; <" nop ;# ">
-[; ;MRF89XA.c: 93: if(counter > 0x1F) {
-"93
-[e $ ! > -> _counter `i -> 31 `i 369  ]
-{
-[; ;MRF89XA.c: 94: cond = 0;
-"94
-[e = _cond -> -> 0 `i `uc ]
-"95
-}
-[e :U 369 ]
-"96
-}
-[e :U 366 ]
-"88
-[e $ == -> _cond `i -> 1 `i 367  ]
-[e :U 368 ]
-[; ;MRF89XA.c: 95: }
-[; ;MRF89XA.c: 96: }
-[; ;MRF89XA.c: 97: }
-"97
-[e :UE 365 ]
-}
-"99
+"123
 [v _MRF89XA_WriteConfig `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;MRF89XA.c: 99: unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data) {
+[; ;MRF89XA.c: 123: unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data) {
 [e :U _MRF89XA_WriteConfig ]
 [v _Address `uc ~T0 @X0 1 r1 ]
 [v _Data `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;MRF89XA.c: 100: return MRF89XA_SendConfig(MRF89XA_GetAddress(Address, 0), Data);
-"100
-[e ) ( _MRF89XA_SendConfig (2 , ( _MRF89XA_GetAddress (2 , _Address -> -> 0 `i `uc _Data ]
-[e $UE 370  ]
-[; ;MRF89XA.c: 101: }
-"101
-[e :UE 370 ]
+[; ;MRF89XA.c: 124: return MRF89XA_ExchangeConfig_A(MRF89XA_GetAddress(Address, 0), Data);
+"124
+[e ) ( _MRF89XA_ExchangeConfig_A (2 , ( _MRF89XA_GetAddress (2 , _Address -> -> 0 `i `uc _Data ]
+[e $UE 365  ]
+[; ;MRF89XA.c: 125: }
+"125
+[e :UE 365 ]
 }
-"103
+"127
 [v _MRF89XA_ReadConfig `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;MRF89XA.c: 103: unsigned char MRF89XA_ReadConfig(unsigned char Address) {
+[; ;MRF89XA.c: 127: unsigned char MRF89XA_ReadConfig(unsigned char Address) {
 [e :U _MRF89XA_ReadConfig ]
 [v _Address `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;MRF89XA.c: 104: return MRF89XA_SendConfig(MRF89XA_GetAddress(Address, 1), 0xFF);
-"104
-[e ) ( _MRF89XA_SendConfig (2 , ( _MRF89XA_GetAddress (2 , _Address -> -> 1 `i `uc -> -> 255 `i `uc ]
-[e $UE 371  ]
-[; ;MRF89XA.c: 105: }
-"105
-[e :UE 371 ]
+[; ;MRF89XA.c: 128: return MRF89XA_ExchangeConfig_A(MRF89XA_GetAddress(Address, 1), 0xFF);
+"128
+[e ) ( _MRF89XA_ExchangeConfig_A (2 , ( _MRF89XA_GetAddress (2 , _Address -> -> 1 `i `uc -> -> 255 `i `uc ]
+[e $UE 366  ]
+[; ;MRF89XA.c: 129: }
+"129
+[e :UE 366 ]
 }
-"107
+"131
 [v _MRF89XA_ReadFifo `(uc ~T0 @X0 1 ef ]
 {
-[; ;MRF89XA.c: 107: unsigned char MRF89XA_ReadFifo(void) {
+[; ;MRF89XA.c: 131: unsigned char MRF89XA_ReadFifo(void) {
 [e :U _MRF89XA_ReadFifo ]
 [f ]
-[; ;MRF89XA.c: 108: return MRF89XA_ExchangeFifo(0x00);
-"108
+[; ;MRF89XA.c: 132: return MRF89XA_ExchangeFifo(0x00);
+"132
 [e ) ( _MRF89XA_ExchangeFifo (1 -> -> 0 `i `uc ]
-[e $UE 372  ]
-[; ;MRF89XA.c: 109: }
-"109
-[e :UE 372 ]
+[e $UE 367  ]
+[; ;MRF89XA.c: 133: }
+"133
+[e :UE 367 ]
 }
-"111
-[v _MRF89XA_WriteFifo `(v ~T0 @X0 1 ef1`uc ]
+"135
+[v _MRF89XA_WriteFifo `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;MRF89XA.c: 111: void MRF89XA_WriteFifo(unsigned char Data) {
+[; ;MRF89XA.c: 135: unsigned char MRF89XA_WriteFifo(unsigned char Data) {
 [e :U _MRF89XA_WriteFifo ]
 [v _Data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;MRF89XA.c: 112: MRF89XA_ExchangeFifo(Data);
-"112
-[e ( _MRF89XA_ExchangeFifo (1 _Data ]
-[; ;MRF89XA.c: 113: }
-"113
-[e :UE 373 ]
+[; ;MRF89XA.c: 136: return MRF89XA_ExchangeFifo(Data);
+"136
+[e ) ( _MRF89XA_ExchangeFifo (1 _Data ]
+[e $UE 368  ]
+[; ;MRF89XA.c: 137: }
+"137
+[e :UE 368 ]
 }
-"115
+"139
 [v _MRF89XA_ExchangeFifo `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;MRF89XA.c: 115: unsigned char MRF89XA_ExchangeFifo(unsigned char Data) {
+[; ;MRF89XA.c: 139: unsigned char MRF89XA_ExchangeFifo(unsigned char Data) {
 [e :U _MRF89XA_ExchangeFifo ]
 [v _Data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;MRF89XA.c: 116: do { LATAbits.LATA2 = 1; } while(0);
-"116
-[e :U 377 ]
+[; ;MRF89XA.c: 140: do { LATAbits.LATA2 = 1; } while(0);
+"140
+[e :U 372 ]
 {
 [e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
 }
-[e :U 376 ]
-[; ;MRF89XA.c: 117: do { LATAbits.LATA1 = 0; } while(0);
-"117
-[e :U 380 ]
+[e :U 371 ]
+[; ;MRF89XA.c: 141: do { LATAbits.LATA1 = 0; } while(0);
+"141
+[e :U 375 ]
 {
 [e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 379 ]
-"118
+[e :U 374 ]
+"142
 [v _ret `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 118: unsigned char ret = MRF89XA_ExchangeByte(Data);
-[e = _ret ( _MRF89XA_ExchangeByte (1 _Data ]
-[; ;MRF89XA.c: 119: do { LATAbits.LATA1 = 1; } while(0);
-"119
-[e :U 383 ]
+[; ;MRF89XA.c: 142: unsigned char ret = MRF89XA_SPI_ExchangeByte(Data);
+[e = _ret ( _MRF89XA_SPI_ExchangeByte (1 _Data ]
+[; ;MRF89XA.c: 143: do { LATAbits.LATA1 = 1; } while(0);
+"143
+[e :U 378 ]
 {
 [e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 382 ]
-[; ;MRF89XA.c: 120: return ret;
-"120
+[e :U 377 ]
+[; ;MRF89XA.c: 144: return ret;
+"144
 [e ) _ret ]
-[e $UE 374  ]
-[; ;MRF89XA.c: 121: }
-"121
-[e :UE 374 ]
+[e $UE 369  ]
+[; ;MRF89XA.c: 145: }
+"145
+[e :UE 369 ]
 }
-"123
+"147
+[v _MRF89XA_ExchangeConfig `(uc ~T0 @X0 1 ef1`uc ]
+{
+[; ;MRF89XA.c: 147: unsigned char MRF89XA_ExchangeConfig(unsigned char Data) {
+[e :U _MRF89XA_ExchangeConfig ]
+[v _Data `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;MRF89XA.c: 148: do { LATAbits.LATA1 = 1; } while(0);
+"148
+[e :U 382 ]
+{
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 381 ]
+[; ;MRF89XA.c: 149: do { LATAbits.LATA2 = 0; } while(0);
+"149
+[e :U 385 ]
+{
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+}
+[e :U 384 ]
+"150
+[v _ret `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 150: unsigned char ret = MRF89XA_SPI_ExchangeByte(Data);
+[e = _ret ( _MRF89XA_SPI_ExchangeByte (1 _Data ]
+[; ;MRF89XA.c: 151: do { LATAbits.LATA2 = 1; } while(0);
+"151
+[e :U 388 ]
+{
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+}
+[e :U 387 ]
+[; ;MRF89XA.c: 152: return ret;
+"152
+[e ) _ret ]
+[e $UE 379  ]
+[; ;MRF89XA.c: 153: }
+"153
+[e :UE 379 ]
+}
+"155
+[v _MRF89XA_ExchangeConfig_A `(uc ~T0 @X0 1 ef2`uc`uc ]
+{
+[; ;MRF89XA.c: 155: unsigned char MRF89XA_ExchangeConfig_A(unsigned char Address, unsigned char Data) {
+[e :U _MRF89XA_ExchangeConfig_A ]
+[v _Address `uc ~T0 @X0 1 r1 ]
+[v _Data `uc ~T0 @X0 1 r2 ]
+[f ]
+[; ;MRF89XA.c: 156: do { LATAbits.LATA1 = 1; } while(0);
+"156
+[e :U 392 ]
+{
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 391 ]
+[; ;MRF89XA.c: 157: do { LATAbits.LATA2 = 0; } while(0);
+"157
+[e :U 395 ]
+{
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+}
+[e :U 394 ]
+[; ;MRF89XA.c: 158: MRF89XA_SPI_ExchangeByte(Address);
+"158
+[e ( _MRF89XA_SPI_ExchangeByte (1 _Address ]
+"159
+[v _ret `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 159: unsigned char ret = MRF89XA_SPI_ExchangeByte(Data);
+[e = _ret ( _MRF89XA_SPI_ExchangeByte (1 _Data ]
+[; ;MRF89XA.c: 160: do { LATAbits.LATA2 = 1; } while(0);
+"160
+[e :U 398 ]
+{
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+}
+[e :U 397 ]
+[; ;MRF89XA.c: 161: return ret;
+"161
+[e ) _ret ]
+[e $UE 389  ]
+[; ;MRF89XA.c: 162: }
+"162
+[e :UE 389 ]
+}
+"164
 [v _MRF89XA_SendData `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;MRF89XA.c: 123: void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data) {
+[; ;MRF89XA.c: 164: void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data) {
 [e :U _MRF89XA_SendData ]
 [v _TargetAddress `uc ~T0 @X0 1 r1 ]
 [v _Data `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;MRF89XA.c: 124: do { LATAbits.LATA2 = 1; } while(0);
-"124
-[e :U 387 ]
+[; ;MRF89XA.c: 165: MRF89XA_WriteFifo(TargetAddress);
+"165
+[e ( _MRF89XA_WriteFifo (1 _TargetAddress ]
+[; ;MRF89XA.c: 166: MRF89XA_WriteFifo(Data);
+"166
+[e ( _MRF89XA_WriteFifo (1 _Data ]
+[; ;MRF89XA.c: 168: while(!MRF89XA_IsTxDone()) {
+"168
+[e $U 400  ]
+[e :U 401 ]
 {
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;MRF89XA.c: 169: Delay_Xms(1);
+"169
+[e ( _Delay_Xms (1 -> -> 1 `i `l ]
+"170
 }
-[e :U 386 ]
-[; ;MRF89XA.c: 125: do { LATAbits.LATA1 = 0; } while(0);
-"125
-[e :U 390 ]
-{
-[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
+[e :U 400 ]
+"168
+[e $ ! != -> ( _MRF89XA_IsTxDone ..  `i -> -> -> 0 `i `uc `i 401  ]
+[e :U 402 ]
+[; ;MRF89XA.c: 170: }
+[; ;MRF89XA.c: 171: }
+"171
+[e :UE 399 ]
 }
-[e :U 389 ]
-[; ;MRF89XA.c: 126: Delay_Xus(100);
-"126
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 127: MRF89XA_ExchangeByte(TargetAddress);
-"127
-[e ( _MRF89XA_ExchangeByte (1 _TargetAddress ]
-[; ;MRF89XA.c: 128: Delay_Xus(100);
-"128
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 129: MRF89XA_ExchangeByte(Data);
-"129
-[e ( _MRF89XA_ExchangeByte (1 _Data ]
-[; ;MRF89XA.c: 130: Delay_Xus(100);
-"130
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 131: do { LATAbits.LATA1 = 1; } while(0);
-"131
-[e :U 393 ]
-{
-[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
-}
-[e :U 392 ]
-[; ;MRF89XA.c: 133: while(!MRF89XA_IsTxDone()) {
-"133
-[e $U 394  ]
-[e :U 395 ]
-{
-[; ;MRF89XA.c: 134: Delay_Xms(5);
-"134
-[e ( _Delay_Xms (1 -> -> 5 `i `l ]
-"135
-}
-[e :U 394 ]
-"133
-[e $ ! != -> ( _MRF89XA_IsTxDone ..  `i -> -> -> 0 `i `uc `i 395  ]
-[e :U 396 ]
-[; ;MRF89XA.c: 135: }
-[; ;MRF89XA.c: 136: }
-"136
-[e :UE 384 ]
-}
-"138
+"173
 [v _MRF89XA_SendCommand `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;MRF89XA.c: 138: void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param) {
+[; ;MRF89XA.c: 173: void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param) {
 [e :U _MRF89XA_SendCommand ]
 [v _TargetAddress `uc ~T0 @X0 1 r1 ]
 [v _Command `uc ~T0 @X0 1 r2 ]
 [v _Param `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;MRF89XA.c: 139: do { LATAbits.LATA2 = 1; } while(0);
-"139
-[e :U 400 ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 399 ]
-[; ;MRF89XA.c: 140: do { LATAbits.LATA1 = 0; } while(0);
-"140
-[e :U 403 ]
-{
-[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 402 ]
-[; ;MRF89XA.c: 141: Delay_Xus(100);
-"141
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 142: MRF89XA_ExchangeByte(TargetAddress);
-"142
-[e ( _MRF89XA_ExchangeByte (1 _TargetAddress ]
-[; ;MRF89XA.c: 143: Delay_Xus(100);
-"143
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 144: MRF89XA_ExchangeByte(Command);
-"144
-[e ( _MRF89XA_ExchangeByte (1 _Command ]
-[; ;MRF89XA.c: 145: Delay_Xus(100);
-"145
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 146: MRF89XA_ExchangeByte(Param);
-"146
-[e ( _MRF89XA_ExchangeByte (1 _Param ]
-[; ;MRF89XA.c: 147: Delay_Xus(100);
-"147
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 148: do { LATAbits.LATA1 = 1; } while(0);
-"148
-[e :U 406 ]
-{
-[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
-}
+[; ;MRF89XA.c: 174: MRF89XA_WriteFifo(TargetAddress);
+"174
+[e ( _MRF89XA_WriteFifo (1 _TargetAddress ]
+[; ;MRF89XA.c: 175: MRF89XA_WriteFifo(Command);
+"175
+[e ( _MRF89XA_WriteFifo (1 _Command ]
+[; ;MRF89XA.c: 176: MRF89XA_WriteFifo(Param);
+"176
+[e ( _MRF89XA_WriteFifo (1 _Param ]
+[; ;MRF89XA.c: 178: while(!MRF89XA_IsTxDone()) {
+"178
+[e $U 404  ]
 [e :U 405 ]
-[; ;MRF89XA.c: 149: }
-"149
-[e :UE 397 ]
+{
+[; ;MRF89XA.c: 179: Delay_Xms(1);
+"179
+[e ( _Delay_Xms (1 -> -> 1 `i `l ]
+"180
 }
-"151
+[e :U 404 ]
+"178
+[e $ ! != -> ( _MRF89XA_IsTxDone ..  `i -> -> -> 0 `i `uc `i 405  ]
+[e :U 406 ]
+[; ;MRF89XA.c: 180: }
+[; ;MRF89XA.c: 181: }
+"181
+[e :UE 403 ]
+}
+"183
 [v _MRF89XA_GetAddress `(uc ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;MRF89XA.c: 151: unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read) {
+[; ;MRF89XA.c: 183: unsigned char MRF89XA_GetAddress(unsigned char Address, unsigned char Read) {
 [e :U _MRF89XA_GetAddress ]
 [v _Address `uc ~T0 @X0 1 r1 ]
 [v _Read `uc ~T0 @X0 1 r2 ]
 [f ]
-"152
+"184
 [v _ret `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 152: unsigned char ret = Address << 1;
+[; ;MRF89XA.c: 184: unsigned char ret = Address << 1;
 [e = _ret -> << -> _Address `i -> 1 `i `uc ]
-[; ;MRF89XA.c: 153: if(Read != 0) {
-"153
+[; ;MRF89XA.c: 185: if(Read != 0) {
+"185
 [e $ ! != -> _Read `i -> 0 `i 408  ]
 {
-[; ;MRF89XA.c: 154: ret = ret | 0b01000000;
-"154
+[; ;MRF89XA.c: 186: ret = ret | 0b01000000;
+"186
 [e = _ret -> | -> _ret `i -> 64 `i `uc ]
-"155
+"187
 }
-[; ;MRF89XA.c: 155: } else {
+[; ;MRF89XA.c: 187: } else {
 [e $U 409  ]
 [e :U 408 ]
 {
-[; ;MRF89XA.c: 156: ret = ret | 0b00000000;
-"156
+[; ;MRF89XA.c: 188: ret = ret | 0b00000000;
+"188
 [e = _ret -> | -> _ret `i -> 0 `i `uc ]
-"157
+"189
 }
 [e :U 409 ]
-[; ;MRF89XA.c: 157: }
-[; ;MRF89XA.c: 158: return ret;
-"158
+[; ;MRF89XA.c: 189: }
+[; ;MRF89XA.c: 190: return ret;
+"190
 [e ) _ret ]
 [e $UE 407  ]
-[; ;MRF89XA.c: 159: }
-"159
+[; ;MRF89XA.c: 191: }
+"191
 [e :UE 407 ]
 }
-"161
-[v _MRF89XA_SendConfig `(uc ~T0 @X0 1 ef2`uc`uc ]
-{
-[; ;MRF89XA.c: 161: unsigned char MRF89XA_SendConfig(unsigned char Address, unsigned char Data) {
-[e :U _MRF89XA_SendConfig ]
-[v _Address `uc ~T0 @X0 1 r1 ]
-[v _Data `uc ~T0 @X0 1 r2 ]
-[f ]
-[; ;MRF89XA.c: 162: do { LATAbits.LATA1 = 1; } while(0);
-"162
-[e :U 413 ]
-{
-[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
-}
-[e :U 412 ]
-[; ;MRF89XA.c: 163: do { LATAbits.LATA2 = 0; } while(0);
-"163
-[e :U 416 ]
-{
-[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 415 ]
-[; ;MRF89XA.c: 164: Delay_Xus(100);
-"164
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 165: MRF89XA_ExchangeByte(Address);
-"165
-[e ( _MRF89XA_ExchangeByte (1 _Address ]
-[; ;MRF89XA.c: 166: Delay_Xus(100);
-"166
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-"167
-[v _ret `uc ~T0 @X0 1 a ]
-[; ;MRF89XA.c: 167: unsigned char ret = MRF89XA_ExchangeByte(Data);
-[e = _ret ( _MRF89XA_ExchangeByte (1 _Data ]
-[; ;MRF89XA.c: 168: Delay_Xus(100);
-"168
-[e ( _Delay_Xus (1 -> -> 100 `i `l ]
-[; ;MRF89XA.c: 169: do { LATAbits.LATA2 = 1; } while(0);
-"169
-[e :U 419 ]
-{
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 418 ]
-[; ;MRF89XA.c: 170: return ret;
-"170
-[e ) _ret ]
-[e $UE 410  ]
-[; ;MRF89XA.c: 171: }
-"171
-[e :UE 410 ]
-}
-"174
+"194
 [v _MRF89XA_IsPLRReady `(uc ~T0 @X0 1 ef ]
 {
-[; ;MRF89XA.c: 174: unsigned char MRF89XA_IsPLRReady(void) {
+[; ;MRF89XA.c: 194: unsigned char MRF89XA_IsPLRReady(void) {
 [e :U _MRF89XA_IsPLRReady ]
 [f ]
-[; ;MRF89XA.c: 175: return PORTBbits.RB0;
-"175
+[; ;MRF89XA.c: 195: return PORTBbits.RB0;
+"195
 [e ) . . _PORTBbits 0 0 ]
-[e $UE 420  ]
-[; ;MRF89XA.c: 176: }
-"176
-[e :UE 420 ]
+[e $UE 410  ]
+[; ;MRF89XA.c: 196: }
+"196
+[e :UE 410 ]
 }
-"178
+"198
 [v _MRF89XA_IsCRCOK `(uc ~T0 @X0 1 ef ]
 {
-[; ;MRF89XA.c: 178: unsigned char MRF89XA_IsCRCOK(void) {
+[; ;MRF89XA.c: 198: unsigned char MRF89XA_IsCRCOK(void) {
 [e :U _MRF89XA_IsCRCOK ]
 [f ]
-[; ;MRF89XA.c: 179: return PORTBbits.RB3;
-"179
-[e ) . . _PORTBbits 0 3 ]
-[e $UE 421  ]
-[; ;MRF89XA.c: 180: }
-"180
-[e :UE 421 ]
+"199
+[v _reg `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 199: unsigned char reg = MRF89XA_ReadConfig(0x1E);
+[e = _reg ( _MRF89XA_ReadConfig (1 -> -> 30 `i `uc ]
+[; ;MRF89XA.c: 200: return (reg & 0x01) > 0;
+"200
+[e ) -> -> > & -> _reg `i -> 1 `i -> 0 `i `i `uc ]
+[e $UE 411  ]
+[; ;MRF89XA.c: 201: }
+"201
+[e :UE 411 ]
 }
-"183
+"204
 [v _MRF89XA_IsFIFO_THRESHOLD `(uc ~T0 @X0 1 ef ]
 {
-[; ;MRF89XA.c: 183: unsigned char MRF89XA_IsFIFO_THRESHOLD(void) {
+[; ;MRF89XA.c: 204: unsigned char MRF89XA_IsFIFO_THRESHOLD(void) {
 [e :U _MRF89XA_IsFIFO_THRESHOLD ]
 [f ]
-[; ;MRF89XA.c: 184: return PORTBbits.RB0;
-"184
+[; ;MRF89XA.c: 205: return PORTBbits.RB0;
+"205
 [e ) . . _PORTBbits 0 0 ]
-[e $UE 422  ]
-[; ;MRF89XA.c: 185: }
-"185
-[e :UE 422 ]
+[e $UE 412  ]
+[; ;MRF89XA.c: 206: }
+"206
+[e :UE 412 ]
 }
-"187
+"208
 [v _MRF89XA_IsTxDone `(uc ~T0 @X0 1 ef ]
 {
-[; ;MRF89XA.c: 187: unsigned char MRF89XA_IsTxDone(void) {
+[; ;MRF89XA.c: 208: unsigned char MRF89XA_IsTxDone(void) {
 [e :U _MRF89XA_IsTxDone ]
 [f ]
-[; ;MRF89XA.c: 188: return PORTBbits.RB3;
-"188
-[e ) . . _PORTBbits 0 3 ]
-[e $UE 423  ]
-[; ;MRF89XA.c: 189: }
-"189
-[e :UE 423 ]
+"209
+[v _reg `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 209: unsigned char reg = MRF89XA_ReadConfig(0x0E);
+[e = _reg ( _MRF89XA_ReadConfig (1 -> -> 14 `i `uc ]
+[; ;MRF89XA.c: 210: return (reg & 0x20) > 0;
+"210
+[e ) -> -> > & -> _reg `i -> 32 `i -> 0 `i `i `uc ]
+[e $UE 413  ]
+[; ;MRF89XA.c: 211: }
+"211
+[e :UE 413 ]
+}
+"213
+[v _MRF89XA_IsFifoEmpty `(uc ~T0 @X0 1 ef ]
+{
+[; ;MRF89XA.c: 213: unsigned char MRF89XA_IsFifoEmpty(void) {
+[e :U _MRF89XA_IsFifoEmpty ]
+[f ]
+"214
+[v _reg `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 214: unsigned char reg = MRF89XA_ReadConfig(0x0D);
+[e = _reg ( _MRF89XA_ReadConfig (1 -> -> 13 `i `uc ]
+[; ;MRF89XA.c: 215: return (reg & 0x02) == 0;
+"215
+[e ) -> -> == & -> _reg `i -> 2 `i -> 0 `i `i `uc ]
+[e $UE 414  ]
+[; ;MRF89XA.c: 216: }
+"216
+[e :UE 414 ]
+}
+"218
+[v _MRF89XA_IsFifoFull `(uc ~T0 @X0 1 ef ]
+{
+[; ;MRF89XA.c: 218: unsigned char MRF89XA_IsFifoFull(void) {
+[e :U _MRF89XA_IsFifoFull ]
+[f ]
+"219
+[v _reg `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 219: unsigned char reg = MRF89XA_ReadConfig(0x0D);
+[e = _reg ( _MRF89XA_ReadConfig (1 -> -> 13 `i `uc ]
+[; ;MRF89XA.c: 220: return (reg & 0x04) > 0;
+"220
+[e ) -> -> > & -> _reg `i -> 4 `i -> 0 `i `i `uc ]
+[e $UE 415  ]
+[; ;MRF89XA.c: 221: }
+"221
+[e :UE 415 ]
+}
+"223
+[v _MRF89XA_IsFifoOverrun `(uc ~T0 @X0 1 ef ]
+{
+[; ;MRF89XA.c: 223: unsigned char MRF89XA_IsFifoOverrun(void) {
+[e :U _MRF89XA_IsFifoOverrun ]
+[f ]
+"224
+[v _reg `uc ~T0 @X0 1 a ]
+[; ;MRF89XA.c: 224: unsigned char reg = MRF89XA_ReadConfig(0x0D);
+[e = _reg ( _MRF89XA_ReadConfig (1 -> -> 13 `i `uc ]
+[; ;MRF89XA.c: 225: return (reg & 0x01) > 0;
+"225
+[e ) -> -> > & -> _reg `i -> 1 `i -> 0 `i `i `uc ]
+[e $UE 416  ]
+[; ;MRF89XA.c: 226: }
+"226
+[e :UE 416 ]
 }

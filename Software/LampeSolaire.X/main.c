@@ -129,24 +129,42 @@ void Code_exec(uint8_t code) {
     }
 }
 
+unsigned char rxB[256] = {0};
+unsigned char rxC = 0;
+
+unsigned char ReadFifo(void) {
+    unsigned char res = MRF89XA_ReadFifo();
+    rxB[rxC++] = res;
+    if(rxC >= 256){
+        rxC = 0;
+    }
+    rxB[rxC] = 0;
+    return res;
+}
+
 // Sync match
 void IRQ0_ISR(void) {
     // Read fifo
     // Packet length is 2 -> 
     // Read address
-    unsigned char Address = MRF89XA_ReadFifo();
+    unsigned char Address = ReadFifo();
     // Read data 1
-    unsigned char Data1 = MRF89XA_ReadFifo();
+    unsigned char Data1 = ReadFifo();
     
-    LED_SetLow();
-    Delay_Xms(500);
-    LED_SetHigh();
-    Delay_Xms(500);
+    if(Data1 == 0x55) {
+        LED_LAT = !LED_LAT;
+    }
+    else {
+        LED_SetLow();
+        Delay_Xms(500);
+        LED_SetHigh();
+        Delay_Xms(500);
+    }
         
     // Clear fifo
     unsigned char Dummy = 0;
-    while(IRQ1_GetValue()) {
-        Dummy = MRF89XA_ReadFifo();
+    while(!MRF89XA_IsFifoEmpty()) {
+        Dummy = ReadFifo();
     }
     
     asm("nop"); 
