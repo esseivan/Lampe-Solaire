@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Tue Jul 09 00:25:23 2019
+                                                                                               Tue Jul 09 00:45:32 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	16LF1827
@@ -3570,8 +3570,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3553  00C5  3011               	movlw	17
   3554  00C6  3183  23C3  3180   	fcall	_MRF89XA_WriteConfig
   3555                           
-  3556                           ;MRF89XA.c: 39: MRF89XA_WriteConfig(0x12,0b10000000);
-  3557  00C9  3080               	movlw	128
+  3556                           ;MRF89XA.c: 39: MRF89XA_WriteConfig(0x12,0b10101010);
+  3557  00C9  30AA               	movlw	170
   3558  00CA  0020               	movlb	0	; select bank0
   3559  00CB  00B3               	movwf	??_MRF89XA_Initialize
   3560  00CC  0833               	movf	??_MRF89XA_Initialize,w
@@ -3715,9 +3715,9 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3698  031F  082E               	movf	??_MRF89XA_SetModulation,w
   3699  0320  00B0               	movwf	MRF89XA_SetModulation@mask
   3700                           
-  3701                           ;MRF89XA.c: 74: MRF89XA_WriteConfig(0x01,0b00001100 | mask);
+  3701                           ;MRF89XA.c: 74: MRF89XA_WriteConfig(0x01,0b00101000 | mask);
   3702  0321  0830               	movf	MRF89XA_SetModulation@mask,w
-  3703  0322  380C               	iorlw	12
+  3703  0322  3828               	iorlw	40
   3704  0323  00AE               	movwf	??_MRF89XA_SetModulation
   3705  0324  082E               	movf	??_MRF89XA_SetModulation,w
   3706  0325  00AB               	movwf	MRF89XA_WriteConfig@Data
@@ -6276,7 +6276,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Tue Jul 09 00:25:23 2019
+Symbol Table                                                                                   Tue Jul 09 00:45:32 2019
 
               ??i1_MRF89XA_SPI_ExchangeByte 0071            __end_of_TMR2_SetInterruptHandler 0471  
           ??_IOCBF3_DefaultInterruptHandler 0070             ?_IOCBF3_DefaultInterruptHandler 0070  
