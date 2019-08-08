@@ -16,7 +16,7 @@
 
 #define RESET_SETTINGS 0
 
-#define MODE_SECONDARY 0
+#define MODE_SECONDARY 1
 
 unsigned char LedState = 0;
 unsigned char TimeoutCounter = 0;
@@ -77,12 +77,18 @@ void Delay_Xus(long delay) {
 void POWER_LED_ON(void) {
     ENABLE_SetHigh();
     LedState = 1;
+//#if (MODE_SECONDARY == 1)
+//    LED_SetLow();
+//#endif
     //DATAEE_WriteByte(SLOT_MODE, LedState);
 }
 
 void POWER_LED_OFF(void) {
     ENABLE_SetLow();
     LedState = 0;
+//#if (MODE_SECONDARY == 1)
+//    LED_SetHigh();
+//#endif
     //DATAEE_WriteByte(SLOT_MODE, LedState);
 }
 
@@ -135,9 +141,6 @@ unsigned char rxC = 0;
 unsigned char ReadFifo(void) {
     unsigned char res = MRF89XA_ReadFifo();
     rxB[rxC++] = res;
-    if(rxC >= 256){
-        rxC = 0;
-    }
     rxB[rxC] = 0;
     return res;
 }
@@ -209,16 +212,41 @@ void main(void) {
 #if(MODE_SECONDARY == 1)
         MRF89XA_SetMode(MRF89XA_MODE_SLEEP);
         
+        MISO_SetDigitalMode();
         MISO_SetDigitalInput();
+        MOSI_SetDigitalMode();
         MOSI_SetDigitalInput();
+        SCK_SetDigitalMode();
         SCK_SetDigitalInput();
+        ICSPDAT_SetDigitalMode();
+        ICSPDAT_SetDigitalInput();
+        ICSPCLK_SetDigitalMode();
+        ICSPCLK_SetDigitalInput();
         
         while(1) {
-            if(MISO_GetValue() == 1) {
+            if(SCK_GetValue() == 1) {
                 POWER_LED_TOGGLE();
-                while(MISO_GetValue() == 1) {
+                do {
                     __delay_ms(100);
-                }
+                } while(SCK_GetValue() == 1);
+            }
+            else if(MOSI_GetValue() == 1) {
+                POWER_LED_TOGGLE();
+                do {
+                    __delay_ms(100);
+                } while(MOSI_GetValue() == 1);
+            }
+            else if(MISO_GetValue() == 1) {
+                POWER_LED_TOGGLE();
+                do {
+                    __delay_ms(100);
+                } while(MISO_GetValue() == 1);
+            }
+            else if(ICSPDAT_GetValue() == 1) {
+                POWER_LED_TOGGLE();
+                do {
+                    __delay_ms(100);
+                } while(ICSPDAT_GetValue() == 1);
             }
             if(LedState == 1) {
                 BlinkCounter++;

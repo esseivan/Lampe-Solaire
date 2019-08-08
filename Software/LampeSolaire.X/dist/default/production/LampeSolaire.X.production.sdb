@@ -28,7 +28,7 @@ MASTER 0
 SPI1_DEFAULT 0
 MASTER_CONFIG 1
 ]
-"104 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+"110 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [e E2669 RF_COMMANDS `uc
 LIGHT_ON 1
 LIGHT_OFF 2
@@ -43,7 +43,7 @@ TEST_LED 82
 REBOOT 224
 SHUTDOWN 225
 ]
-"203
+"206
 [e E2603 MRF89XA_Mode `uc
 MRF89XA_MODE_RX 0
 MRF89XA_MODE_TX 1
@@ -74,13 +74,15 @@ MRF89XA_MODULATION_OOK 5
 [v i1_Delay_Xms Delay_Xms `(v  1 e 1 0 ]
 "77
 [v _POWER_LED_ON POWER_LED_ON `(v  1 e 1 0 ]
-"83
+"86
 [v _POWER_LED_OFF POWER_LED_OFF `(v  1 e 1 0 ]
-"135
+"95
+[v _POWER_LED_TOGGLE POWER_LED_TOGGLE `(v  1 e 1 0 ]
+"141
 [v _ReadFifo ReadFifo `(uc  1 e 1 0 ]
-"146
+"149
 [v _IRQ0_ISR IRQ0_ISR `(v  1 e 1 0 ]
-"173
+"176
 [v _main main `(v  1 e 1 0 ]
 "64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
@@ -203,6 +205,18 @@ MRF89XA_MODULATION_OOK 5
 ]
 [u S388 . 1 `S374 1 . 1 0 `S383 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES388  1 e 1 @11 ]
+[s S1099 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"446
+[u S1108 . 1 `S1099 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES1108  1 e 1 @12 ]
 [s S979 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -351,6 +365,20 @@ MRF89XA_MODULATION_OOK 5
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2913
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+[s S1061 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ANSB1 1 0 :1:1 
+`uc 1 ANSB2 1 0 :1:2 
+`uc 1 ANSB3 1 0 :1:3 
+`uc 1 ANSB4 1 0 :1:4 
+`uc 1 ANSB5 1 0 :1:5 
+`uc 1 ANSB6 1 0 :1:6 
+`uc 1 ANSB7 1 0 :1:7 
+]
+"2933
+[s S1070 . 1 `uc 1 ANSELB 1 0 :8:0 
+]
+[u S1072 . 1 `S1061 1 . 1 0 `S1070 1 . 1 0 ]
+[v _ANSELBbits ANSELBbits `VES1072  1 e 1 @397 ]
 "2985
 [v _EEADRL EEADRL `VEuc  1 e 1 @401 ]
 "3005
@@ -445,9 +473,11 @@ MRF89XA_MODULATION_OOK 5
 [v _IOCBFbits IOCBFbits `VES565  1 e 1 @918 ]
 "21 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _LedState LedState `uc  1 e 1 0 ]
-"132
+"24
+[v _BlinkCounter BlinkCounter `uc  1 e 1 0 ]
+"138
 [v _rxB rxB `[256]uc  1 e 256 @8304 ]
-"133
+"139
 [v _rxC rxC `uc  1 e 1 0 ]
 "54 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
 [v _IOCBF0_InterruptHandler IOCBF0_InterruptHandler `*.37(v  1 e 2 0 ]
@@ -462,10 +492,10 @@ MRF89XA_MODULATION_OOK 5
 [v _spi1_configuration spi1_configuration `DC[2]S870  1 s 8 spi1_configuration ]
 "58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_InterruptHandler TMR2_InterruptHandler `*.37(v  1 e 2 0 ]
-"173 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+"176 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"274
+"302
 } 0
 "50 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -542,6 +572,21 @@ MRF89XA_MODULATION_OOK 5
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
 {
 "82
+} 0
+"95 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+[v _POWER_LED_TOGGLE POWER_LED_TOGGLE `(v  1 e 1 0 ]
+{
+"100
+} 0
+"77
+[v _POWER_LED_ON POWER_LED_ON `(v  1 e 1 0 ]
+{
+"84
+} 0
+"86
+[v _POWER_LED_OFF POWER_LED_OFF `(v  1 e 1 0 ]
+{
+"93
 } 0
 "18 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\MRF89XA.c
 [v _MRF89XA_Initialize MRF89XA_Initialize `(v  1 e 1 0 ]
@@ -693,12 +738,12 @@ MRF89XA_MODULATION_OOK 5
 {
 "175
 } 0
-"146 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+"149 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _IRQ0_ISR IRQ0_ISR `(v  1 e 1 0 ]
 {
-"152
+"155
 [v IRQ0_ISR@Data1 Data1 `uc  1 a 1 2 ]
-"171
+"174
 } 0
 "66
 [v i1_Delay_Xms Delay_Xms `(v  1 e 1 0 ]
@@ -707,12 +752,12 @@ MRF89XA_MODULATION_OOK 5
 [v i1Delay_Xms@delay delay `l  1 p 4 0 ]
 "70
 } 0
-"135
+"141
 [v _ReadFifo ReadFifo `(uc  1 e 1 0 ]
 {
-"136
+"142
 [v ReadFifo@res res `uc  1 a 1 8 ]
-"143
+"146
 } 0
 "131 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\MRF89XA.c
 [v _MRF89XA_ReadFifo MRF89XA_ReadFifo `(uc  1 e 1 0 ]

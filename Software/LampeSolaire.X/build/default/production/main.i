@@ -4701,11 +4701,17 @@ void POWER_LED_ON(void) {
 do { LATAbits.LATA7 = 1; } while(0);
 LedState = 1;
 
+
+
+
 }
 
 void POWER_LED_OFF(void) {
 do { LATAbits.LATA7 = 0; } while(0);
 LedState = 0;
+
+
+
 
 }
 
@@ -4758,9 +4764,6 @@ unsigned char rxC = 0;
 unsigned char ReadFifo(void) {
 unsigned char res = MRF89XA_ReadFifo();
 rxB[rxC++] = res;
-if(rxC >= 256){
-rxC = 0;
-}
 rxB[rxC] = 0;
 return res;
 }
@@ -4797,7 +4800,7 @@ void main(void) {
 
 SYSTEM_Initialize();
 
-# 181
+# 184
 (INTCONbits.GIE = 1);
 
 (INTCONbits.PEIE = 1);
@@ -4815,14 +4818,71 @@ do { LATAbits.LATA3 = 0; } while(0);
 Delay_Xms(500);
 do { LATAbits.LATA3 = 1; } while(0);
 
-# 203
+# 206
 MRF89XA_Initialize(0x41, MRF89XA_MODE_RX, MRF89XA_MODULATION_OOK);
 
 Delay_Xms(5);
 
 IOCBF0_SetInterruptHandler(IRQ0_ISR);
 
-# 242
+
+MRF89XA_SetMode(MRF89XA_MODE_SLEEP);
+
+do { ANSELBbits.ANSB1 = 0; } while(0);
+do { TRISBbits.TRISB1 = 1; } while(0);
+do { ANSELBbits.ANSB2 = 0; } while(0);
+do { TRISBbits.TRISB2 = 1; } while(0);
+do { ANSELBbits.ANSB4 = 0; } while(0);
+do { TRISBbits.TRISB4 = 1; } while(0);
+do { ANSELBbits.ANSB7 = 0; } while(0);
+do { TRISBbits.TRISB7 = 1; } while(0);
+do { ANSELBbits.ANSB6 = 0; } while(0);
+do { TRISBbits.TRISB6 = 1; } while(0);
+
+while(1) {
+if(PORTBbits.RB4 == 1) {
+POWER_LED_TOGGLE();
+do {
+_delay((unsigned long)((100)*(16000000/4000.0)));
+} while(PORTBbits.RB4 == 1);
+}
+else if(PORTBbits.RB2 == 1) {
+POWER_LED_TOGGLE();
+do {
+_delay((unsigned long)((100)*(16000000/4000.0)));
+} while(PORTBbits.RB2 == 1);
+}
+else if(PORTBbits.RB1 == 1) {
+POWER_LED_TOGGLE();
+do {
+_delay((unsigned long)((100)*(16000000/4000.0)));
+} while(PORTBbits.RB1 == 1);
+}
+else if(PORTBbits.RB7 == 1) {
+POWER_LED_TOGGLE();
+do {
+_delay((unsigned long)((100)*(16000000/4000.0)));
+} while(PORTBbits.RB7 == 1);
+}
+if(LedState == 1) {
+BlinkCounter++;
+if(PORTAbits.RA3 == 0) {
+if(BlinkCounter == BlinkCounterOn){
+do { LATAbits.LATA3 = 1; } while(0);
+BlinkCounter = 0;
+}
+}
+else {
+if(BlinkCounter == BlinkCounterOff){
+do { LATAbits.LATA3 = 0; } while(0);
+BlinkCounter = 0;
+}
+}
+}
+Delay_Xms(100);
+}
+
+
 while (1) {
 
 Delay_Xms(100);
@@ -4834,7 +4894,7 @@ asm("nop");
 asm("nop");
 asm("nop");
 
-# 273
+# 301
 }
 }
 
