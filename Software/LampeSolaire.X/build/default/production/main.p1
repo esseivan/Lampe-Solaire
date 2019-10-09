@@ -1,35 +1,31 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F2287 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF2287 ~T0 @X0 0 e ]
 [p i __delay ]
-"2045 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
-[s S105 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S105 . LATA0 LATA1 LATA2 LATA3 LATA4 . LATA6 LATA7 ]
-"2044
-[u S104 `S105 1 ]
-[n S104 . . ]
-"2056
-[v _LATAbits `VS104 ~T0 @X0 0 e@268 ]
-"497
-[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S31 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"496
-[u S30 `S31 1 ]
-[n S30 . . ]
-"508
-[v _PORTBbits `VS30 ~T0 @X0 0 e@13 ]
-"110 main.c
-[c E2669 1 2 3 32 33 34 35 80 81 82 224 225 .. ]
-[n E2669 RF_COMMANDS LIGHT_ON LIGHT_OFF LIGHT_TOGGLE GET_LIGHT_STATE GET_LED_STATE GET_TEMPERATURE GET_WATER_STATE TEST_LIGHT TEST_BUZZER TEST_LED REBOOT SHUTDOWN  ]
-"57 MRF89XA.h
-[v _MRF89XA_ReadFifo `(uc ~T0 @X0 0 ef ]
-"66
-[v _MRF89XA_IsFifoEmpty `(uc ~T0 @X0 0 ef ]
+"2102 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
+[s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S107 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"2101
+[u S106 `S107 1 ]
+[n S106 . . ]
+"2113
+[v _LATBbits `VS106 ~T0 @X0 0 e@269 ]
+"435
+[s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S29 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"434
+[u S28 `S29 1 ]
+[n S28 . . ]
+"446
+[v _PORTAbits `VS28 ~T0 @X0 0 e@12 ]
+"68 main.c
+[c E2435 8 4 2 1 .. ]
+[n E2435 Codes A B C D  ]
 [p mainexit ]
-"73 mcc_generated_files/mcc.h
+"72 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"357 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"357 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
 "367
@@ -40,48 +36,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "374
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
-"52 MRF89XA.h
-[v _MRF89XA_Initialize `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"206 main.c
-[c E2603 0 1 2 3 4 5 .. ]
-[n E2603 MRF89XA_Mode MRF89XA_MODE_RX MRF89XA_MODE_TX MRF89XA_MODE_STANDBY MRF89XA_MODE_SLEEP MRF89XA_MODULATION_FSK MRF89XA_MODULATION_OOK  ]
 [v F2305 `(v ~T0 @X0 0 tf ]
 "351 mcc_generated_files/pin_manager.h
-[v _IOCBF0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F2305 ]
-"53 MRF89XA.h
-[v _MRF89XA_SetMode `(v ~T0 @X0 0 ef1`uc ]
-"2919 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
-[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . . ANSB1 ANSB2 ANSB3 ANSB4 ANSB5 ANSB6 ANSB7 ]
-"2929
-[s S145 :8 `uc 1 ]
-[n S145 . ANSELB ]
-"2918
-[u S143 `S144 1 `S145 1 ]
-[n S143 . . . ]
-"2933
-[v _ANSELBbits `VS143 ~T0 @X0 0 e@397 ]
-"1220
-[s S68 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S68 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"1219
-[u S67 `S68 1 ]
-[n S67 . . ]
-"1231
-[v _TRISBbits `VS67 ~T0 @X0 0 e@141 ]
-"435
-[s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S29 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"434
-[u S28 `S29 1 ]
-[n S28 . . ]
-"446
-[v _PORTAbits `VS28 ~T0 @X0 0 e@12 ]
+[v _IOCBF5_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F2305 ]
+"193 mcc_generated_files/adc.h
+[v _ADC_StartConversion `(v ~T0 @X0 0 ef ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16lf1827.h: 52: extern volatile unsigned char INDF0 __at(0x000);
-"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [; ;pic16lf1827.h: 54: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16lf1827.h: 57: typedef union {
@@ -2833,18 +2797,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 139: extern __bank0 __bit __timeout;
 [; ;pin_manager.h: 303: void PIN_MANAGER_Initialize (void);
 [; ;pin_manager.h: 315: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 328: void IOCBF0_ISR(void);
-[; ;pin_manager.h: 351: void IOCBF0_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 375: extern void (*IOCBF0_InterruptHandler)(void);
-[; ;pin_manager.h: 399: void IOCBF0_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 412: void IOCBF3_ISR(void);
-[; ;pin_manager.h: 435: void IOCBF3_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 459: extern void (*IOCBF3_InterruptHandler)(void);
-[; ;pin_manager.h: 483: void IOCBF3_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 496: void IOCBF5_ISR(void);
-[; ;pin_manager.h: 519: void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 543: extern void (*IOCBF5_InterruptHandler)(void);
-[; ;pin_manager.h: 567: void IOCBF5_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 328: void IOCBF5_ISR(void);
+[; ;pin_manager.h: 351: void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;pin_manager.h: 375: extern void (*IOCBF5_InterruptHandler)(void);
+[; ;pin_manager.h: 399: void IOCBF5_DefaultInterruptHandler(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef __int24 int24_t;
@@ -2874,58 +2830,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;spi1_types.h: 27: typedef enum {
-[; ;spi1_types.h: 28: SPI1_DEFAULT,
-[; ;spi1_types.h: 29: MASTER_CONFIG
-[; ;spi1_types.h: 30: } spi1_modes;
-[; ;spi1_driver.h: 35: inline void spi1_close(void);
-[; ;spi1_driver.h: 37: bool spi1_open(spi1_modes spiUniqueConfiguration);
-[; ;spi1_driver.h: 39: uint8_t spi1_exchangeByte(uint8_t b);
-[; ;spi1_driver.h: 41: void spi1_exchangeBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 42: void spi1_writeBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 43: void spi1_readBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 45: void spi1_writeByte(uint8_t byte);
-[; ;spi1_driver.h: 46: uint8_t spi1_readByte(void);
-[; ;spi1_driver.h: 48: void spi1_isr(void);
-[; ;spi1_driver.h: 49: void spi1_setSpiISR(void(*handler)(void));
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;memory.h: 99: uint16_t FLASH_ReadWord(uint16_t flashAddr);
-[; ;memory.h: 128: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-[; ;memory.h: 164: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-[; ;memory.h: 189: void FLASH_EraseBlock(uint16_t startAddr);
-[; ;memory.h: 220: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-[; ;memory.h: 246: uint8_t DATAEE_ReadByte(uint8_t bAdd);
+[; ;fvr.h: 87: void FVR_Initialize(void);
+[; ;fvr.h: 121: bool FVR_IsOutputReady(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
 [; ;tmr2.h: 104: void TMR2_Initialize(void);
 [; ;tmr2.h: 133: void TMR2_StartTimer(void);
@@ -2939,46 +2846,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr2.h: 362: extern void (*TMR2_InterruptHandler)(void);
 [; ;tmr2.h: 380: void TMR2_DefaultInterruptHandler(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;adc.h: 71: typedef uint16_t adc_result_t;
-[; ;adc.h: 76: typedef struct
-[; ;adc.h: 77: {
-[; ;adc.h: 78: adc_result_t adcResult1;
-[; ;adc.h: 79: adc_result_t adcResult2;
-[; ;adc.h: 80: } adc_sync_double_result_t;
-[; ;adc.h: 94: typedef enum
-[; ;adc.h: 95: {
-[; ;adc.h: 96: TEMP = 0x4,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-[; ;adc.h: 135: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 192: void ADC_StartConversion();
-[; ;adc.h: 224: bool ADC_IsConversionDone();
-[; ;adc.h: 257: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 287: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 304: void ADC_ISR(void);
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;spi_master.h: 33: typedef enum {
-[; ;spi_master.h: 34: MASTER
-[; ;spi_master.h: 35: } spi_master_configurations_t;
-[; ;spi_master.h: 37: typedef struct { void (*spiClose)(void);
-[; ;spi_master.h: 38: bool (*spiOpen)(void);
-[; ;spi_master.h: 39: uint8_t (*exchangeByte)(uint8_t b);
-[; ;spi_master.h: 40: void (*exchangeBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 41: void (*writeBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 42: void (*readBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 43: void (*writeByte)(uint8_t byte);
-[; ;spi_master.h: 44: uint8_t (*readByte)(void);
-[; ;spi_master.h: 45: void (*setSpiISR)(void(*handler)(void));
-[; ;spi_master.h: 46: void (*spiISR)(void);
-[; ;spi_master.h: 47: } spi_master_functions_t;
-[; ;spi_master.h: 49: extern const spi_master_functions_t spiMaster[];
-[; ;spi_master.h: 51: inline bool spi_master_open(spi_master_configurations_t config);
-[; ;mcc.h: 73: void SYSTEM_Initialize(void);
-[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void WDT_Initialize(void);
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 77: typedef struct
+[; ;adc.h: 78: {
+[; ;adc.h: 79: adc_result_t adcResult1;
+[; ;adc.h: 80: adc_result_t adcResult2;
+[; ;adc.h: 81: } adc_sync_double_result_t;
+[; ;adc.h: 95: typedef enum
+[; ;adc.h: 96: {
+[; ;adc.h: 97: BATTERY_LVL = 0xA,
+[; ;adc.h: 98: channel_Temp = 0x1D,
+[; ;adc.h: 99: channel_DAC = 0x1E,
+[; ;adc.h: 100: channel_FVR = 0x1F
+[; ;adc.h: 101: } adc_channel_t;
+[; ;adc.h: 136: void ADC_Initialize(void);
+[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 193: void ADC_StartConversion();
+[; ;adc.h: 225: bool ADC_IsConversionDone();
+[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 305: void ADC_ISR(void);
+[; ;adc.h: 307: void ADC_CompareValue(void);
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 97: void WDT_Initialize(void);
 [; ;eeprom_routines.h: 114: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 115: extern unsigned char eeprom_read(unsigned char addr);
 [; ;stdbool.h: 15: typedef unsigned char bool;
@@ -3007,811 +2898,299 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr4.h: 381: void TMR4_DefaultInterruptHandler(void);
 [; ;main.h: 4: void Delay_Xms(long delay);
 [; ;main.h: 5: void Delay_Xus(long delay);
-[; ;MRF89XA.h: 36: enum MRF89XA_Mode {
-[; ;MRF89XA.h: 37: MRF89XA_MODE_RX,
-[; ;MRF89XA.h: 38: MRF89XA_MODE_TX,
-[; ;MRF89XA.h: 39: MRF89XA_MODE_STANDBY,
-[; ;MRF89XA.h: 40: MRF89XA_MODE_SLEEP,
-[; ;MRF89XA.h: 42: MRF89XA_MODULATION_FSK,
-[; ;MRF89XA.h: 43: MRF89XA_MODULATION_OOK,
-[; ;MRF89XA.h: 44: };
-[; ;MRF89XA.h: 52: void MRF89XA_Initialize(unsigned char Address, unsigned char Mode, unsigned char Modulation);
-[; ;MRF89XA.h: 53: void MRF89XA_SetMode(unsigned char Mode);
-[; ;MRF89XA.h: 54: void MRF89XA_SetModulation(unsigned char Modulation);
-[; ;MRF89XA.h: 55: unsigned char MRF89XA_WriteConfig(unsigned char Address, unsigned char Data);
-[; ;MRF89XA.h: 56: unsigned char MRF89XA_ReadConfig(unsigned char Address);
-[; ;MRF89XA.h: 57: unsigned char MRF89XA_ReadFifo(void);
-[; ;MRF89XA.h: 58: unsigned char MRF89XA_WriteFifo(unsigned char Data);
-[; ;MRF89XA.h: 59: unsigned char MRF89XA_ExchangeFifo(unsigned char Data);
-[; ;MRF89XA.h: 60: void MRF89XA_SendData(unsigned char TargetAddress, unsigned char Data);
-[; ;MRF89XA.h: 61: void MRF89XA_SendCommand(unsigned char TargetAddress, unsigned char Command, unsigned char Param);
-[; ;MRF89XA.h: 62: unsigned char MRF89XA_IsPLRReady(void);
-[; ;MRF89XA.h: 63: unsigned char MRF89XA_IsCRCOK(void);
-[; ;MRF89XA.h: 64: unsigned char MRF89XA_IsFIFO_THRESHOLD(void);
-[; ;MRF89XA.h: 65: unsigned char MRF89XA_IsTxDone(void);
-[; ;MRF89XA.h: 66: unsigned char MRF89XA_IsFifoEmpty(void);
-[; ;MRF89XA.h: 67: unsigned char MRF89XA_IsFifoFull(void);
-[; ;MRF89XA.h: 68: unsigned char MRF89XA_IsFifoOverrun(void);
-"21 main.c
+[; ;main.c: 22: enum Codes {
+[; ;main.c: 23: A = 8,
+[; ;main.c: 24: B = 4,
+[; ;main.c: 25: C = 2,
+[; ;main.c: 26: D = 1,
+[; ;main.c: 27: };
+"29 main.c
 [v _LedState `uc ~T0 @X0 1 e ]
 [i _LedState
 -> -> 0 `i `uc
 ]
-[; ;main.c: 21: unsigned char LedState = 0;
-"22
+[; ;main.c: 29: unsigned char LedState = 0;
+"30
 [v _TimeoutCounter `uc ~T0 @X0 1 e ]
 [i _TimeoutCounter
 -> -> 0 `i `uc
 ]
-[; ;main.c: 22: unsigned char TimeoutCounter = 0;
-"23
+[; ;main.c: 30: unsigned char TimeoutCounter = 0;
+"31
 [v _TurnOffTimeout `Cuc ~T0 @X0 1 e ]
 [i _TurnOffTimeout
 -> -> 180 `i `uc
 ]
-[; ;main.c: 23: const unsigned char TurnOffTimeout = 180;
-"24
+[; ;main.c: 31: const unsigned char TurnOffTimeout = 180;
+"32
 [v _BlinkCounter `uc ~T0 @X0 1 e ]
 [i _BlinkCounter
 -> -> 0 `i `uc
 ]
-[; ;main.c: 24: unsigned char BlinkCounter = 0;
-"25
+[; ;main.c: 32: unsigned char BlinkCounter = 0;
+"33
 [v _BlinkCounterOn `uc ~T0 @X0 1 e ]
 [i _BlinkCounterOn
 -> -> 1 `i `uc
 ]
-[; ;main.c: 25: unsigned char BlinkCounterOn = 1;
-"26
+[; ;main.c: 33: unsigned char BlinkCounterOn = 1;
+"34
 [v _BlinkCounterOff `uc ~T0 @X0 1 e ]
 [i _BlinkCounterOff
 -> -> 9 `i `uc
 ]
-[; ;main.c: 26: unsigned char BlinkCounterOff = 9;
-[; ;main.c: 28: enum Modes {
-[; ;main.c: 29: MODE_ON_OFF = 0,
-[; ;main.c: 30: MODE_AUTO = 1,
-[; ;main.c: 31: MODE_BLINK = 2,
-[; ;main.c: 32: };
-[; ;main.c: 34: enum Codes {
-[; ;main.c: 35: Code_A = 0,
-[; ;main.c: 36: Code_B = 1,
-[; ;main.c: 37: Code_C = 2,
-[; ;main.c: 38: Code_D = 3,
-[; ;main.c: 39: };
-[; ;main.c: 41: enum EEPROM_SLOTS {
-[; ;main.c: 42: SLOT_MODE = 0x00,
-[; ;main.c: 43: SLOT_THRESHOLD = 0x01,
-[; ;main.c: 44: SLOT_FREQUENCY = 0x02,
-[; ;main.c: 45: };
-[; ;main.c: 47: enum RF_COMMANDS {
-[; ;main.c: 48: LIGHT_ON = 0x01,
-[; ;main.c: 49: LIGHT_OFF = 0x02,
-[; ;main.c: 50: LIGHT_TOGGLE = 0x03,
-[; ;main.c: 52: GET_LIGHT_STATE = 0x20,
-[; ;main.c: 53: GET_LED_STATE = 0x21,
-[; ;main.c: 54: GET_TEMPERATURE = 0x22,
-[; ;main.c: 55: GET_WATER_STATE = 0x23,
-[; ;main.c: 57: TEST_LIGHT = 0x50,
-[; ;main.c: 58: TEST_BUZZER = 0x51,
-[; ;main.c: 59: TEST_LED = 0x52,
-[; ;main.c: 61: REBOOT = 0xE0,
-[; ;main.c: 62: SHUTDOWN = 0xE1,
-[; ;main.c: 63: };
-[; ;main.c: 64: void IRQ1_ISR(void);
-"66
+[; ;main.c: 34: unsigned char BlinkCounterOff = 9;
+[; ;main.c: 36: enum Modes {
+[; ;main.c: 37: MODE_ON_OFF = 0,
+[; ;main.c: 38: MODE_AUTO = 1,
+[; ;main.c: 39: MODE_BLINK = 2,
+[; ;main.c: 40: };
+"42
 [v _Delay_Xms `(v ~T0 @X0 1 ef1`l ]
 {
-[; ;main.c: 66: void Delay_Xms(long delay) {
+[; ;main.c: 42: void Delay_Xms(long delay) {
 [e :U _Delay_Xms ]
 [v _delay `l ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 67: for(long i = 0; i < delay; i++) {
-"67
+[; ;main.c: 43: for(long i = 0; i < delay; i++) {
+"43
 {
 [v _i `l ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `l ]
-[e $U 356  ]
-[e :U 353 ]
+[e $U 354  ]
+[e :U 351 ]
 {
-[; ;main.c: 68: _delay((unsigned long)((1)*(16000000/4000.0)));
-"68
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"69
+[; ;main.c: 44: _delay((unsigned long)((1)*(1000000/4000.0)));
+"44
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
+"45
 }
-"67
+"43
 [e ++ _i -> -> 1 `i `l ]
-[e :U 356 ]
-[e $ < _i _delay 353  ]
 [e :U 354 ]
-"69
+[e $ < _i _delay 351  ]
+[e :U 352 ]
+"45
 }
-[; ;main.c: 69: }
-[; ;main.c: 70: }
-"70
-[e :UE 352 ]
+[; ;main.c: 45: }
+[; ;main.c: 46: }
+"46
+[e :UE 350 ]
 }
-"72
-[v _Delay_Xus `(v ~T0 @X0 1 ef1`l ]
-{
-[; ;main.c: 72: void Delay_Xus(long delay) {
-[e :U _Delay_Xus ]
-[v _delay `l ~T0 @X0 1 r1 ]
-[f ]
-[; ;main.c: 73: for(long i = 0; i < delay; i++) {
-"73
-{
-[v _i `l ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `l ]
-[e $U 361  ]
-[e :U 358 ]
-{
-[; ;main.c: 74: _delay((unsigned long)((1)*(16000000/4000000.0)));
-"74
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-"75
-}
-"73
-[e ++ _i -> -> 1 `i `l ]
-[e :U 361 ]
-[e $ < _i _delay 358  ]
-[e :U 359 ]
-"75
-}
-[; ;main.c: 75: }
-[; ;main.c: 76: }
-"76
-[e :UE 357 ]
-}
-"77
+"48
 [v _POWER_LED_ON `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 77: void POWER_LED_ON(void) {
+[; ;main.c: 48: void POWER_LED_ON(void) {
 [e :U _POWER_LED_ON ]
 [f ]
-[; ;main.c: 78: do { LATAbits.LATA7 = 1; } while(0);
-"78
-[e :U 365 ]
+[; ;main.c: 49: do { LATBbits.LATB3 = 1; } while(0);
+"49
+[e :U 358 ]
 {
-[e = . . _LATAbits 0 7 -> -> 1 `i `uc ]
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 364 ]
-[; ;main.c: 79: LedState = 1;
-"79
+[e :U 357 ]
+[; ;main.c: 50: LedState = 1;
+"50
 [e = _LedState -> -> 1 `i `uc ]
-[; ;main.c: 84: }
-"84
-[e :UE 362 ]
+[; ;main.c: 51: }
+"51
+[e :UE 355 ]
 }
-"86
+"53
 [v _POWER_LED_OFF `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 86: void POWER_LED_OFF(void) {
+[; ;main.c: 53: void POWER_LED_OFF(void) {
 [e :U _POWER_LED_OFF ]
 [f ]
-[; ;main.c: 87: do { LATAbits.LATA7 = 0; } while(0);
-"87
-[e :U 369 ]
+[; ;main.c: 54: do { LATBbits.LATB3 = 0; } while(0);
+"54
+[e :U 362 ]
 {
-[e = . . _LATAbits 0 7 -> -> 0 `i `uc ]
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 368 ]
-[; ;main.c: 88: LedState = 0;
-"88
+[e :U 361 ]
+[; ;main.c: 55: LedState = 0;
+"55
 [e = _LedState -> -> 0 `i `uc ]
-[; ;main.c: 93: }
-"93
-[e :UE 366 ]
+[; ;main.c: 56: }
+"56
+[e :UE 359 ]
 }
-"95
+"58
 [v _POWER_LED_TOGGLE `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 95: void POWER_LED_TOGGLE(void) {
+[; ;main.c: 58: void POWER_LED_TOGGLE(void) {
 [e :U _POWER_LED_TOGGLE ]
 [f ]
-[; ;main.c: 96: if (LedState)
-"96
-[e $ ! != -> _LedState `i -> -> -> 0 `i `uc `i 371  ]
-[; ;main.c: 97: POWER_LED_OFF();
-"97
-[e ( _POWER_LED_OFF ..  ]
-[e $U 372  ]
-"98
-[e :U 371 ]
-[; ;main.c: 98: else
-[; ;main.c: 99: POWER_LED_ON();
-"99
+[; ;main.c: 59: if (LedState == 0)
+"59
+[e $ ! == -> _LedState `i -> 0 `i 364  ]
+[; ;main.c: 60: POWER_LED_ON();
+"60
 [e ( _POWER_LED_ON ..  ]
-[e :U 372 ]
-[; ;main.c: 100: }
-"100
-[e :UE 370 ]
+[e $U 365  ]
+"61
+[e :U 364 ]
+[; ;main.c: 61: else
+[; ;main.c: 62: POWER_LED_OFF();
+"62
+[e ( _POWER_LED_OFF ..  ]
+[e :U 365 ]
+[; ;main.c: 63: }
+"63
+[e :UE 363 ]
 }
-"102
-[v _WaitLoop `(v ~T0 @X0 1 ef ]
+"65
+[v _VT_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 102: void WaitLoop(void) {
-[e :U _WaitLoop ]
+[; ;main.c: 65: void VT_ISR(void) {
+[e :U _VT_ISR ]
 [f ]
-[; ;main.c: 103: LATAbits.LATA6 = !PORTBbits.RB5;
-"103
-[e = . . _LATAbits 0 6 -> -> ! != -> . . _PORTBbits 0 5 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 104: }
-"104
-[e :UE 373 ]
-}
-"107
-[v _Code_exec `(v ~T0 @X0 1 ef1`uc ]
+"67
+[v _code `i ~T0 @X0 1 a ]
+[; ;main.c: 67: int code = PORTAbits.RA1 + 2*PORTAbits.RA6 + 4*PORTAbits.RA7 + 8*PORTAbits.RA0;
+[e = _code + + + -> . . _PORTAbits 0 1 `i * -> 2 `i -> . . _PORTAbits 0 6 `i * -> 4 `i -> . . _PORTAbits 0 7 `i * -> 8 `i -> . . _PORTAbits 0 0 `i ]
+[; ;main.c: 68: if(code & A) {
+"68
+[e $ ! != & _code -> . `E2435 0 `i -> 0 `i 367  ]
 {
-[; ;main.c: 107: void Code_exec(uint8_t code) {
-[e :U _Code_exec ]
-[v _code `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;main.c: 110: switch(code) {
-"110
-[e $U 376  ]
-{
-[; ;main.c: 111: case LIGHT_ON:
-"111
-[e :U 377 ]
-[; ;main.c: 112: break;
-"112
-[e $U 375  ]
-[; ;main.c: 113: case LIGHT_OFF:
-"113
-[e :U 378 ]
-[; ;main.c: 114: break;
-"114
-[e $U 375  ]
-[; ;main.c: 115: case LIGHT_TOGGLE:
-"115
-[e :U 379 ]
-[; ;main.c: 116: break;
-"116
-[e $U 375  ]
-[; ;main.c: 117: case REBOOT:
-"117
-[e :U 380 ]
-[; ;main.c: 118: break;
-"118
-[e $U 375  ]
-[; ;main.c: 119: case SHUTDOWN:
-"119
-[e :U 381 ]
-[; ;main.c: 120: break;
-"120
-[e $U 375  ]
-[; ;main.c: 121: case GET_LIGHT_STATE:
-"121
-[e :U 382 ]
-[; ;main.c: 122: break;
-"122
-[e $U 375  ]
-[; ;main.c: 123: case GET_LED_STATE:
-"123
-[e :U 383 ]
-[; ;main.c: 124: break;
-"124
-[e $U 375  ]
-[; ;main.c: 125: case GET_TEMPERATURE:
-"125
-[e :U 384 ]
-[; ;main.c: 126: break;
-"126
-[e $U 375  ]
-[; ;main.c: 127: case GET_WATER_STATE:
-"127
-[e :U 385 ]
-[; ;main.c: 128: break;
-"128
-[e $U 375  ]
-[; ;main.c: 129: case TEST_LIGHT:
-"129
-[e :U 386 ]
-[; ;main.c: 130: break;
-"130
-[e $U 375  ]
-[; ;main.c: 131: case TEST_BUZZER:
-"131
-[e :U 387 ]
-[; ;main.c: 132: break;
-"132
-[e $U 375  ]
-[; ;main.c: 133: case TEST_LED:
-"133
-[e :U 388 ]
-[; ;main.c: 134: break;
-"134
-[e $U 375  ]
-"135
+[; ;main.c: 69: POWER_LED_ON();
+"69
+[e ( _POWER_LED_ON ..  ]
+"70
 }
-[; ;main.c: 135: }
-[e $U 375  ]
-"110
-[e :U 376 ]
-[e [\ _code , $ -> . `E2669 0 `uc 377
- , $ -> . `E2669 1 `uc 378
- , $ -> . `E2669 2 `uc 379
- , $ -> . `E2669 10 `uc 380
- , $ -> . `E2669 11 `uc 381
- , $ -> . `E2669 3 `uc 382
- , $ -> . `E2669 4 `uc 383
- , $ -> . `E2669 5 `uc 384
- , $ -> . `E2669 6 `uc 385
- , $ -> . `E2669 7 `uc 386
- , $ -> . `E2669 8 `uc 387
- , $ -> . `E2669 9 `uc 388
- 375 ]
-"135
-[e :U 375 ]
-[; ;main.c: 136: }
-"136
-[e :UE 374 ]
-}
-"138
-[v _rxB `uc ~T0 @X0 -> 256 `i e ]
-[i _rxB
-:U ..
--> -> 0 `i `uc
-..
-]
-[; ;main.c: 138: unsigned char rxB[256] = {0};
-"139
-[v _rxC `uc ~T0 @X0 1 e ]
-[i _rxC
--> -> 0 `i `uc
-]
-[; ;main.c: 139: unsigned char rxC = 0;
-"141
-[v _ReadFifo `(uc ~T0 @X0 1 ef ]
+[; ;main.c: 70: } else if(code & B) {
+[e $U 368  ]
+[e :U 367 ]
+[e $ ! != & _code -> . `E2435 1 `i -> 0 `i 369  ]
 {
-[; ;main.c: 141: unsigned char ReadFifo(void) {
-[e :U _ReadFifo ]
-[f ]
-"142
-[v _res `uc ~T0 @X0 1 a ]
-[; ;main.c: 142: unsigned char res = MRF89XA_ReadFifo();
-[e = _res ( _MRF89XA_ReadFifo ..  ]
-[; ;main.c: 143: rxB[rxC++] = res;
-"143
-[e = *U + &U _rxB * -> ++ _rxC -> -> 1 `i `uc `ux -> -> # *U &U _rxB `ui `ux _res ]
-[; ;main.c: 144: rxB[rxC] = 0;
-"144
-[e = *U + &U _rxB * -> _rxC `ux -> -> # *U &U _rxB `ui `ux -> -> 0 `i `uc ]
-[; ;main.c: 145: return res;
-"145
-[e ) _res ]
-[e $UE 389  ]
-[; ;main.c: 146: }
-"146
-[e :UE 389 ]
+[; ;main.c: 71: POWER_LED_OFF();
+"71
+[e ( _POWER_LED_OFF ..  ]
+"73
 }
-"149
-[v _IRQ0_ISR `(v ~T0 @X0 1 ef ]
+[; ;main.c: 73: } else if(code & D) {
+[e $U 370  ]
+[e :U 369 ]
+[e $ ! != & _code -> . `E2435 3 `i -> 0 `i 371  ]
 {
-[; ;main.c: 149: void IRQ0_ISR(void) {
-[e :U _IRQ0_ISR ]
-[f ]
-"153
-[v _Address `uc ~T0 @X0 1 a ]
-[; ;main.c: 153: unsigned char Address = ReadFifo();
-[e = _Address ( _ReadFifo ..  ]
-"155
-[v _Data1 `uc ~T0 @X0 1 a ]
-[; ;main.c: 155: unsigned char Data1 = ReadFifo();
-[e = _Data1 ( _ReadFifo ..  ]
-[; ;main.c: 157: if(Data1 == 0x55) {
-"157
-[e $ ! == -> _Data1 `i -> 85 `i 391  ]
-{
-[; ;main.c: 158: LATAbits.LATA3 = !LATAbits.LATA3;
-"158
-[e = . . _LATAbits 0 3 -> -> ! != -> . . _LATAbits 0 3 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-"159
+[; ;main.c: 74: POWER_LED_TOGGLE();
+"74
+[e ( _POWER_LED_TOGGLE ..  ]
+"75
 }
-[; ;main.c: 159: }
-[e $U 392  ]
-"160
-[e :U 391 ]
-[; ;main.c: 160: else {
-{
-[; ;main.c: 161: do { LATAbits.LATA3 = 0; } while(0);
-"161
-[e :U 395 ]
-{
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 394 ]
-[; ;main.c: 162: Delay_Xms(500);
-"162
-[e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 163: do { LATAbits.LATA3 = 1; } while(0);
-"163
-[e :U 398 ]
-{
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-}
-[e :U 397 ]
-[; ;main.c: 164: Delay_Xms(500);
-"164
-[e ( _Delay_Xms (1 -> -> 500 `i `l ]
-"165
-}
-[e :U 392 ]
-"168
-[v _Dummy `uc ~T0 @X0 1 a ]
-[; ;main.c: 165: }
-[; ;main.c: 168: unsigned char Dummy = 0;
-[e = _Dummy -> -> 0 `i `uc ]
-[; ;main.c: 169: while(!MRF89XA_IsFifoEmpty()) {
-"169
-[e $U 399  ]
-[e :U 400 ]
-{
-[; ;main.c: 170: Dummy = ReadFifo();
-"170
-[e = _Dummy ( _ReadFifo ..  ]
-"171
-}
-[e :U 399 ]
-"169
-[e $ ! != -> ( _MRF89XA_IsFifoEmpty ..  `i -> -> -> 0 `i `uc `i 400  ]
-[e :U 401 ]
-[; ;main.c: 171: }
-[; ;main.c: 173: asm("nop");
-"173
-[; <" nop ;# ">
-[; ;main.c: 174: }
-"174
-[e :UE 390 ]
+[e :U 371 ]
+"76
+[e :U 370 ]
+[e :U 368 ]
+[; ;main.c: 75: }
+[; ;main.c: 76: }
+[e :UE 366 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"176
+"78
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 176: void main(void) {
+[; ;main.c: 78: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 178: SYSTEM_Initialize();
-"178
+[; ;main.c: 80: SYSTEM_Initialize();
+"80
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 184: (INTCONbits.GIE = 1);
-"184
+[; ;main.c: 86: (INTCONbits.GIE = 1);
+"86
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 186: (INTCONbits.PEIE = 1);
-"186
+[; ;main.c: 88: (INTCONbits.PEIE = 1);
+"88
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 189: do { LATAbits.LATA0 = 0; } while(0);
-"189
-[e :U 405 ]
+[; ;main.c: 91: do { LATBbits.LATB1 = 0; } while(0);
+"91
+[e :U 375 ]
 {
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 404 ]
-[; ;main.c: 193: do { LATAbits.LATA3 = 0; } while(0);
-"193
-[e :U 408 ]
-{
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 407 ]
-[; ;main.c: 194: Delay_Xms(500);
-"194
+[e :U 374 ]
+[; ;main.c: 92: Delay_Xms(500);
+"92
 [e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 195: do { LATAbits.LATA3 = 1; } while(0);
-"195
-[e :U 411 ]
+[; ;main.c: 93: do { LATBbits.LATB1 = 1; } while(0);
+"93
+[e :U 378 ]
 {
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 410 ]
-[; ;main.c: 196: Delay_Xms(500);
-"196
+[e :U 377 ]
+[; ;main.c: 94: Delay_Xms(500);
+"94
 [e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 197: do { LATAbits.LATA3 = 0; } while(0);
-"197
-[e :U 414 ]
+[; ;main.c: 95: do { LATBbits.LATB1 = 0; } while(0);
+"95
+[e :U 381 ]
 {
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 413 ]
-[; ;main.c: 198: Delay_Xms(500);
-"198
+[e :U 380 ]
+[; ;main.c: 96: Delay_Xms(500);
+"96
 [e ( _Delay_Xms (1 -> -> 500 `i `l ]
-[; ;main.c: 199: do { LATAbits.LATA3 = 1; } while(0);
-"199
-[e :U 417 ]
+[; ;main.c: 97: do { LATBbits.LATB1 = 1; } while(0);
+"97
+[e :U 384 ]
 {
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
+[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 416 ]
-[; ;main.c: 206: MRF89XA_Initialize(0x41, MRF89XA_MODE_RX, MRF89XA_MODULATION_OOK);
-"206
-[e ( _MRF89XA_Initialize (3 , , -> -> 65 `i `uc -> . `E2603 0 `uc -> . `E2603 5 `uc ]
-[; ;main.c: 208: Delay_Xms(5);
-"208
+[e :U 383 ]
+[; ;main.c: 99: Delay_Xms(5);
+"99
 [e ( _Delay_Xms (1 -> -> 5 `i `l ]
-[; ;main.c: 210: IOCBF0_SetInterruptHandler(IRQ0_ISR);
-"210
-[e ( _IOCBF0_SetInterruptHandler (1 &U _IRQ0_ISR ]
-[; ;main.c: 213: MRF89XA_SetMode(MRF89XA_MODE_SLEEP);
-"213
-[e ( _MRF89XA_SetMode (1 -> . `E2603 3 `uc ]
-[; ;main.c: 215: do { ANSELBbits.ANSB1 = 0; } while(0);
-"215
-[e :U 420 ]
+[; ;main.c: 101: IOCBF5_SetInterruptHandler(VT_ISR);
+"101
+[e ( _IOCBF5_SetInterruptHandler (1 &U _VT_ISR ]
+[; ;main.c: 103: while(1) {
+"103
+[e :U 386 ]
 {
-[e = . . _ANSELBbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 104: ADC_StartConversion();
+"104
+[e ( _ADC_StartConversion ..  ]
+[; ;main.c: 105: Delay_Xms(1000);
+"105
+[e ( _Delay_Xms (1 -> -> 1000 `i `l ]
+[; ;main.c: 106: do { LATBbits.LATB0 = 1; } while(0);
+"106
+[e :U 390 ]
+{
+[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
 }
-[e :U 419 ]
-[; ;main.c: 216: do { TRISBbits.TRISB1 = 1; } while(0);
-"216
-[e :U 423 ]
+[e :U 389 ]
+[; ;main.c: 107: do { LATBbits.LATB1 = 1; } while(0);
+"107
+[e :U 393 ]
 {
-[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 422 ]
-[; ;main.c: 217: do { ANSELBbits.ANSB2 = 0; } while(0);
-"217
-[e :U 426 ]
-{
-[e = . . _ANSELBbits 0 2 -> -> 0 `i `uc ]
-}
-[e :U 425 ]
-[; ;main.c: 218: do { TRISBbits.TRISB2 = 1; } while(0);
-"218
-[e :U 429 ]
-{
-[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
-}
-[e :U 428 ]
-[; ;main.c: 219: do { ANSELBbits.ANSB4 = 0; } while(0);
-"219
-[e :U 432 ]
-{
-[e = . . _ANSELBbits 0 4 -> -> 0 `i `uc ]
-}
-[e :U 431 ]
-[; ;main.c: 220: do { TRISBbits.TRISB4 = 1; } while(0);
-"220
-[e :U 435 ]
-{
-[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
-}
-[e :U 434 ]
-[; ;main.c: 221: do { ANSELBbits.ANSB7 = 0; } while(0);
-"221
-[e :U 438 ]
-{
-[e = . . _ANSELBbits 0 7 -> -> 0 `i `uc ]
-}
-[e :U 437 ]
-[; ;main.c: 222: do { TRISBbits.TRISB7 = 1; } while(0);
-"222
-[e :U 441 ]
-{
-[e = . . _TRISBbits 0 7 -> -> 1 `i `uc ]
-}
-[e :U 440 ]
-[; ;main.c: 223: do { ANSELBbits.ANSB6 = 0; } while(0);
-"223
-[e :U 444 ]
-{
-[e = . . _ANSELBbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 443 ]
-[; ;main.c: 224: do { TRISBbits.TRISB6 = 1; } while(0);
-"224
-[e :U 447 ]
-{
-[e = . . _TRISBbits 0 6 -> -> 1 `i `uc ]
-}
-[e :U 446 ]
-[; ;main.c: 226: while(1) {
-"226
-[e :U 449 ]
-{
-[; ;main.c: 227: if(PORTBbits.RB4 == 1) {
-"227
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 1 `i 451  ]
-{
-[; ;main.c: 228: POWER_LED_TOGGLE();
-"228
-[e ( _POWER_LED_TOGGLE ..  ]
-[; ;main.c: 229: do {
-"229
-[e :U 454 ]
-{
-[; ;main.c: 230: _delay((unsigned long)((100)*(16000000/4000.0)));
-"230
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"231
-}
-[; ;main.c: 231: } while(PORTBbits.RB4 == 1);
-[e $ == -> . . _PORTBbits 0 4 `i -> 1 `i 454  ]
-[e :U 453 ]
-"232
-}
-[; ;main.c: 232: }
-[e $U 455  ]
-"233
-[e :U 451 ]
-[; ;main.c: 233: else if(PORTBbits.RB2 == 1) {
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 1 `i 456  ]
-{
-[; ;main.c: 234: POWER_LED_TOGGLE();
-"234
-[e ( _POWER_LED_TOGGLE ..  ]
-[; ;main.c: 235: do {
-"235
-[e :U 459 ]
-{
-[; ;main.c: 236: _delay((unsigned long)((100)*(16000000/4000.0)));
-"236
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"237
-}
-[; ;main.c: 237: } while(PORTBbits.RB2 == 1);
-[e $ == -> . . _PORTBbits 0 2 `i -> 1 `i 459  ]
-[e :U 458 ]
-"238
-}
-[; ;main.c: 238: }
-[e $U 460  ]
-"239
-[e :U 456 ]
-[; ;main.c: 239: else if(PORTBbits.RB1 == 1) {
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 461  ]
-{
-[; ;main.c: 240: POWER_LED_TOGGLE();
-"240
-[e ( _POWER_LED_TOGGLE ..  ]
-[; ;main.c: 241: do {
-"241
-[e :U 464 ]
-{
-[; ;main.c: 242: _delay((unsigned long)((100)*(16000000/4000.0)));
-"242
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"243
-}
-[; ;main.c: 243: } while(PORTBbits.RB1 == 1);
-[e $ == -> . . _PORTBbits 0 1 `i -> 1 `i 464  ]
-[e :U 463 ]
-"244
-}
-[; ;main.c: 244: }
-[e $U 465  ]
-"245
-[e :U 461 ]
-[; ;main.c: 245: else if(PORTBbits.RB7 == 1) {
-[e $ ! == -> . . _PORTBbits 0 7 `i -> 1 `i 466  ]
-{
-[; ;main.c: 246: POWER_LED_TOGGLE();
-"246
-[e ( _POWER_LED_TOGGLE ..  ]
-[; ;main.c: 247: do {
-"247
-[e :U 469 ]
-{
-[; ;main.c: 248: _delay((unsigned long)((100)*(16000000/4000.0)));
-"248
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"249
-}
-[; ;main.c: 249: } while(PORTBbits.RB7 == 1);
-[e $ == -> . . _PORTBbits 0 7 `i -> 1 `i 469  ]
-[e :U 468 ]
-"250
-}
-[e :U 466 ]
-"251
-[e :U 465 ]
-[e :U 460 ]
-[e :U 455 ]
-[; ;main.c: 250: }
-[; ;main.c: 251: if(LedState == 1) {
-[e $ ! == -> _LedState `i -> 1 `i 470  ]
-{
-[; ;main.c: 252: BlinkCounter++;
-"252
-[e ++ _BlinkCounter -> -> 1 `i `uc ]
-[; ;main.c: 253: if(PORTAbits.RA3 == 0) {
-"253
-[e $ ! == -> . . _PORTAbits 0 3 `i -> 0 `i 471  ]
-{
-[; ;main.c: 254: if(BlinkCounter == BlinkCounterOn){
-"254
-[e $ ! == -> _BlinkCounter `i -> _BlinkCounterOn `i 472  ]
-{
-[; ;main.c: 255: do { LATAbits.LATA3 = 1; } while(0);
-"255
-[e :U 475 ]
-{
-[e = . . _LATAbits 0 3 -> -> 1 `i `uc ]
-}
-[e :U 474 ]
-[; ;main.c: 256: BlinkCounter = 0;
-"256
-[e = _BlinkCounter -> -> 0 `i `uc ]
-"257
-}
-[e :U 472 ]
-"258
-}
-[; ;main.c: 257: }
-[; ;main.c: 258: }
-[e $U 476  ]
-"259
-[e :U 471 ]
-[; ;main.c: 259: else {
-{
-[; ;main.c: 260: if(BlinkCounter == BlinkCounterOff){
-"260
-[e $ ! == -> _BlinkCounter `i -> _BlinkCounterOff `i 477  ]
-{
-[; ;main.c: 261: do { LATAbits.LATA3 = 0; } while(0);
-"261
-[e :U 480 ]
-{
-[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 479 ]
-[; ;main.c: 262: BlinkCounter = 0;
-"262
-[e = _BlinkCounter -> -> 0 `i `uc ]
-"263
-}
-[e :U 477 ]
-"264
-}
-[e :U 476 ]
-"265
-}
-[e :U 470 ]
-[; ;main.c: 263: }
-[; ;main.c: 264: }
-[; ;main.c: 265: }
-[; ;main.c: 266: Delay_Xms(100);
-"266
-[e ( _Delay_Xms (1 -> -> 100 `i `l ]
-"267
-}
-[e :U 448 ]
-"226
-[e $U 449  ]
-[e :U 450 ]
-[; ;main.c: 267: }
-[; ;main.c: 270: while (1) {
-"270
-[e :U 482 ]
-{
-[; ;main.c: 272: Delay_Xms(100);
-"272
-[e ( _Delay_Xms (1 -> -> 100 `i `l ]
-[; ;main.c: 275: asm("nop");
-"275
+[e :U 392 ]
+[; ;main.c: 108: asm("sleep");
+"108
+[; <" sleep ;# ">
+[; ;main.c: 109: asm("nop");
+"109
 [; <" nop ;# ">
-[; ;main.c: 276: asm("nop");
-"276
+[; ;main.c: 110: asm("nop");
+"110
 [; <" nop ;# ">
-[; ;main.c: 277: asm("nop");
-"277
+[; ;main.c: 111: asm("nop");
+"111
 [; <" nop ;# ">
-[; ;main.c: 278: asm("nop");
-"278
-[; <" nop ;# ">
-[; ;main.c: 279: asm("nop");
-"279
-[; <" nop ;# ">
-"301
+"112
 }
-[e :U 481 ]
-"270
-[e $U 482  ]
-[e :U 483 ]
-[; ;main.c: 301: }
-[; ;main.c: 302: }
-"302
-[e :UE 402 ]
+[e :U 385 ]
+"103
+[e $U 386  ]
+[e :U 387 ]
+[; ;main.c: 112: }
+[; ;main.c: 113: }
+"113
+[e :UE 372 ]
 }

@@ -12,11 +12,19 @@
 #include "mcc_generated_files/tmr2.h"
 #include "mcc_generated_files/tmr4.h"
 #include "main.h"
-#include "MRF89XA.h"
 
 #define RESET_SETTINGS 0
 
-#define MODE_SECONDARY 1
+#define ALL_ON_CODE A
+#define ALL_OFF_CODE B
+#define TOGGLE_ON_CODE D
+
+enum Codes {
+    A = 8,
+    B = 4,
+    C = 2,
+    D = 1,
+};
 
 unsigned char LedState = 0;
 unsigned char TimeoutCounter = 0;
@@ -31,146 +39,40 @@ enum Modes {
     MODE_BLINK = 2,
 };
 
-enum Codes {
-    Code_A = 0,
-    Code_B = 1,
-    Code_C = 2,
-    Code_D = 3,
-};
-
-enum EEPROM_SLOTS {
-    SLOT_MODE = 0x00,
-    SLOT_THRESHOLD = 0x01,
-    SLOT_FREQUENCY = 0x02,
-};
-
-enum RF_COMMANDS {
-    LIGHT_ON = 0x01,
-    LIGHT_OFF = 0x02,
-    LIGHT_TOGGLE = 0x03,
-
-    GET_LIGHT_STATE = 0x20,
-    GET_LED_STATE = 0x21,
-    GET_TEMPERATURE = 0x22,
-    GET_WATER_STATE = 0x23,
-
-    TEST_LIGHT = 0x50,
-    TEST_BUZZER = 0x51,
-    TEST_LED = 0x52,
-
-    REBOOT = 0xE0,
-    SHUTDOWN = 0xE1,
-};
-void IRQ1_ISR(void);
-
 void Delay_Xms(long delay) {
     for(long i = 0; i < delay; i++) {
         __delay_ms(1);
     }
 }
 
-void Delay_Xus(long delay) {
-    for(long i = 0; i < delay; i++) {
-        __delay_us(1);
-    }
-}
 void POWER_LED_ON(void) {
     ENABLE_SetHigh();
     LedState = 1;
-//#if (MODE_SECONDARY == 1)
-//    LED_SetLow();
-//#endif
-    //DATAEE_WriteByte(SLOT_MODE, LedState);
 }
 
 void POWER_LED_OFF(void) {
     ENABLE_SetLow();
     LedState = 0;
-//#if (MODE_SECONDARY == 1)
-//    LED_SetHigh();
-//#endif
-    //DATAEE_WriteByte(SLOT_MODE, LedState);
 }
 
 void POWER_LED_TOGGLE(void) {
-    if (LedState)
-        POWER_LED_OFF();
-    else
+    if (LedState == 0)
         POWER_LED_ON();
+    else
+        POWER_LED_OFF();
 }
 
-void WaitLoop(void) {
-    BUZZER_LAT = !WATER_GetValue();
-}
-
-
-void Code_exec(uint8_t code) {
-    // Read received code
-
-    switch(code) {
-        case LIGHT_ON:
-            break;
-        case LIGHT_OFF:
-            break;
-        case LIGHT_TOGGLE:
-            break;
-        case REBOOT:
-            break;
-        case SHUTDOWN:
-            break;
-        case GET_LIGHT_STATE:
-            break;
-        case GET_LED_STATE:
-            break;
-        case GET_TEMPERATURE:
-            break;
-        case GET_WATER_STATE:
-            break;
-        case TEST_LIGHT:
-            break;
-        case TEST_BUZZER:
-            break;
-        case TEST_LED:
-            break;
+void VT_ISR(void) {
+    // Get codes
+    int code = D0_GetValue() + 2*D1_GetValue() + 4*D2_GetValue() + 8*D3_GetValue();
+    if(code & ALL_ON_CODE) {
+        POWER_LED_ON();
+    } else if(code & ALL_OFF_CODE) {
+        POWER_LED_OFF();
+        // Also start ADC to get battery level
+    } else if(code & TOGGLE_ON_CODE) {
+        POWER_LED_TOGGLE();
     }
-}
-
-unsigned char rxB[256] = {0};
-unsigned char rxC = 0;
-
-unsigned char ReadFifo(void) {
-    unsigned char res = MRF89XA_ReadFifo();
-    rxB[rxC++] = res;
-    rxB[rxC] = 0;
-    return res;
-}
-
-// Sync match
-void IRQ0_ISR(void) {
-    // Read fifo
-    // Packet length is 2 -> 
-    // Read address
-    unsigned char Address = ReadFifo();
-    // Read data 1
-    unsigned char Data1 = ReadFifo();
-    
-    if(Data1 == 0x55) {
-        LED_LAT = !LED_LAT;
-    }
-    else {
-        LED_SetLow();
-        Delay_Xms(500);
-        LED_SetHigh();
-        Delay_Xms(500);
-    }
-        
-    // Clear fifo
-    unsigned char Dummy = 0;
-    while(!MRF89XA_IsFifoEmpty()) {
-        Dummy = ReadFifo();
-    }
-    
-    asm("nop"); 
 }
 
 void main(void) {
@@ -185,119 +87,28 @@ void main(void) {
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
 
-    // Power on
-    RESET_RF_SetLow();
-    // Wait 50ms or + for them to startup
-    
     // Toggle du relay pour indication d'actif
-    LED_SetLow();
+    LED_G_SetOn();
     Delay_Xms(500);
-    LED_SetHigh();
+    LED_G_SetOff();
     Delay_Xms(500);
-    LED_SetLow();
+    LED_G_SetOn();
     Delay_Xms(500);
-    LED_SetHigh();
+    LED_G_SetOff();
 
-#if RESET_SETTINGS == 1
-    DATAEE_WriteByte(SLOT_MODE, 0);
-    while (1);
-#endif
-
-    MRF89XA_Initialize(0x41, MRF89XA_MODE_RX, MRF89XA_MODULATION_OOK);
-    
     Delay_Xms(5);
     
-    IOCBF0_SetInterruptHandler(IRQ0_ISR);
+    IOCBF5_SetInterruptHandler(VT_ISR);
     
-#if(MODE_SECONDARY == 1)
-        MRF89XA_SetMode(MRF89XA_MODE_SLEEP);
-        
-        MISO_SetDigitalMode();
-        MISO_SetDigitalInput();
-        MOSI_SetDigitalMode();
-        MOSI_SetDigitalInput();
-        SCK_SetDigitalMode();
-        SCK_SetDigitalInput();
-        ICSPDAT_SetDigitalMode();
-        ICSPDAT_SetDigitalInput();
-        ICSPCLK_SetDigitalMode();
-        ICSPCLK_SetDigitalInput();
-        
-        while(1) {
-            if(SCK_GetValue() == 1) {
-                POWER_LED_TOGGLE();
-                do {
-                    __delay_ms(100);
-                } while(SCK_GetValue() == 1);
-            }
-            else if(MOSI_GetValue() == 1) {
-                POWER_LED_TOGGLE();
-                do {
-                    __delay_ms(100);
-                } while(MOSI_GetValue() == 1);
-            }
-            else if(MISO_GetValue() == 1) {
-                POWER_LED_TOGGLE();
-                do {
-                    __delay_ms(100);
-                } while(MISO_GetValue() == 1);
-            }
-            else if(ICSPDAT_GetValue() == 1) {
-                POWER_LED_TOGGLE();
-                do {
-                    __delay_ms(100);
-                } while(ICSPDAT_GetValue() == 1);
-            }
-            if(LedState == 1) {
-                BlinkCounter++;
-                if(LED_GetValue() == 0) {
-                    if(BlinkCounter == BlinkCounterOn){
-                        LED_SetHigh();
-                        BlinkCounter = 0;
-                    }
-                }
-                else {
-                    if(BlinkCounter == BlinkCounterOff){
-                        LED_SetLow();
-                        BlinkCounter = 0;
-                    }
-                }
-            }
-            Delay_Xms(100);
-        }
-#endif
-    
-    while (1) {
-
-        Delay_Xms(100);
-        
-        //        SLEEP();
+    while(1) {
+        ADC_StartConversion();
+        Delay_Xms(1000);
+        LED_R_SetOff();
+        LED_G_SetOff();
+        SLEEP();
         asm("nop");
         asm("nop");
         asm("nop");
-        asm("nop");
-        asm("nop");
-
-
-        //if (DATA_RECEIVED) {
-        //    DATA_RECEIVED = 0;
-        //    Code_exec();
-        //}
-//
-//        if (TMR2_INT_FLAG) {
-//            TMR2_INT_FLAG = 0;
-//
-//            //            ADC_StartConversion();
-//
-//            if (TimeoutCounter++ >= TurnOffTimeout) {
-//                TimeoutCounter
-//                POWER_LED_OFF();
-//            }
-//        }
-
-        //        if (ADC_IsConversionDone()) {
-        //            Auto_Value = ADC_GetConversionResult();
-        //        }
     }
 }
 /**

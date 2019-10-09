@@ -1,17 +1,17 @@
 
 # 1 "mcc_generated_files/tmr2.c"
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\xc.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 52 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h"
+# 52 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h"
 extern volatile unsigned char INDF0 __at(0x000);
 
 asm("INDF0 equ 00h");
@@ -4177,7 +4177,7 @@ extern volatile __bit nTO __at(0x1C);
 extern volatile __bit nWPUEN __at(0x4AF);
 
 
-# 30 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h"
+# 30 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
@@ -4188,12 +4188,12 @@ __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longe
 
 __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_erase(unsigned short addr);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\eeprom_routines.h"
+# 114 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 
 
-# 91 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h"
+# 91 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -4207,7 +4207,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -4293,7 +4293,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
+# 15 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
 # 104 "mcc_generated_files/tmr2.h"
@@ -4329,16 +4329,34 @@ extern void (*TMR2_InterruptHandler)(void);
 # 380
 void TMR2_DefaultInterruptHandler(void);
 
-# 58 "mcc_generated_files/tmr2.c"
+# 303 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+
+# 315
+void PIN_MANAGER_IOC(void);
+
+# 328
+void IOCBF5_ISR(void);
+
+# 351
+void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+
+# 375
+extern void (*IOCBF5_InterruptHandler)(void);
+
+# 399
+void IOCBF5_DefaultInterruptHandler(void);
+
+# 59 "mcc_generated_files/tmr2.c"
 void (*TMR2_InterruptHandler)(void);
 
-# 64
+# 65
 void TMR2_Initialize(void)
 {
 
 
 
-PR2 = 0x7C;
+PR2 = 0x07;
 
 
 TMR2 = 0x00;
@@ -4353,7 +4371,7 @@ PIE1bits.TMR2IE = 1;
 TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
 
 
-T2CON = 0x27;
+T2CON = 0x23;
 }
 
 void TMR2_StartTimer(void)
@@ -4396,7 +4414,7 @@ static volatile unsigned int CountCallBack = 0;
 PIR1bits.TMR2IF = 0;
 
 
-if (++CountCallBack >= 100)
+if (++CountCallBack >= 10)
 {
 
 TMR2_CallBack();

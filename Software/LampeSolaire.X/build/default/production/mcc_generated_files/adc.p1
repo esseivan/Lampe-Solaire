@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1887 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"1887 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [v _ADCON0 `Vuc ~T0 @X0 0 e@157 ]
 "1967
 [v _ADCON1 `Vuc ~T0 @X0 0 e@158 ]
@@ -15,10 +15,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S69 . . ]
 "1293
 [v _PIE1bits `VS69 ~T0 @X0 0 e@145 ]
-"85 mcc_generated_files/adc.c
-[c E2331 4 29 30 31 .. ]
-[n E2331 . TEMP channel_Temp channel_DAC channel_FVR  ]
-"1893 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"83 mcc_generated_files/adc.c
+[c E2331 10 29 30 31 .. ]
+[n E2331 . BATTERY_LVL channel_Temp channel_DAC channel_FVR  ]
+"166 mcc_generated_files/adc.h
+[v _ADC_SelectChannel `(v ~T0 @X0 0 ef1`E2331 ]
+"1893 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S98 . ADON GO_nDONE CHS0 CHS1 CHS2 CHS3 CHS4 ]
 "1902
@@ -33,10 +35,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1912
 [v _ADCON0bits `VS97 ~T0 @X0 0 e@157 ]
 [v F2287 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF2287 ~T0 @X0 0 e ]
 [p i __delay ]
-"559 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"559 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S33 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
 "558
@@ -44,11 +46,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S32 . . ]
 "570
 [v _PIR1bits `VS32 ~T0 @X0 0 e@17 ]
+"307 mcc_generated_files/adc.h
+[v _ADC_CompareValue `(v ~T0 @X0 0 ef ]
+"2102 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
+[s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S107 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"2101
+[u S106 `S107 1 ]
+[n S106 . . ]
+"2113
+[v _LATBbits `VS106 ~T0 @X0 0 e@269 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16lf1827.h: 52: extern volatile unsigned char INDF0 __at(0x000);
-"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [; ;pic16lf1827.h: 54: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16lf1827.h: 57: typedef union {
@@ -2827,93 +2839,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;adc.h: 71: typedef uint16_t adc_result_t;
-[; ;adc.h: 76: typedef struct
-[; ;adc.h: 77: {
-[; ;adc.h: 78: adc_result_t adcResult1;
-[; ;adc.h: 79: adc_result_t adcResult2;
-[; ;adc.h: 80: } adc_sync_double_result_t;
-[; ;adc.h: 94: typedef enum
-[; ;adc.h: 95: {
-[; ;adc.h: 96: TEMP = 0x4,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-[; ;adc.h: 135: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 192: void ADC_StartConversion();
-[; ;adc.h: 224: bool ADC_IsConversionDone();
-[; ;adc.h: 257: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 287: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 304: void ADC_ISR(void);
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 77: typedef struct
+[; ;adc.h: 78: {
+[; ;adc.h: 79: adc_result_t adcResult1;
+[; ;adc.h: 80: adc_result_t adcResult2;
+[; ;adc.h: 81: } adc_sync_double_result_t;
+[; ;adc.h: 95: typedef enum
+[; ;adc.h: 96: {
+[; ;adc.h: 97: BATTERY_LVL = 0xA,
+[; ;adc.h: 98: channel_Temp = 0x1D,
+[; ;adc.h: 99: channel_DAC = 0x1E,
+[; ;adc.h: 100: channel_FVR = 0x1F
+[; ;adc.h: 101: } adc_channel_t;
+[; ;adc.h: 136: void ADC_Initialize(void);
+[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 193: void ADC_StartConversion();
+[; ;adc.h: 225: bool ADC_IsConversionDone();
+[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 305: void ADC_ISR(void);
+[; ;adc.h: 307: void ADC_CompareValue(void);
 [; ;pin_manager.h: 303: void PIN_MANAGER_Initialize (void);
 [; ;pin_manager.h: 315: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 328: void IOCBF0_ISR(void);
-[; ;pin_manager.h: 351: void IOCBF0_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 375: extern void (*IOCBF0_InterruptHandler)(void);
-[; ;pin_manager.h: 399: void IOCBF0_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 412: void IOCBF3_ISR(void);
-[; ;pin_manager.h: 435: void IOCBF3_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 459: extern void (*IOCBF3_InterruptHandler)(void);
-[; ;pin_manager.h: 483: void IOCBF3_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 496: void IOCBF5_ISR(void);
-[; ;pin_manager.h: 519: void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 543: extern void (*IOCBF5_InterruptHandler)(void);
-[; ;pin_manager.h: 567: void IOCBF5_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 328: void IOCBF5_ISR(void);
+[; ;pin_manager.h: 351: void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;pin_manager.h: 375: extern void (*IOCBF5_InterruptHandler)(void);
+[; ;pin_manager.h: 399: void IOCBF5_DefaultInterruptHandler(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;spi1_types.h: 27: typedef enum {
-[; ;spi1_types.h: 28: SPI1_DEFAULT,
-[; ;spi1_types.h: 29: MASTER_CONFIG
-[; ;spi1_types.h: 30: } spi1_modes;
-[; ;spi1_driver.h: 35: inline void spi1_close(void);
-[; ;spi1_driver.h: 37: bool spi1_open(spi1_modes spiUniqueConfiguration);
-[; ;spi1_driver.h: 39: uint8_t spi1_exchangeByte(uint8_t b);
-[; ;spi1_driver.h: 41: void spi1_exchangeBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 42: void spi1_writeBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 43: void spi1_readBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 45: void spi1_writeByte(uint8_t byte);
-[; ;spi1_driver.h: 46: uint8_t spi1_readByte(void);
-[; ;spi1_driver.h: 48: void spi1_isr(void);
-[; ;spi1_driver.h: 49: void spi1_setSpiISR(void(*handler)(void));
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;memory.h: 99: uint16_t FLASH_ReadWord(uint16_t flashAddr);
-[; ;memory.h: 128: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-[; ;memory.h: 164: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-[; ;memory.h: 189: void FLASH_EraseBlock(uint16_t startAddr);
-[; ;memory.h: 220: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-[; ;memory.h: 246: uint8_t DATAEE_ReadByte(uint8_t bAdd);
+[; ;fvr.h: 87: void FVR_Initialize(void);
+[; ;fvr.h: 121: bool FVR_IsOutputReady(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
 [; ;tmr2.h: 104: void TMR2_Initialize(void);
 [; ;tmr2.h: 133: void TMR2_StartTimer(void);
@@ -2926,26 +2882,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr2.h: 344: void TMR2_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr2.h: 362: extern void (*TMR2_InterruptHandler)(void);
 [; ;tmr2.h: 380: void TMR2_DefaultInterruptHandler(void);
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;spi_master.h: 33: typedef enum {
-[; ;spi_master.h: 34: MASTER
-[; ;spi_master.h: 35: } spi_master_configurations_t;
-[; ;spi_master.h: 37: typedef struct { void (*spiClose)(void);
-[; ;spi_master.h: 38: bool (*spiOpen)(void);
-[; ;spi_master.h: 39: uint8_t (*exchangeByte)(uint8_t b);
-[; ;spi_master.h: 40: void (*exchangeBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 41: void (*writeBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 42: void (*readBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 43: void (*writeByte)(uint8_t byte);
-[; ;spi_master.h: 44: uint8_t (*readByte)(void);
-[; ;spi_master.h: 45: void (*setSpiISR)(void(*handler)(void));
-[; ;spi_master.h: 46: void (*spiISR)(void);
-[; ;spi_master.h: 47: } spi_master_functions_t;
-[; ;spi_master.h: 49: extern const spi_master_functions_t spiMaster[];
-[; ;spi_master.h: 51: inline bool spi_master_open(spi_master_configurations_t config);
-[; ;mcc.h: 73: void SYSTEM_Initialize(void);
-[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void WDT_Initialize(void);
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 97: void WDT_Initialize(void);
 "64 mcc_generated_files/adc.c
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
 "65
@@ -2957,9 +2896,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 69: ADCON0 = 0x01;
 "69
 [e = _ADCON0 -> -> 1 `i `uc ]
-[; ;adc.c: 72: ADCON1 = 0x60;
+[; ;adc.c: 72: ADCON1 = 0xE3;
 "72
-[e = _ADCON1 -> -> 96 `i `uc ]
+[e = _ADCON1 -> -> 227 `i `uc ]
 [; ;adc.c: 75: ADRESL = 0x00;
 "75
 [e = _ADRESL -> -> 0 `i `uc ]
@@ -2969,122 +2908,125 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 81: PIE1bits.ADIE = 1;
 "81
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
-[; ;adc.c: 82: }
-"82
-[e :UE 352 ]
-}
+[; ;adc.c: 83: ADC_SelectChannel(BATTERY_LVL);
+"83
+[e ( _ADC_SelectChannel (1 . `E2331 0 ]
+[; ;adc.c: 84: }
 "84
+[e :UE 350 ]
+}
+"86
 [v _ADC_SelectChannel `(v ~T0 @X0 1 ef1`E2331 ]
-"85
-{
-[; ;adc.c: 84: void ADC_SelectChannel(adc_channel_t channel)
-[; ;adc.c: 85: {
-[e :U _ADC_SelectChannel ]
-"84
-[v _channel `E2331 ~T0 @X0 1 r1 ]
-"85
-[f ]
-[; ;adc.c: 87: ADCON0bits.CHS = channel;
 "87
-[e = . . _ADCON0bits 1 2 -> _channel `uc ]
-[; ;adc.c: 89: ADCON0bits.ADON = 1;
-"89
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-[; ;adc.c: 90: }
-"90
-[e :UE 353 ]
-}
-"92
-[v _ADC_StartConversion `(v ~T0 @X0 1 ef ]
-"93
 {
-[; ;adc.c: 92: void ADC_StartConversion()
-[; ;adc.c: 93: {
+[; ;adc.c: 86: void ADC_SelectChannel(adc_channel_t channel)
+[; ;adc.c: 87: {
+[e :U _ADC_SelectChannel ]
+"86
+[v _channel `E2331 ~T0 @X0 1 r1 ]
+"87
+[f ]
+[; ;adc.c: 89: ADCON0bits.CHS = channel;
+"89
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
+[; ;adc.c: 91: ADCON0bits.ADON = 1;
+"91
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;adc.c: 92: }
+"92
+[e :UE 351 ]
+}
+"94
+[v _ADC_StartConversion `(v ~T0 @X0 1 ef ]
+"95
+{
+[; ;adc.c: 94: void ADC_StartConversion()
+[; ;adc.c: 95: {
 [e :U _ADC_StartConversion ]
 [f ]
-[; ;adc.c: 95: ADCON0bits.GO_nDONE = 1;
-"95
+[; ;adc.c: 97: ADCON0bits.GO_nDONE = 1;
+"97
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
-[; ;adc.c: 96: }
-"96
-[e :UE 354 ]
+[; ;adc.c: 98: }
+"98
+[e :UE 352 ]
 }
-"99
-[v _ADC_IsConversionDone `(uc ~T0 @X0 1 ef ]
 "100
+[v _ADC_IsConversionDone `(uc ~T0 @X0 1 ef ]
+"101
 {
-[; ;adc.c: 99: bool ADC_IsConversionDone()
-[; ;adc.c: 100: {
+[; ;adc.c: 100: bool ADC_IsConversionDone()
+[; ;adc.c: 101: {
 [e :U _ADC_IsConversionDone ]
 [f ]
-[; ;adc.c: 102: return (!ADCON0bits.GO_nDONE);
-"102
-[e ) -> -> ! != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[e $UE 355  ]
-[; ;adc.c: 103: }
+[; ;adc.c: 103: return (!ADCON0bits.GO_nDONE);
 "103
-[e :UE 355 ]
+[e ) -> -> ! != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e $UE 353  ]
+[; ;adc.c: 104: }
+"104
+[e :UE 353 ]
 }
-"105
-[v _ADC_GetConversionResult `(ui ~T0 @X0 1 ef ]
 "106
+[v _ADC_GetConversionResult `(ui ~T0 @X0 1 ef ]
+"107
 {
-[; ;adc.c: 105: adc_result_t ADC_GetConversionResult(void)
-[; ;adc.c: 106: {
+[; ;adc.c: 106: adc_result_t ADC_GetConversionResult(void)
+[; ;adc.c: 107: {
 [e :U _ADC_GetConversionResult ]
 [f ]
-[; ;adc.c: 108: return ((ADRESH << 8) + ADRESL);
-"108
-[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-[e $UE 356  ]
-[; ;adc.c: 109: }
+[; ;adc.c: 109: return ((ADRESH << 8) + ADRESL);
 "109
-[e :UE 356 ]
-}
-"111
-[v _ADC_GetConversion `(ui ~T0 @X0 1 ef1`E2331 ]
-"112
-{
-[; ;adc.c: 111: adc_result_t ADC_GetConversion(adc_channel_t channel)
-[; ;adc.c: 112: {
-[e :U _ADC_GetConversion ]
-"111
-[v _channel `E2331 ~T0 @X0 1 r1 ]
-"112
-[f ]
-[; ;adc.c: 114: ADCON0bits.CHS = channel;
-"114
-[e = . . _ADCON0bits 1 2 -> _channel `uc ]
-[; ;adc.c: 117: ADCON0bits.ADON = 1;
-"117
-[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-[; ;adc.c: 119: _delay((unsigned long)((5)*(16000000/4000000.0)));
-"119
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
-[; ;adc.c: 122: ADCON0bits.GO_nDONE = 1;
-"122
-[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
-[; ;adc.c: 125: while (ADCON0bits.GO_nDONE)
-"125
-[e $U 358  ]
-[e :U 359 ]
-[; ;adc.c: 126: {
-"126
-{
-"127
-}
-[e :U 358 ]
-"125
-[e $ != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i 359  ]
-[e :U 360 ]
-[; ;adc.c: 127: }
-[; ;adc.c: 129: return ((ADRESH << 8) + ADRESL);
-"129
 [e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-[e $UE 357  ]
-[; ;adc.c: 131: }
-"131
-[e :UE 357 ]
+[e $UE 354  ]
+[; ;adc.c: 110: }
+"110
+[e :UE 354 ]
+}
+"112
+[v _ADC_GetConversion `(ui ~T0 @X0 1 ef1`E2331 ]
+"113
+{
+[; ;adc.c: 112: adc_result_t ADC_GetConversion(adc_channel_t channel)
+[; ;adc.c: 113: {
+[e :U _ADC_GetConversion ]
+"112
+[v _channel `E2331 ~T0 @X0 1 r1 ]
+"113
+[f ]
+[; ;adc.c: 115: ADCON0bits.CHS = channel;
+"115
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
+[; ;adc.c: 118: ADCON0bits.ADON = 1;
+"118
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;adc.c: 120: _delay((unsigned long)((5)*(1000000/4000000.0)));
+"120
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 1000000 `l `d .4000000.0 `ul ]
+[; ;adc.c: 123: ADCON0bits.GO_nDONE = 1;
+"123
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;adc.c: 126: while (ADCON0bits.GO_nDONE)
+"126
+[e $U 356  ]
+[e :U 357 ]
+[; ;adc.c: 127: {
+"127
+{
+"128
+}
+[e :U 356 ]
+"126
+[e $ != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i 357  ]
+[e :U 358 ]
+[; ;adc.c: 128: }
+[; ;adc.c: 130: return ((ADRESH << 8) + ADRESL);
+"130
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[e $UE 355  ]
+[; ;adc.c: 132: }
+"132
+[e :UE 355 ]
 }
 "134
 [v _ADC_ISR `(v ~T0 @X0 1 ef ]
@@ -3097,7 +3039,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 137: PIR1bits.ADIF = 0;
 "137
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-[; ;adc.c: 138: }
-"138
-[e :UE 361 ]
+[; ;adc.c: 139: ADC_CompareValue();
+"139
+[e ( _ADC_CompareValue ..  ]
+[; ;adc.c: 140: }
+"140
+[e :UE 359 ]
+}
+"142
+[v _ADC_CompareValue `(v ~T0 @X0 1 ef ]
+{
+[; ;adc.c: 142: void ADC_CompareValue(void) {
+[e :U _ADC_CompareValue ]
+[f ]
+"144
+[v _valueNum `ui ~T0 @X0 1 a ]
+[; ;adc.c: 144: uint16_t valueNum = ADC_GetConversionResult();
+[e = _valueNum ( _ADC_GetConversionResult ..  ]
+"147
+[v _value `f ~T0 @X0 1 a ]
+[; ;adc.c: 147: float value = valueNum * 0.004;
+[e = _value -> * -> _valueNum `d .0.004 `f ]
+[; ;adc.c: 149: do { LATBbits.LATB0 = 1; } while(0);
+"149
+[e :U 363 ]
+{
+[e = . . _LATBbits 0 0 -> -> 1 `i `uc ]
+}
+[e :U 362 ]
+[; ;adc.c: 150: do { LATBbits.LATB1 = 1; } while(0);
+"150
+[e :U 366 ]
+{
+[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 365 ]
+[; ;adc.c: 151: if(value >= 4.0)
+"151
+[e $ ! >= -> _value `d .4.0 367  ]
+[; ;adc.c: 152: {
+"152
+{
+[; ;adc.c: 153: do { LATBbits.LATB1 = 0; } while(0);
+"153
+[e :U 370 ]
+{
+[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 369 ]
+"154
+}
+[; ;adc.c: 154: } else if (value <= 3.4) {
+[e $U 371  ]
+[e :U 367 ]
+[e $ ! <= -> _value `d .3.4 372  ]
+{
+[; ;adc.c: 155: do { LATBbits.LATB0 = 0; } while(0);
+"155
+[e :U 375 ]
+{
+[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
+}
+[e :U 374 ]
+"156
+}
+[e :U 372 ]
+"157
+[e :U 371 ]
+[; ;adc.c: 156: }
+[; ;adc.c: 157: }
+[e :UE 360 ]
 }

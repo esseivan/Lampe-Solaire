@@ -54,11 +54,12 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#ifdef __cplusplus  // Provide C++ Compatibility
+#define BATTERY_LVL_MAX 4.0
+#define BATTERY_LVL_MIN 3.4
 
-    extern "C" {
-
-#endif
+// FULL_RANGE_V 2.048 V
+// STEPS 1024 (2^10)
+#define STEP_VOLTAGE 0.004
 
 /**
   Section: Data Types Definitions
@@ -93,7 +94,7 @@ typedef struct
 
 typedef enum
 {
-    TEMP =  0x4,
+    BATTERY_LVL =  0xA,
     channel_Temp =  0x1D,
     channel_DAC =  0x1E,
     channel_FVR =  0x1F
@@ -303,11 +304,7 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 */
 void ADC_ISR(void);
 
-#ifdef __cplusplus  // Provide C++ Compatibility
-
-    }
-
-#endif
+void ADC_CompareValue(void);
 
 #endif	//_ADC_H
 /**

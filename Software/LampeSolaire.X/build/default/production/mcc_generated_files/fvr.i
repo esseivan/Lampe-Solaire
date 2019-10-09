@@ -1,17 +1,17 @@
 
-# 1 "mcc_generated_files/memory.c"
+# 1 "mcc_generated_files/fvr.c"
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\xc.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 52 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h"
+# 52 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h"
 extern volatile unsigned char INDF0 __at(0x000);
 
 asm("INDF0 equ 00h");
@@ -4177,7 +4177,7 @@ extern volatile __bit nTO __at(0x1C);
 extern volatile __bit nWPUEN __at(0x4AF);
 
 
-# 30 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h"
+# 30 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
@@ -4188,12 +4188,12 @@ __attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longe
 
 __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_erase(unsigned short addr);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\eeprom_routines.h"
+# 114 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 
 
-# 91 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic.h"
+# 91 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -4207,10 +4207,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 15 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdbool.h"
+# 15 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\c90\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -4296,184 +4296,21 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 99 "mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint16_t flashAddr);
+# 87 "mcc_generated_files/fvr.h"
+void FVR_Initialize(void);
 
-# 128
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+# 121
+bool FVR_IsOutputReady(void);
 
-# 164
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-
-# 189
-void FLASH_EraseBlock(uint16_t startAddr);
-
-# 220
-void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-
-# 246
-uint8_t DATAEE_ReadByte(uint8_t bAdd);
-
-# 58 "mcc_generated_files/memory.c"
-uint16_t FLASH_ReadWord(uint16_t flashAddr)
+# 58 "mcc_generated_files/fvr.c"
+void FVR_Initialize(void)
 {
-uint8_t GIEBitValue = INTCONbits.GIE;
 
-INTCONbits.GIE = 0;
-EEADRL = (flashAddr & 0x00FF);
-EEADRH = ((flashAddr & 0xFF00) >> 8);
-
-EECON1bits.CFGS = 0;
-EECON1bits.EEPGD = 1;
-EECON1bits.RD = 1;
-__nop();
-__nop();
-INTCONbits.GIE = GIEBitValue;
-
-return ((uint16_t)((EEDATH << 8) | EEDATL));
+FVRCON = 0x82;
 }
 
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word)
+bool FVR_IsOutputReady(void)
 {
-uint16_t blockStartAddr = (uint16_t)(flashAddr & ((0x1000-1) ^ (32-1)));
-uint8_t offset = (uint8_t)(flashAddr & (32-1));
-uint8_t i;
-
-
-for (i=0; i<32; i++)
-{
-ramBuf[i] = FLASH_ReadWord((blockStartAddr+i));
-}
-
-
-ramBuf[offset] = word;
-
-
-FLASH_WriteBlock(blockStartAddr, ramBuf);
-}
-
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray)
-{
-uint16_t blockStartAddr = (uint16_t )(writeAddr & ((0x1000-1) ^ (32-1)));
-uint8_t GIEBitValue = INTCONbits.GIE;
-uint8_t i,j,numberOfWriteBlocks=0,dataCounter=0;
-
-numberOfWriteBlocks = (32/8);
-
-
-if( writeAddr != blockStartAddr )
-{
-return -1;
-}
-
-INTCONbits.GIE = 0;
-
-
-FLASH_EraseBlock(writeAddr);
-
-for(j=0; j<numberOfWriteBlocks; j++)
-{
-
-EECON1bits.EEPGD = 1;
-EECON1bits.CFGS = 0;
-EECON1bits.WREN = 1;
-EECON1bits.LWLO = 1;
-
-for (i=0; i<8; i++)
-{
-
-EEADRL = (writeAddr & 0xFF);
-
-EEADRH = ((writeAddr & 0xFF00) >> 8);
-
-
-EEDATL = flashWordArray[dataCounter];
-EEDATH = ((flashWordArray[dataCounter] & 0xFF00) >> 8);
-dataCounter++;
-
-if(i == (8-1))
-{
-
-EECON1bits.LWLO = 0;
-}
-
-EECON2 = 0x55;
-EECON2 = 0xAA;
-EECON1bits.WR = 1;
-__nop();
-__nop();
-
-writeAddr++;
-}
-}
-
-EECON1bits.WREN = 0;
-INTCONbits.GIE = GIEBitValue;
-
-return 0;
-}
-
-void FLASH_EraseBlock(uint16_t startAddr)
-{
-uint8_t GIEBitValue = INTCONbits.GIE;
-
-INTCONbits.GIE = 0;
-
-EEADRL = (startAddr & 0xFF);
-
-EEADRH = ((startAddr & 0xFF00) >> 8);
-
-
-EECON1bits.CFGS = 0;
-EECON1bits.EEPGD = 1;
-EECON1bits.FREE = 1;
-EECON1bits.WREN = 1;
-
-
-EECON2 = 0x55;
-EECON2 = 0xAA;
-EECON1bits.WR = 1;
-__nop();
-__nop();
-
-EECON1bits.WREN = 0;
-INTCONbits.GIE = GIEBitValue;
-}
-
-# 187
-void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData)
-{
-uint8_t GIEBitValue = 0;
-
-EEADRL = (uint8_t)(bAdd & 0x0ff);
-EEDATL = bData;
-EECON1bits.EEPGD = 0;
-EECON1bits.CFGS = 0;
-EECON1bits.WREN = 1;
-
-GIEBitValue = INTCONbits.GIE;
-INTCONbits.GIE = 0;
-EECON2 = 0x55;
-EECON2 = 0xAA;
-EECON1bits.WR = 1;
-
-while (EECON1bits.WR)
-{
-}
-
-EECON1bits.WREN = 0;
-INTCONbits.GIE = GIEBitValue;
-}
-
-uint8_t DATAEE_ReadByte(uint8_t bAdd)
-{
-EEADRL = (uint8_t)(bAdd & 0x0ff);
-EECON1bits.CFGS = 0;
-EECON1bits.EEPGD = 0;
-EECON1bits.RD = 1;
-__nop();
-__nop();
-
-return (EEDATL);
+return (FVRCONbits.FVRRDY);
 }
 

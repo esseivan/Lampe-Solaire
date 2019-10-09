@@ -14,7 +14,7 @@
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
-        Device            :  PIC16F1827
+        Device            :  PIC16LF1827
         Driver Version    :  2.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.00 or later
@@ -54,10 +54,8 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
     WDT_Initialize();
     TMR2_Initialize();
+    FVR_Initialize();
     ADC_Initialize();
-    if(spi_master_open(MASTER) == false) {
-        LED_SetLow();
-    }
 }
 
 void OSCILLATOR_Initialize(void)

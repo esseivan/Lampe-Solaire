@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
-[t T10 __interrupt  ]
-"357 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+[t T4 __interrupt  ]
+"357 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
 "367
@@ -14,7 +14,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
 "315 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 0 ef ]
-"1282 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"1282 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S70 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
 "1281
@@ -30,9 +30,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S32 . . ]
 "570
 [v _PIR1bits `VS32 ~T0 @X0 0 e@17 ]
-"48 mcc_generated_files/spi1_driver.h
-[v _spi1_isr `(v ~T0 @X0 0 ef ]
-"304 mcc_generated_files/adc.h
+"305 mcc_generated_files/adc.h
 [v _ADC_ISR `(v ~T0 @X0 0 ef ]
 "309 mcc_generated_files/tmr2.h
 [v _TMR2_ISR `(v ~T0 @X0 0 ef ]
@@ -40,7 +38,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16lf1827.h: 52: extern volatile unsigned char INDF0 __at(0x000);
-"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [; ;pic16lf1827.h: 54: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16lf1827.h: 57: typedef union {
@@ -2792,18 +2790,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 139: extern __bank0 __bit __timeout;
 [; ;pin_manager.h: 303: void PIN_MANAGER_Initialize (void);
 [; ;pin_manager.h: 315: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 328: void IOCBF0_ISR(void);
-[; ;pin_manager.h: 351: void IOCBF0_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 375: extern void (*IOCBF0_InterruptHandler)(void);
-[; ;pin_manager.h: 399: void IOCBF0_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 412: void IOCBF3_ISR(void);
-[; ;pin_manager.h: 435: void IOCBF3_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 459: extern void (*IOCBF3_InterruptHandler)(void);
-[; ;pin_manager.h: 483: void IOCBF3_DefaultInterruptHandler(void);
-[; ;pin_manager.h: 496: void IOCBF5_ISR(void);
-[; ;pin_manager.h: 519: void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 543: extern void (*IOCBF5_InterruptHandler)(void);
-[; ;pin_manager.h: 567: void IOCBF5_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 328: void IOCBF5_ISR(void);
+[; ;pin_manager.h: 351: void IOCBF5_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;pin_manager.h: 375: extern void (*IOCBF5_InterruptHandler)(void);
+[; ;pin_manager.h: 399: void IOCBF5_DefaultInterruptHandler(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef __int24 int24_t;
@@ -2833,58 +2823,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;spi1_types.h: 27: typedef enum {
-[; ;spi1_types.h: 28: SPI1_DEFAULT,
-[; ;spi1_types.h: 29: MASTER_CONFIG
-[; ;spi1_types.h: 30: } spi1_modes;
-[; ;spi1_driver.h: 35: inline void spi1_close(void);
-[; ;spi1_driver.h: 37: bool spi1_open(spi1_modes spiUniqueConfiguration);
-[; ;spi1_driver.h: 39: uint8_t spi1_exchangeByte(uint8_t b);
-[; ;spi1_driver.h: 41: void spi1_exchangeBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 42: void spi1_writeBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 43: void spi1_readBlock(void *block, size_t blockSize);
-[; ;spi1_driver.h: 45: void spi1_writeByte(uint8_t byte);
-[; ;spi1_driver.h: 46: uint8_t spi1_readByte(void);
-[; ;spi1_driver.h: 48: void spi1_isr(void);
-[; ;spi1_driver.h: 49: void spi1_setSpiISR(void(*handler)(void));
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;memory.h: 99: uint16_t FLASH_ReadWord(uint16_t flashAddr);
-[; ;memory.h: 128: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-[; ;memory.h: 164: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-[; ;memory.h: 189: void FLASH_EraseBlock(uint16_t startAddr);
-[; ;memory.h: 220: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-[; ;memory.h: 246: uint8_t DATAEE_ReadByte(uint8_t bAdd);
+[; ;fvr.h: 87: void FVR_Initialize(void);
+[; ;fvr.h: 121: bool FVR_IsOutputReady(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
 [; ;tmr2.h: 104: void TMR2_Initialize(void);
 [; ;tmr2.h: 133: void TMR2_StartTimer(void);
@@ -2898,49 +2839,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr2.h: 362: extern void (*TMR2_InterruptHandler)(void);
 [; ;tmr2.h: 380: void TMR2_DefaultInterruptHandler(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;adc.h: 71: typedef uint16_t adc_result_t;
-[; ;adc.h: 76: typedef struct
-[; ;adc.h: 77: {
-[; ;adc.h: 78: adc_result_t adcResult1;
-[; ;adc.h: 79: adc_result_t adcResult2;
-[; ;adc.h: 80: } adc_sync_double_result_t;
-[; ;adc.h: 94: typedef enum
-[; ;adc.h: 95: {
-[; ;adc.h: 96: TEMP = 0x4,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-[; ;adc.h: 135: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 192: void ADC_StartConversion();
-[; ;adc.h: 224: bool ADC_IsConversionDone();
-[; ;adc.h: 257: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 287: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 304: void ADC_ISR(void);
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;spi_master.h: 33: typedef enum {
-[; ;spi_master.h: 34: MASTER
-[; ;spi_master.h: 35: } spi_master_configurations_t;
-[; ;spi_master.h: 37: typedef struct { void (*spiClose)(void);
-[; ;spi_master.h: 38: bool (*spiOpen)(void);
-[; ;spi_master.h: 39: uint8_t (*exchangeByte)(uint8_t b);
-[; ;spi_master.h: 40: void (*exchangeBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 41: void (*writeBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 42: void (*readBlock)(void * block, size_t blockSize);
-[; ;spi_master.h: 43: void (*writeByte)(uint8_t byte);
-[; ;spi_master.h: 44: uint8_t (*readByte)(void);
-[; ;spi_master.h: 45: void (*setSpiISR)(void(*handler)(void));
-[; ;spi_master.h: 46: void (*spiISR)(void);
-[; ;spi_master.h: 47: } spi_master_functions_t;
-[; ;spi_master.h: 49: extern const spi_master_functions_t spiMaster[];
-[; ;spi_master.h: 51: inline bool spi_master_open(spi_master_configurations_t config);
-[; ;mcc.h: 73: void SYSTEM_Initialize(void);
-[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void WDT_Initialize(void);
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 77: typedef struct
+[; ;adc.h: 78: {
+[; ;adc.h: 79: adc_result_t adcResult1;
+[; ;adc.h: 80: adc_result_t adcResult2;
+[; ;adc.h: 81: } adc_sync_double_result_t;
+[; ;adc.h: 95: typedef enum
+[; ;adc.h: 96: {
+[; ;adc.h: 97: BATTERY_LVL = 0xA,
+[; ;adc.h: 98: channel_Temp = 0x1D,
+[; ;adc.h: 99: channel_DAC = 0x1E,
+[; ;adc.h: 100: channel_FVR = 0x1F
+[; ;adc.h: 101: } adc_channel_t;
+[; ;adc.h: 136: void ADC_Initialize(void);
+[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 193: void ADC_StartConversion();
+[; ;adc.h: 225: bool ADC_IsConversionDone();
+[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 305: void ADC_ISR(void);
+[; ;adc.h: 307: void ADC_CompareValue(void);
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 97: void WDT_Initialize(void);
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
 "52 mcc_generated_files/interrupt_manager.c
-[v _INTERRUPT_InterruptManager `(v ~T10 @X0 1 ef ]
+[v _INTERRUPT_InterruptManager `(v ~T4 @X0 1 ef ]
 "53
 {
 [; ;interrupt_manager.c: 52: void __interrupt() INTERRUPT_InterruptManager (void)
@@ -2949,7 +2874,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;interrupt_manager.c: 55: if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
 "55
-[e $ ! && == -> . . _INTCONbits 0 3 `i -> 1 `i == -> . . _INTCONbits 0 0 `i -> 1 `i 353  ]
+[e $ ! && == -> . . _INTCONbits 0 3 `i -> 1 `i == -> . . _INTCONbits 0 0 `i -> 1 `i 351  ]
 [; ;interrupt_manager.c: 56: {
 "56
 {
@@ -2959,83 +2884,68 @@ Version 3.2 HI-TECH Software Intermediate Code
 "58
 }
 [; ;interrupt_manager.c: 58: }
-[e $U 354  ]
+[e $U 352  ]
 "59
-[e :U 353 ]
+[e :U 351 ]
 [; ;interrupt_manager.c: 59: else if(INTCONbits.PEIE == 1)
-[e $ ! == -> . . _INTCONbits 0 6 `i -> 1 `i 355  ]
+[e $ ! == -> . . _INTCONbits 0 6 `i -> 1 `i 353  ]
 [; ;interrupt_manager.c: 60: {
 "60
 {
-[; ;interrupt_manager.c: 61: if(PIE1bits.SSP1IE == 1 && PIR1bits.SSP1IF == 1)
+[; ;interrupt_manager.c: 61: if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
 "61
-[e $ ! && == -> . . _PIE1bits 0 3 `i -> 1 `i == -> . . _PIR1bits 0 3 `i -> 1 `i 356  ]
+[e $ ! && == -> . . _PIE1bits 0 6 `i -> 1 `i == -> . . _PIR1bits 0 6 `i -> 1 `i 354  ]
 [; ;interrupt_manager.c: 62: {
 "62
 {
-[; ;interrupt_manager.c: 63: spi1_isr();
+[; ;interrupt_manager.c: 63: ADC_ISR();
 "63
-[e ( _spi1_isr ..  ]
+[e ( _ADC_ISR ..  ]
 "64
 }
 [; ;interrupt_manager.c: 64: }
-[e $U 357  ]
+[e $U 355  ]
 "65
-[e :U 356 ]
-[; ;interrupt_manager.c: 65: else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-[e $ ! && == -> . . _PIE1bits 0 6 `i -> 1 `i == -> . . _PIR1bits 0 6 `i -> 1 `i 358  ]
+[e :U 354 ]
+[; ;interrupt_manager.c: 65: else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
+[e $ ! && == -> . . _PIE1bits 0 1 `i -> 1 `i == -> . . _PIR1bits 0 1 `i -> 1 `i 356  ]
 [; ;interrupt_manager.c: 66: {
 "66
 {
-[; ;interrupt_manager.c: 67: ADC_ISR();
+[; ;interrupt_manager.c: 67: TMR2_ISR();
 "67
-[e ( _ADC_ISR ..  ]
+[e ( _TMR2_ISR ..  ]
 "68
 }
 [; ;interrupt_manager.c: 68: }
-[e $U 359  ]
+[e $U 357  ]
 "69
-[e :U 358 ]
-[; ;interrupt_manager.c: 69: else if(PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
-[e $ ! && == -> . . _PIE1bits 0 1 `i -> 1 `i == -> . . _PIR1bits 0 1 `i -> 1 `i 360  ]
+[e :U 356 ]
+[; ;interrupt_manager.c: 69: else
 [; ;interrupt_manager.c: 70: {
 "70
 {
-[; ;interrupt_manager.c: 71: TMR2_ISR();
-"71
-[e ( _TMR2_ISR ..  ]
 "72
 }
-[; ;interrupt_manager.c: 72: }
-[e $U 361  ]
-"73
-[e :U 360 ]
-[; ;interrupt_manager.c: 73: else
-[; ;interrupt_manager.c: 74: {
-"74
-{
-"76
-}
-[e :U 361 ]
-[e :U 359 ]
 [e :U 357 ]
+[e :U 355 ]
+"73
+}
+[; ;interrupt_manager.c: 72: }
+[; ;interrupt_manager.c: 73: }
+[e $U 358  ]
+"74
+[e :U 353 ]
+[; ;interrupt_manager.c: 74: else
+[; ;interrupt_manager.c: 75: {
+"75
+{
 "77
 }
-[; ;interrupt_manager.c: 76: }
+[e :U 358 ]
+[e :U 352 ]
 [; ;interrupt_manager.c: 77: }
-[e $U 362  ]
+[; ;interrupt_manager.c: 78: }
 "78
-[e :U 355 ]
-[; ;interrupt_manager.c: 78: else
-[; ;interrupt_manager.c: 79: {
-"79
-{
-"81
-}
-[e :U 362 ]
-[e :U 354 ]
-[; ;interrupt_manager.c: 81: }
-[; ;interrupt_manager.c: 82: }
-"82
-[e :UE 352 ]
+[e :UE 350 ]
 }

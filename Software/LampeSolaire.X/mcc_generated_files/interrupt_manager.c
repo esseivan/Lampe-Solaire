@@ -58,11 +58,7 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     }
     else if(INTCONbits.PEIE == 1)
     {
-        if(PIE1bits.SSP1IE == 1 && PIR1bits.SSP1IF == 1)
-        {
-            spi1_isr();
-        } 
-        else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
+        if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
         {
             ADC_ISR();
         } 

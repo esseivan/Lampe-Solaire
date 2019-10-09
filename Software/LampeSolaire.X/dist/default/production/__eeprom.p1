@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"3096 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"3096 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S157 . RD WR WREN WRERR FREE LWLO CFGS EEPGD ]
 "3095
@@ -41,7 +41,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16lf1827.h: 52: extern volatile unsigned char INDF0 __at(0x000);
-"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
 [; ;pic16lf1827.h: 54: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16lf1827.h: 57: typedef union {
@@ -2791,7 +2791,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 137: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 138: extern __bank0 __bit __powerdown;
 [; ;pic.h: 139: extern __bank0 __bit __timeout;
-"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem `(v ~T0 @X0 1 ef3`*Vuc`*Euc`uc ]
 "7
 {

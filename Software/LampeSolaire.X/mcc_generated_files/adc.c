@@ -68,8 +68,8 @@ void ADC_Initialize(void)
     // GO_nDONE stop; ADON enabled; CHS AN0; 
     ADCON0 = 0x01;
     
-    // ADFM left; ADNREF VSS; ADPREF VDD; ADCS FOSC/64; 
-    ADCON1 = 0x60;
+    // ADFM right; ADNREF VSS; ADPREF FVR; ADCS FOSC/64; 
+    ADCON1 = 0xE3;
     
     // ADRESL 0; 
     ADRESL = 0x00;
@@ -79,6 +79,8 @@ void ADC_Initialize(void)
     
     // Enabling ADC interrupt.
     PIE1bits.ADIE = 1;
+    
+    ADC_SelectChannel(BATTERY_LVL);
 }
 
 void ADC_SelectChannel(adc_channel_t channel)
@@ -94,7 +96,6 @@ void ADC_StartConversion()
     // Start the conversion
     ADCON0bits.GO_nDONE = 1;
 }
-
 
 bool ADC_IsConversionDone()
 {
@@ -130,11 +131,29 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
 
 }
 
-
 void ADC_ISR(void)
 {
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
+    
+    ADC_CompareValue();
+}
+
+void ADC_CompareValue(void) {
+    // Get the value
+     uint16_t valueNum = ADC_GetConversionResult();
+    
+    // Get the voltage range
+    float value = valueNum * STEP_VOLTAGE;
+    
+    LED_R_SetOff();
+    LED_G_SetOff();
+    if(value >= BATTERY_LVL_MAX)
+    {
+        LED_G_SetOn();
+    } else if (value <= BATTERY_LVL_MIN) {
+        LED_R_SetOn();
+    }
 }
 /**
  End of File

@@ -3,192 +3,89 @@
 [d edition pro ]
 [d chip 16LF1827 ]
 [d frameptr 6 ]
-"36 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/drivers/spi_master.c
-[e E92 . `uc
-SPI1_DEFAULT 0
-MASTER_CONFIG 1
-]
-"40
-[e E122 . `uc
-MASTER 0
-]
-"85 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+"83 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
 [e E2331 . `uc
-TEMP 4
+BATTERY_LVL 10
 channel_Temp 29
 channel_DAC 30
 channel_FVR 31
 ]
-"58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
-[e E2519 . `uc
-MASTER 0
+"68 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+[e E2435 Codes `uc
+A 8
+B 4
+C 2
+D 1
 ]
-"47 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1_driver.c
-[e E2388 . `uc
-SPI1_DEFAULT 0
-MASTER_CONFIG 1
-]
-"110 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
-[e E2669 RF_COMMANDS `uc
-LIGHT_ON 1
-LIGHT_OFF 2
-LIGHT_TOGGLE 3
-GET_LIGHT_STATE 32
-GET_LED_STATE 33
-GET_TEMPERATURE 34
-GET_WATER_STATE 35
-TEST_LIGHT 80
-TEST_BUZZER 81
-TEST_LED 82
-REBOOT 224
-SHUTDOWN 225
-]
-"206
-[e E2603 MRF89XA_Mode `uc
-MRF89XA_MODE_RX 0
-MRF89XA_MODE_TX 1
-MRF89XA_MODE_STANDBY 2
-MRF89XA_MODE_SLEEP 3
-MRF89XA_MODULATION_FSK 4
-MRF89XA_MODULATION_OOK 5
-]
-"55 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\MRF89XA.c
-[e E2569 MRF89XA_Mode `uc
-MRF89XA_MODE_RX 0
-MRF89XA_MODE_TX 1
-MRF89XA_MODE_STANDBY 2
-MRF89XA_MODE_SLEEP 3
-MRF89XA_MODULATION_FSK 4
-MRF89XA_MODULATION_OOK 5
-]
-"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\float.c
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"66 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+"42 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _Delay_Xms Delay_Xms `(v  1 e 1 0 ]
-[v i1_Delay_Xms Delay_Xms `(v  1 e 1 0 ]
-"77
+"48
 [v _POWER_LED_ON POWER_LED_ON `(v  1 e 1 0 ]
-"86
+"53
 [v _POWER_LED_OFF POWER_LED_OFF `(v  1 e 1 0 ]
-"95
+"58
 [v _POWER_LED_TOGGLE POWER_LED_TOGGLE `(v  1 e 1 0 ]
-"141
-[v _ReadFifo ReadFifo `(uc  1 e 1 0 ]
-"149
-[v _IRQ0_ISR IRQ0_ISR `(v  1 e 1 0 ]
-"176
+"65
+[v _VT_ISR VT_ISR `(v  1 e 1 0 ]
+"78
 [v _main main `(v  1 e 1 0 ]
 "64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"86
+[v _ADC_SelectChannel ADC_SelectChannel `(v  1 e 1 0 ]
+"94
+[v _ADC_StartConversion ADC_StartConversion `(v  1 e 1 0 ]
+"106
+[v _ADC_GetConversionResult ADC_GetConversionResult `(ui  1 e 2 0 ]
 "134
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
-"35 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/drivers/spi_master.c
-[v _MASTER_open MASTER_open `T(uc  1 e 1 0 ]
-"40
-[v _spi_master_open spi_master_open `T(uc  1 e 1 0 ]
+"142
+[v _ADC_CompareValue ADC_CompareValue `(v  1 e 1 0 ]
+"58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/fvr.c
+[v _FVR_Initialize FVR_Initialize `(v  1 e 1 0 ]
 "52 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 "50 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"63
+"61
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"73
+"71
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
-"58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/memory.c
-[v _FLASH_ReadWord FLASH_ReadWord `(ui  1 e 2 0 ]
-"95
-[v _FLASH_WriteBlock FLASH_WriteBlock `(c  1 e 1 0 ]
-"156
-[v _FLASH_EraseBlock FLASH_EraseBlock `(v  1 e 1 0 ]
-"59 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
+"57 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"128
+"112
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
-"150
-[v _IOCBF0_ISR IOCBF0_ISR `(v  1 e 1 0 ]
-"165
-[v _IOCBF0_SetInterruptHandler IOCBF0_SetInterruptHandler `(v  1 e 1 0 ]
-"172
-[v _IOCBF0_DefaultInterruptHandler IOCBF0_DefaultInterruptHandler `(v  1 e 1 0 ]
-"180
-[v _IOCBF3_ISR IOCBF3_ISR `(v  1 e 1 0 ]
-"195
-[v _IOCBF3_SetInterruptHandler IOCBF3_SetInterruptHandler `(v  1 e 1 0 ]
-"202
-[v _IOCBF3_DefaultInterruptHandler IOCBF3_DefaultInterruptHandler `(v  1 e 1 0 ]
-"210
+"124
 [v _IOCBF5_ISR IOCBF5_ISR `(v  1 e 1 0 ]
-"225
-[v _IOCBF5_SetInterruptHandler IOCBF5_SetInterruptHandler `(v  1 e 1 0 ]
-"232
-[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
-"33 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1_driver.c
-[v _spi1_close spi1_close `T(v  1 e 1 0 ]
-"46
-[v _spi1_open spi1_open `(uc  1 e 1 0 ]
-"64
-[v _spi1_exchangeByte spi1_exchangeByte `(uc  1 e 1 0 ]
-[v i1_spi1_exchangeByte spi1_exchangeByte `(uc  1 e 1 0 ]
-"72
-[v _spi1_exchangeBlock spi1_exchangeBlock `(v  1 e 1 0 ]
-"83
-[v _spi1_writeBlock spi1_writeBlock `(v  1 e 1 0 ]
-"92
-[v _spi1_readBlock spi1_readBlock `(v  1 e 1 0 ]
-"101
-[v _spi1_writeByte spi1_writeByte `(v  1 e 1 0 ]
-"105
-[v _spi1_readByte spi1_readByte `(uc  1 e 1 0 ]
-"113
-[v _spi1_isr spi1_isr `(v  1 e 1 0 ]
-"122
-[v _spi1_setSpiISR spi1_setSpiISR `(v  1 e 1 0 ]
-"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
-[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
-"119
-[v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
-"137
-[v _TMR2_CallBack TMR2_CallBack `(v  1 e 1 0 ]
-"147
-[v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
-"151
-[v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
-"18 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\MRF89XA.c
-[v _MRF89XA_Initialize MRF89XA_Initialize `(v  1 e 1 0 ]
-"53
-[v _MRF89XA_SetMode MRF89XA_SetMode `(v  1 e 1 0 ]
-"67
-[v _MRF89XA_SetModulation MRF89XA_SetModulation `(v  1 e 1 0 ]
-"77
-[v _MRF89XA_SPI_ExchangeByte MRF89XA_SPI_ExchangeByte `(uc  1 e 1 0 ]
-[v i1_MRF89XA_SPI_ExchangeByte MRF89XA_SPI_ExchangeByte `(uc  1 e 1 0 ]
-"123
-[v _MRF89XA_WriteConfig MRF89XA_WriteConfig `(uc  1 e 1 0 ]
-"127
-[v _MRF89XA_ReadConfig MRF89XA_ReadConfig `(uc  1 e 1 0 ]
-"131
-[v _MRF89XA_ReadFifo MRF89XA_ReadFifo `(uc  1 e 1 0 ]
-"135
-[v _MRF89XA_WriteFifo MRF89XA_WriteFifo `(uc  1 e 1 0 ]
 "139
-[v _MRF89XA_ExchangeFifo MRF89XA_ExchangeFifo `(uc  1 e 1 0 ]
-"155
-[v _MRF89XA_ExchangeConfig_A MRF89XA_ExchangeConfig_A `(uc  1 e 1 0 ]
-[v i1_MRF89XA_ExchangeConfig_A MRF89XA_ExchangeConfig_A `(uc  1 e 1 0 ]
-"183
-[v _MRF89XA_GetAddress MRF89XA_GetAddress `(uc  1 e 1 0 ]
-[v i1_MRF89XA_GetAddress MRF89XA_GetAddress `(uc  1 e 1 0 ]
-"208
-[v _MRF89XA_IsTxDone MRF89XA_IsTxDone `(uc  1 e 1 0 ]
-"213
-[v _MRF89XA_IsFifoEmpty MRF89XA_IsFifoEmpty `(uc  1 e 1 0 ]
-[s S374 . 1 `uc 1 IOCIF 1 0 :1:0 
+[v _IOCBF5_SetInterruptHandler IOCBF5_SetInterruptHandler `(v  1 e 1 0 ]
+"146
+[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+"65 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"120
+[v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
+"138
+[v _TMR2_CallBack TMR2_CallBack `(v  1 e 1 0 ]
+"148
+[v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
+"152
+[v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
+[s S290 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -197,15 +94,15 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"374 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16lf1827.h
-[s S383 . 1 `uc 1 . 1 0 :2:0 
+"374 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16lf1827.h
+[s S299 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S388 . 1 `S374 1 . 1 0 `S383 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES388  1 e 1 @11 ]
-[s S1099 . 1 `uc 1 RA0 1 0 :1:0 
+[u S304 . 1 `S290 1 . 1 0 `S299 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES304  1 e 1 @11 ]
+[s S602 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -215,21 +112,9 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 RA7 1 0 :1:7 
 ]
 "446
-[u S1108 . 1 `S1099 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES1108  1 e 1 @12 ]
-[s S979 . 1 `uc 1 RB0 1 0 :1:0 
-`uc 1 RB1 1 0 :1:1 
-`uc 1 RB2 1 0 :1:2 
-`uc 1 RB3 1 0 :1:3 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
-"508
-[u S988 . 1 `S979 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES988  1 e 1 @13 ]
-[s S151 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S611 . 1 `S602 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES611  1 e 1 @12 ]
+[s S25 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -239,15 +124,15 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "570
-[u S160 . 1 `S151 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES160  1 e 1 @17 ]
+[u S34 . 1 `S25 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES34  1 e 1 @17 ]
 "941
 [v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
 "961
 [v _PR2 PR2 `VEuc  1 e 1 @27 ]
 "981
 [v _T2CON T2CON `VEuc  1 e 1 @28 ]
-[s S204 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S78 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -256,29 +141,17 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
 "1002
-[s S212 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S86 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
-[u S216 . 1 `S204 1 . 1 0 `S212 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES216  1 e 1 @28 ]
+[u S90 . 1 `S78 1 . 1 0 `S86 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES90  1 e 1 @28 ]
 "1152
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1214
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
-[s S882 . 1 `uc 1 TRISB0 1 0 :1:0 
-`uc 1 TRISB1 1 0 :1:1 
-`uc 1 TRISB2 1 0 :1:2 
-`uc 1 TRISB3 1 0 :1:3 
-`uc 1 TRISB4 1 0 :1:4 
-`uc 1 TRISB5 1 0 :1:5 
-`uc 1 TRISB6 1 0 :1:6 
-`uc 1 TRISB7 1 0 :1:7 
-]
-"1231
-[u S891 . 1 `S882 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES891  1 e 1 @141 ]
-[s S172 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S46 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -288,9 +161,9 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1293
-[u S181 . 1 `S172 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES181  1 e 1 @145 ]
-[s S520 . 1 `uc 1 PS0 1 0 :1:0 
+[u S55 . 1 `S46 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES55  1 e 1 @145 ]
+[s S403 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 PSA 1 0 :1:3 
@@ -300,13 +173,13 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "1478
-[s S529 . 1 `uc 1 PS 1 0 :3:0 
+[s S412 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S534 . 1 `S520 1 . 1 0 `S529 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES534  1 e 1 @149 ]
+[u S417 . 1 `S403 1 . 1 0 `S412 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES417  1 e 1 @149 ]
 "1589
 [v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
 "1648
@@ -319,7 +192,7 @@ MRF89XA_MODULATION_OOK 5
 [v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
 "1887
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
-[s S302 . 1 `uc 1 ADON 1 0 :1:0 
+[s S181 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -328,35 +201,52 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 CHS4 1 0 :1:6 
 ]
 "1912
-[s S310 . 1 `uc 1 . 1 0 :1:0 
+[s S189 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADGO 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S314 . 1 `uc 1 . 1 0 :1:0 
+[s S193 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[u S317 . 1 `S302 1 . 1 0 `S310 1 . 1 0 `S314 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES317  1 e 1 @157 ]
+[u S196 . 1 `S181 1 . 1 0 `S189 1 . 1 0 `S193 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES196  1 e 1 @157 ]
 "1967
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
 "2039
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-[s S470 . 1 `uc 1 LATA0 1 0 :1:0 
-`uc 1 LATA1 1 0 :1:1 
-`uc 1 LATA2 1 0 :1:2 
-`uc 1 LATA3 1 0 :1:3 
-`uc 1 LATA4 1 0 :1:4 
-`uc 1 . 1 0 :1:5 
-`uc 1 LATA6 1 0 :1:6 
-`uc 1 LATA7 1 0 :1:7 
-]
-"2056
-[u S479 . 1 `S470 1 . 1 0 ]
-[v _LATAbits LATAbits `VES479  1 e 1 @268 ]
 "2096
 [v _LATB LATB `VEuc  1 e 1 @269 ]
+[s S238 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"2113
+[u S247 . 1 `S238 1 . 1 0 ]
+[v _LATBbits LATBbits `VES247  1 e 1 @269 ]
 "2430
 [v _BORCON BORCON `VEuc  1 e 1 @278 ]
+"2457
+[v _FVRCON FVRCON `VEuc  1 e 1 @279 ]
+[s S686 . 1 `uc 1 ADFVR0 1 0 :1:0 
+`uc 1 ADFVR1 1 0 :1:1 
+`uc 1 CDAFVR0 1 0 :1:2 
+`uc 1 CDAFVR1 1 0 :1:3 
+`uc 1 TSRNG 1 0 :1:4 
+`uc 1 TSEN 1 0 :1:5 
+`uc 1 FVRRDY 1 0 :1:6 
+`uc 1 FVREN 1 0 :1:7 
+]
+"2478
+[s S695 . 1 `uc 1 ADFVR 1 0 :2:0 
+`uc 1 CDAFVR 1 0 :2:2 
+]
+[u S698 . 1 `S686 1 . 1 0 `S695 1 . 1 0 ]
+[v _FVRCONbits FVRCONbits `VES698  1 e 1 @279 ]
 "2779
 [v _APFCON0 APFCON0 `VEuc  1 e 1 @285 ]
 "2841
@@ -365,71 +255,11 @@ MRF89XA_MODULATION_OOK 5
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2913
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
-[s S1061 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 ANSB1 1 0 :1:1 
-`uc 1 ANSB2 1 0 :1:2 
-`uc 1 ANSB3 1 0 :1:3 
-`uc 1 ANSB4 1 0 :1:4 
-`uc 1 ANSB5 1 0 :1:5 
-`uc 1 ANSB6 1 0 :1:6 
-`uc 1 ANSB7 1 0 :1:7 
-]
-"2933
-[s S1070 . 1 `uc 1 ANSELB 1 0 :8:0 
-]
-[u S1072 . 1 `S1061 1 . 1 0 `S1070 1 . 1 0 ]
-[v _ANSELBbits ANSELBbits `VES1072  1 e 1 @397 ]
-"2985
-[v _EEADRL EEADRL `VEuc  1 e 1 @401 ]
-"3005
-[v _EEADRH EEADRH `VEuc  1 e 1 @402 ]
-"3032
-[v _EEDATL EEDATL `VEuc  1 e 1 @403 ]
-"3070
-[v _EEDATH EEDATH `VEuc  1 e 1 @404 ]
-[s S767 . 1 `uc 1 RD 1 0 :1:0 
-`uc 1 WR 1 0 :1:1 
-`uc 1 WREN 1 0 :1:2 
-`uc 1 WRERR 1 0 :1:3 
-`uc 1 FREE 1 0 :1:4 
-`uc 1 LWLO 1 0 :1:5 
-`uc 1 CFGS 1 0 :1:6 
-`uc 1 EEPGD 1 0 :1:7 
-]
-"3107
-[u S776 . 1 `S767 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES776  1 e 1 @405 ]
-"3152
-[v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
 "3487
 [v _WPUA WPUA `VEuc  1 e 1 @524 ]
 "3516
 [v _WPUB WPUB `VEuc  1 e 1 @525 ]
-"3586
-[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
-"3624
-[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
-"3700
-[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
-"3822
-[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
-[s S844 . 1 `uc 1 SSPM0 1 0 :1:0 
-`uc 1 SSPM1 1 0 :1:1 
-`uc 1 SSPM2 1 0 :1:2 
-`uc 1 SSPM3 1 0 :1:3 
-`uc 1 CKP 1 0 :1:4 
-`uc 1 SSPEN 1 0 :1:5 
-`uc 1 SSPOV 1 0 :1:6 
-`uc 1 WCOL 1 0 :1:7 
-]
-"3851
-[s S853 . 1 `uc 1 SSPM 1 0 :4:0 
-]
-[u S855 . 1 `S844 1 . 1 0 `S853 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES855  1 e 1 @533 ]
-"4026
-[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @534 ]
-[s S606 . 1 `uc 1 IOCBP0 1 0 :1:0 
+[s S489 . 1 `uc 1 IOCBP0 1 0 :1:0 
 `uc 1 IOCBP1 1 0 :1:1 
 `uc 1 IOCBP2 1 0 :1:2 
 `uc 1 IOCBP3 1 0 :1:3 
@@ -439,11 +269,11 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 IOCBP7 1 0 :1:7 
 ]
 "5812
-[s S615 . 1 `uc 1 IOCBP 1 0 :8:0 
+[s S498 . 1 `uc 1 IOCBP 1 0 :8:0 
 ]
-[u S617 . 1 `S606 1 . 1 0 `S615 1 . 1 0 ]
-[v _IOCBPbits IOCBPbits `VES617  1 e 1 @916 ]
-[s S580 . 1 `uc 1 IOCBN0 1 0 :1:0 
+[u S500 . 1 `S489 1 . 1 0 `S498 1 . 1 0 ]
+[v _IOCBPbits IOCBPbits `VES500  1 e 1 @916 ]
+[s S463 . 1 `uc 1 IOCBN0 1 0 :1:0 
 `uc 1 IOCBN1 1 0 :1:1 
 `uc 1 IOCBN2 1 0 :1:2 
 `uc 1 IOCBN3 1 0 :1:3 
@@ -453,11 +283,11 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 IOCBN7 1 0 :1:7 
 ]
 "5882
-[s S589 . 1 `uc 1 IOCBN 1 0 :8:0 
+[s S472 . 1 `uc 1 IOCBN 1 0 :8:0 
 ]
-[u S591 . 1 `S580 1 . 1 0 `S589 1 . 1 0 ]
-[v _IOCBNbits IOCBNbits `VES591  1 e 1 @917 ]
-[s S554 . 1 `uc 1 IOCBF0 1 0 :1:0 
+[u S474 . 1 `S463 1 . 1 0 `S472 1 . 1 0 ]
+[v _IOCBNbits IOCBNbits `VES474  1 e 1 @917 ]
+[s S437 . 1 `uc 1 IOCBF0 1 0 :1:0 
 `uc 1 IOCBF1 1 0 :1:1 
 `uc 1 IOCBF2 1 0 :1:2 
 `uc 1 IOCBF3 1 0 :1:3 
@@ -467,365 +297,201 @@ MRF89XA_MODULATION_OOK 5
 `uc 1 IOCBF7 1 0 :1:7 
 ]
 "5952
-[s S563 . 1 `uc 1 IOCBF 1 0 :8:0 
+[s S446 . 1 `uc 1 IOCBF 1 0 :8:0 
 ]
-[u S565 . 1 `S554 1 . 1 0 `S563 1 . 1 0 ]
-[v _IOCBFbits IOCBFbits `VES565  1 e 1 @918 ]
-"21 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+[u S448 . 1 `S437 1 . 1 0 `S446 1 . 1 0 ]
+[v _IOCBFbits IOCBFbits `VES448  1 e 1 @918 ]
+"29 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _LedState LedState `uc  1 e 1 0 ]
-"24
-[v _BlinkCounter BlinkCounter `uc  1 e 1 0 ]
-"138
-[v _rxB rxB `[256]uc  1 e 256 @8304 ]
-"139
-[v _rxC rxC `uc  1 e 1 0 ]
 "54 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
-[v _IOCBF0_InterruptHandler IOCBF0_InterruptHandler `*.37(v  1 e 2 0 ]
-"55
-[v _IOCBF3_InterruptHandler IOCBF3_InterruptHandler `*.37(v  1 e 2 0 ]
-"56
 [v _IOCBF5_InterruptHandler IOCBF5_InterruptHandler `*.37(v  1 e 2 0 ]
-"31 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1_driver.c
-[v _spi1_interruptHandler spi1_interruptHandler `*.37(v  1 e 2 0 ]
-[s S870 . 4 `uc 1 con1 1 0 `uc 1 stat 1 1 `uc 1 add 1 2 `uc 1 operation 1 3 ]
-"40
-[v _spi1_configuration spi1_configuration `DC[2]S870  1 s 8 spi1_configuration ]
-"58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+"59 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_InterruptHandler TMR2_InterruptHandler `*.37(v  1 e 2 0 ]
-"176 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+"78 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"302
+"113
 } 0
 "50 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"61
+"59
 } 0
-"40 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/drivers/spi_master.c
-[v _spi_master_open spi_master_open `T(uc  1 e 1 0 ]
-{
-[v spi_master_open@config config `E122  1 a 1 wreg ]
-[v spi_master_open@config config `E122  1 a 1 wreg ]
-[v spi_master_open@config config `E122  1 a 1 7 ]
-"47
-} 0
-"35
-[v _MASTER_open MASTER_open `T(uc  1 e 1 0 ]
-{
-"37
-} 0
-"46 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1_driver.c
-[v _spi1_open spi1_open `(uc  1 e 1 0 ]
-{
-[v spi1_open@spiUniqueConfiguration spiUniqueConfiguration `E2388  1 a 1 wreg ]
-[v spi1_open@spiUniqueConfiguration spiUniqueConfiguration `E2388  1 a 1 wreg ]
-"48
-[v spi1_open@spiUniqueConfiguration spiUniqueConfiguration `E2388  1 a 1 6 ]
-"61
-} 0
-"73 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
+"71
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 {
-"77
+"75
 } 0
-"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+"65 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 {
-"85
+"86
 } 0
-"147
+"148
 [v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 3 ]
-"149
+[v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 21 ]
+"150
 } 0
-"59 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
+"57 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"126
+"110
 } 0
-"225
+"139
 [v _IOCBF5_SetInterruptHandler IOCBF5_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v IOCBF5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 3 ]
-"227
+[v IOCBF5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 21 ]
+"141
 } 0
-"195
-[v _IOCBF3_SetInterruptHandler IOCBF3_SetInterruptHandler `(v  1 e 1 0 ]
-{
-[v IOCBF3_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 3 ]
-"197
-} 0
-"165
-[v _IOCBF0_SetInterruptHandler IOCBF0_SetInterruptHandler `(v  1 e 1 0 ]
-{
-[v IOCBF0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 3 ]
-"167
-} 0
-"63 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
+"61 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"71
+"69
+} 0
+"58 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/fvr.c
+[v _FVR_Initialize FVR_Initialize `(v  1 e 1 0 ]
+{
+"62
 } 0
 "64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
 {
-"82
-} 0
-"95 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
-[v _POWER_LED_TOGGLE POWER_LED_TOGGLE `(v  1 e 1 0 ]
-{
-"100
-} 0
-"77
-[v _POWER_LED_ON POWER_LED_ON `(v  1 e 1 0 ]
-{
 "84
 } 0
 "86
-[v _POWER_LED_OFF POWER_LED_OFF `(v  1 e 1 0 ]
+[v _ADC_SelectChannel ADC_SelectChannel `(v  1 e 1 0 ]
 {
-"93
+[v ADC_SelectChannel@channel channel `E2331  1 a 1 wreg ]
+[v ADC_SelectChannel@channel channel `E2331  1 a 1 wreg ]
+"89
+[v ADC_SelectChannel@channel channel `E2331  1 a 1 22 ]
+"92
 } 0
-"18 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\MRF89XA.c
-[v _MRF89XA_Initialize MRF89XA_Initialize `(v  1 e 1 0 ]
-{
-[v MRF89XA_Initialize@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_Initialize@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_Initialize@Mode Mode `uc  1 p 1 17 ]
-[v MRF89XA_Initialize@Modulation Modulation `uc  1 p 1 18 ]
-[v MRF89XA_Initialize@Address Address `uc  1 a 1 20 ]
-"51
-} 0
-"67
-[v _MRF89XA_SetModulation MRF89XA_SetModulation `(v  1 e 1 0 ]
-{
-[v MRF89XA_SetModulation@Modulation Modulation `uc  1 a 1 wreg ]
-"68
-[v MRF89XA_SetModulation@mask mask `uc  1 a 1 16 ]
-"67
-[v MRF89XA_SetModulation@Modulation Modulation `uc  1 a 1 wreg ]
-[v MRF89XA_SetModulation@Modulation Modulation `uc  1 a 1 15 ]
-"75
-} 0
-"53
-[v _MRF89XA_SetMode MRF89XA_SetMode `(v  1 e 1 0 ]
-{
-[v MRF89XA_SetMode@Mode Mode `uc  1 a 1 wreg ]
-"54
-[v MRF89XA_SetMode@mask mask `uc  1 a 1 15 ]
-"53
-[v MRF89XA_SetMode@Mode Mode `uc  1 a 1 wreg ]
-[v MRF89XA_SetMode@Mode Mode `uc  1 a 1 16 ]
-"65
-} 0
-"123
-[v _MRF89XA_WriteConfig MRF89XA_WriteConfig `(uc  1 e 1 0 ]
-{
-[v MRF89XA_WriteConfig@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_WriteConfig@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_WriteConfig@Data Data `uc  1 p 1 11 ]
-[v MRF89XA_WriteConfig@Address Address `uc  1 a 1 13 ]
-"125
-} 0
-"183
-[v _MRF89XA_GetAddress MRF89XA_GetAddress `(uc  1 e 1 0 ]
-{
-[v MRF89XA_GetAddress@Address Address `uc  1 a 1 wreg ]
-"184
-[v MRF89XA_GetAddress@ret ret `uc  1 a 1 6 ]
-"183
-[v MRF89XA_GetAddress@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_GetAddress@Read Read `uc  1 p 1 3 ]
-[v MRF89XA_GetAddress@Address Address `uc  1 a 1 5 ]
-"191
-} 0
-"155
-[v _MRF89XA_ExchangeConfig_A MRF89XA_ExchangeConfig_A `(uc  1 e 1 0 ]
-{
-[v MRF89XA_ExchangeConfig_A@Address Address `uc  1 a 1 wreg ]
-"159
-[v MRF89XA_ExchangeConfig_A@ret ret `uc  1 a 1 10 ]
-"155
-[v MRF89XA_ExchangeConfig_A@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_ExchangeConfig_A@Data Data `uc  1 p 1 7 ]
-[v MRF89XA_ExchangeConfig_A@Address Address `uc  1 a 1 9 ]
-"162
-} 0
-"77
-[v _MRF89XA_SPI_ExchangeByte MRF89XA_SPI_ExchangeByte `(uc  1 e 1 0 ]
-{
-[v MRF89XA_SPI_ExchangeByte@byte byte `uc  1 a 1 wreg ]
-[v MRF89XA_SPI_ExchangeByte@byte byte `uc  1 a 1 wreg ]
-[v MRF89XA_SPI_ExchangeByte@byte byte `uc  1 a 1 5 ]
-"79
-} 0
-"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1_driver.c
-[v _spi1_exchangeByte spi1_exchangeByte `(uc  1 e 1 0 ]
-{
-[v spi1_exchangeByte@b b `uc  1 p 1 3 ]
-"70
-} 0
-"66 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+"42 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
 [v _Delay_Xms Delay_Xms `(v  1 e 1 0 ]
 {
-"67
-[v Delay_Xms@i i `l  1 a 4 8 ]
-"66
-[v Delay_Xms@delay delay `l  1 p 4 3 ]
-"70
+"43
+[v Delay_Xms@i i `l  1 a 4 26 ]
+"42
+[v Delay_Xms@delay delay `l  1 p 4 21 ]
+"46
+} 0
+"94 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+[v _ADC_StartConversion ADC_StartConversion `(v  1 e 1 0 ]
+{
+"98
 } 0
 "52 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"82
+"78
 } 0
-"113 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1_driver.c
-[v _spi1_isr spi1_isr `(v  1 e 1 0 ]
-{
-"120
-} 0
-"119 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
+"120 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/tmr2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
 {
-"121
+"122
 [v TMR2_ISR@CountCallBack CountCallBack `VEui  1 s 2 CountCallBack ]
-"135
+"136
 } 0
-"137
+"138
 [v _TMR2_CallBack TMR2_CallBack `(v  1 e 1 0 ]
 {
-"145
-} 0
-"151
-[v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"154
-} 0
-"128 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
-{
-"145
-} 0
-"210
-[v _IOCBF5_ISR IOCBF5_ISR `(v  1 e 1 0 ]
-{
-"220
-} 0
-"232
-[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"235
-} 0
-"180
-[v _IOCBF3_ISR IOCBF3_ISR `(v  1 e 1 0 ]
-{
-"190
-} 0
-"202
-[v _IOCBF3_DefaultInterruptHandler IOCBF3_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"205
-} 0
-"150
-[v _IOCBF0_ISR IOCBF0_ISR `(v  1 e 1 0 ]
-{
-"160
-} 0
-"172
-[v _IOCBF0_DefaultInterruptHandler IOCBF0_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"175
-} 0
-"149 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
-[v _IRQ0_ISR IRQ0_ISR `(v  1 e 1 0 ]
-{
-"155
-[v IRQ0_ISR@Data1 Data1 `uc  1 a 1 2 ]
-"174
-} 0
-"66
-[v i1_Delay_Xms Delay_Xms `(v  1 e 1 0 ]
-{
-[v i1Delay_Xms@i Delay_Xms `l  1 a 4 5 ]
-[v i1Delay_Xms@delay delay `l  1 p 4 0 ]
-"70
-} 0
-"141
-[v _ReadFifo ReadFifo `(uc  1 e 1 0 ]
-{
-"142
-[v ReadFifo@res res `uc  1 a 1 8 ]
 "146
 } 0
-"131 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\MRF89XA.c
-[v _MRF89XA_ReadFifo MRF89XA_ReadFifo `(uc  1 e 1 0 ]
+"152
+[v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"133
-} 0
-"139
-[v _MRF89XA_ExchangeFifo MRF89XA_ExchangeFifo `(uc  1 e 1 0 ]
-{
-[v MRF89XA_ExchangeFifo@Data Data `uc  1 a 1 wreg ]
-"142
-[v MRF89XA_ExchangeFifo@ret ret `uc  1 a 1 5 ]
-"139
-[v MRF89XA_ExchangeFifo@Data Data `uc  1 a 1 wreg ]
-[v MRF89XA_ExchangeFifo@Data Data `uc  1 a 1 4 ]
-"145
-} 0
-"213
-[v _MRF89XA_IsFifoEmpty MRF89XA_IsFifoEmpty `(uc  1 e 1 0 ]
-{
-"214
-[v MRF89XA_IsFifoEmpty@reg reg `uc  1 a 1 11 ]
-"216
-} 0
-"127
-[v _MRF89XA_ReadConfig MRF89XA_ReadConfig `(uc  1 e 1 0 ]
-{
-[v MRF89XA_ReadConfig@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_ReadConfig@Address Address `uc  1 a 1 wreg ]
-[v MRF89XA_ReadConfig@Address Address `uc  1 a 1 9 ]
-"129
-} 0
-"183
-[v i1_MRF89XA_GetAddress MRF89XA_GetAddress `(uc  1 e 1 0 ]
-{
-[v i1MRF89XA_GetAddress@Address Address `uc  1 a 1 wreg ]
-[v i1MRF89XA_GetAddress@ret MRF89XA_GetAddress `uc  1 a 1 3 ]
-[v i1MRF89XA_GetAddress@Address Address `uc  1 a 1 wreg ]
-[v i1MRF89XA_GetAddress@Read Read `uc  1 p 1 0 ]
-[v i1MRF89XA_GetAddress@Address Address `uc  1 a 1 2 ]
-"191
-} 0
 "155
-[v i1_MRF89XA_ExchangeConfig_A MRF89XA_ExchangeConfig_A `(uc  1 e 1 0 ]
-{
-[v i1MRF89XA_ExchangeConfig_A@Address Address `uc  1 a 1 wreg ]
-[v i1MRF89XA_ExchangeConfig_A@ret MRF89XA_ExchangeConfig_A `uc  1 a 1 7 ]
-[v i1MRF89XA_ExchangeConfig_A@Address Address `uc  1 a 1 wreg ]
-[v i1MRF89XA_ExchangeConfig_A@Data Data `uc  1 p 1 4 ]
-[v i1MRF89XA_ExchangeConfig_A@Address Address `uc  1 a 1 6 ]
-"162
 } 0
-"77
-[v i1_MRF89XA_SPI_ExchangeByte MRF89XA_SPI_ExchangeByte `(uc  1 e 1 0 ]
+"112 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
 {
-[v i1MRF89XA_SPI_ExchangeByte@byte byte `uc  1 a 1 wreg ]
-[v i1MRF89XA_SPI_ExchangeByte@byte byte `uc  1 a 1 wreg ]
-[v i1MRF89XA_SPI_ExchangeByte@byte byte `uc  1 a 1 2 ]
-"79
+"119
 } 0
-"64 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/spi1_driver.c
-[v i1_spi1_exchangeByte spi1_exchangeByte `(uc  1 e 1 0 ]
+"124
+[v _IOCBF5_ISR IOCBF5_ISR `(v  1 e 1 0 ]
 {
-[v i1spi1_exchangeByte@b b `uc  1 p 1 0 ]
-"70
+"134
+} 0
+"146
+[v _IOCBF5_DefaultInterruptHandler IOCBF5_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"149
+} 0
+"65 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\main.c
+[v _VT_ISR VT_ISR `(v  1 e 1 0 ]
+{
+"67
+[v VT_ISR@code code `i  1 a 2 12 ]
+"76
+} 0
+"58
+[v _POWER_LED_TOGGLE POWER_LED_TOGGLE `(v  1 e 1 0 ]
+{
+"63
+} 0
+"48
+[v _POWER_LED_ON POWER_LED_ON `(v  1 e 1 0 ]
+{
+"51
+} 0
+"53
+[v _POWER_LED_OFF POWER_LED_OFF `(v  1 e 1 0 ]
+{
+"56
 } 0
 "134 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
 {
-"138
+"140
+} 0
+"142
+[v _ADC_CompareValue ADC_CompareValue `(v  1 e 1 0 ]
+{
+"147
+[v ADC_CompareValue@value value `f  1 a 3 18 ]
+"144
+[v ADC_CompareValue@valueNum valueNum `ui  1 a 2 16 ]
+"157
+} 0
+"28 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c c `ui  1 p 2 8 ]
+"31
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 11 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 15 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 14 ]
+[v ___ftmul@exp exp `uc  1 a 1 10 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 0 ]
+[v ___ftmul@f2 f2 `f  1 p 3 3 ]
+"157
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 0 ]
+[v ___ftpack@exp exp `uc  1 p 1 3 ]
+[v ___ftpack@sign sign `uc  1 p 1 4 ]
+"86
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+{
+[v ___ftge@ff1 ff1 `f  1 p 3 0 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 3 ]
+"13
+} 0
+"106 C:\WorkSpace\Projects\LampeSolaire\Software\LampeSolaire.X\mcc_generated_files/adc.c
+[v _ADC_GetConversionResult ADC_GetConversionResult `(ui  1 e 2 0 ]
+{
+"110
 } 0

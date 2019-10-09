@@ -50,6 +50,7 @@
 
 #include <xc.h>
 #include "tmr2.h"
+#include "pin_manager.h"
 
 /**
   Section: Global Variables Definitions
@@ -65,8 +66,8 @@ void TMR2_Initialize(void)
 {
     // Set TMR2 to the options selected in the User Interface
 
-    // PR2 124; 
-    PR2 = 0x7C;
+    // PR2 7; 
+    PR2 = 0x07;
 
     // TMR2 0; 
     TMR2 = 0x00;
@@ -80,8 +81,8 @@ void TMR2_Initialize(void)
     // Set Default Interrupt Handler
     TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
 
-    // T2CKPS 1:64; T2OUTPS 1:5; TMR2ON on; 
-    T2CON = 0x27;
+    // T2CKPS 1:64; T2OUTPS 1:5; TMR2ON off; 
+    T2CON = 0x23;
 }
 
 void TMR2_StartTimer(void)
